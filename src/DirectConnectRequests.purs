@@ -230,7 +230,7 @@ describeLoa (DirectConnect.Service serviceImpl) = AWS.request serviceImpl method
 
 -- | <p>Returns the list of AWS Direct Connect locations in the current AWS region. These are the locations that may be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
 describeLocations :: forall eff. DirectConnect.Service ->  Aff (exception :: EXCEPTION | eff) DirectConnectTypes.Locations
-describeLocations (DirectConnect.Service serviceImpl) = AWS.request serviceImpl method (Types.NoInput unit) where
+describeLocations (DirectConnect.Service serviceImpl) = AWS.request serviceImpl method unit where
     method = AWS.MethodName "describeLocations"
 
 
@@ -242,7 +242,7 @@ describeTags (DirectConnect.Service serviceImpl) = AWS.request serviceImpl metho
 
 -- | <p>Returns a list of virtual private gateways owned by the AWS account.</p> <p>You can create one or more AWS Direct Connect private virtual interfaces linking to a virtual private gateway. A virtual private gateway can be managed via Amazon Virtual Private Cloud (VPC) console or the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2 CreateVpnGateway</a> action.</p>
 describeVirtualGateways :: forall eff. DirectConnect.Service ->  Aff (exception :: EXCEPTION | eff) DirectConnectTypes.VirtualGateways
-describeVirtualGateways (DirectConnect.Service serviceImpl) = AWS.request serviceImpl method (Types.NoInput unit) where
+describeVirtualGateways (DirectConnect.Service serviceImpl) = AWS.request serviceImpl method unit where
     method = AWS.MethodName "describeVirtualGateways"
 
 

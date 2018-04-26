@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -232,13 +231,13 @@ instance encodeBGPAuthKey :: Encode BGPAuthKey where encode = genericEncode opti
 
 -- | <p>A structure containing information about a BGP peer.</p>
 newtype BGPPeer = BGPPeer 
-  { "asn" :: NullOrUndefined (ASN)
-  , "authKey" :: NullOrUndefined (BGPAuthKey)
-  , "addressFamily" :: NullOrUndefined (AddressFamily)
-  , "amazonAddress" :: NullOrUndefined (AmazonAddress)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
-  , "bgpPeerState" :: NullOrUndefined (BGPPeerState)
-  , "bgpStatus" :: NullOrUndefined (BGPStatus)
+  { "asn" :: Maybe (ASN)
+  , "authKey" :: Maybe (BGPAuthKey)
+  , "addressFamily" :: Maybe (AddressFamily)
+  , "amazonAddress" :: Maybe (AmazonAddress)
+  , "customerAddress" :: Maybe (CustomerAddress)
+  , "bgpPeerState" :: Maybe (BGPPeerState)
+  , "bgpStatus" :: Maybe (BGPStatus)
   }
 derive instance newtypeBGPPeer :: Newtype BGPPeer _
 derive instance repGenericBGPPeer :: Generic BGPPeer _
@@ -248,12 +247,12 @@ instance encodeBGPPeer :: Encode BGPPeer where encode = genericEncode options
 
 -- | Constructs BGPPeer from required parameters
 newBGPPeer :: BGPPeer
-newBGPPeer  = BGPPeer { "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "asn": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "bgpPeerState": (NullOrUndefined Nothing), "bgpStatus": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing) }
+newBGPPeer  = BGPPeer { "addressFamily": Nothing, "amazonAddress": Nothing, "asn": Nothing, "authKey": Nothing, "bgpPeerState": Nothing, "bgpStatus": Nothing, "customerAddress": Nothing }
 
 -- | Constructs BGPPeer's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBGPPeer' :: ( { "asn" :: NullOrUndefined (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "addressFamily" :: NullOrUndefined (AddressFamily) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "bgpPeerState" :: NullOrUndefined (BGPPeerState) , "bgpStatus" :: NullOrUndefined (BGPStatus) } -> {"asn" :: NullOrUndefined (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "addressFamily" :: NullOrUndefined (AddressFamily) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "bgpPeerState" :: NullOrUndefined (BGPPeerState) , "bgpStatus" :: NullOrUndefined (BGPStatus) } ) -> BGPPeer
-newBGPPeer'  customize = (BGPPeer <<< customize) { "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "asn": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "bgpPeerState": (NullOrUndefined Nothing), "bgpStatus": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing) }
+newBGPPeer' :: ( { "asn" :: Maybe (ASN) , "authKey" :: Maybe (BGPAuthKey) , "addressFamily" :: Maybe (AddressFamily) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "bgpPeerState" :: Maybe (BGPPeerState) , "bgpStatus" :: Maybe (BGPStatus) } -> {"asn" :: Maybe (ASN) , "authKey" :: Maybe (BGPAuthKey) , "addressFamily" :: Maybe (AddressFamily) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "bgpPeerState" :: Maybe (BGPPeerState) , "bgpStatus" :: Maybe (BGPStatus) } ) -> BGPPeer
+newBGPPeer'  customize = (BGPPeer <<< customize) { "addressFamily": Nothing, "amazonAddress": Nothing, "asn": Nothing, "authKey": Nothing, "bgpPeerState": Nothing, "bgpStatus": Nothing, "customerAddress": Nothing }
 
 
 
@@ -338,7 +337,7 @@ newConfirmConnectionRequest' _connectionId customize = (ConfirmConnectionRequest
 
 -- | <p>The response received when ConfirmConnection is called.</p>
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse 
-  { "connectionState" :: NullOrUndefined (ConnectionState)
+  { "connectionState" :: Maybe (ConnectionState)
   }
 derive instance newtypeConfirmConnectionResponse :: Newtype ConfirmConnectionResponse _
 derive instance repGenericConfirmConnectionResponse :: Generic ConfirmConnectionResponse _
@@ -348,20 +347,20 @@ instance encodeConfirmConnectionResponse :: Encode ConfirmConnectionResponse whe
 
 -- | Constructs ConfirmConnectionResponse from required parameters
 newConfirmConnectionResponse :: ConfirmConnectionResponse
-newConfirmConnectionResponse  = ConfirmConnectionResponse { "connectionState": (NullOrUndefined Nothing) }
+newConfirmConnectionResponse  = ConfirmConnectionResponse { "connectionState": Nothing }
 
 -- | Constructs ConfirmConnectionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConfirmConnectionResponse' :: ( { "connectionState" :: NullOrUndefined (ConnectionState) } -> {"connectionState" :: NullOrUndefined (ConnectionState) } ) -> ConfirmConnectionResponse
-newConfirmConnectionResponse'  customize = (ConfirmConnectionResponse <<< customize) { "connectionState": (NullOrUndefined Nothing) }
+newConfirmConnectionResponse' :: ( { "connectionState" :: Maybe (ConnectionState) } -> {"connectionState" :: Maybe (ConnectionState) } ) -> ConfirmConnectionResponse
+newConfirmConnectionResponse'  customize = (ConfirmConnectionResponse <<< customize) { "connectionState": Nothing }
 
 
 
 -- | <p>Container for the parameters to the ConfirmPrivateVirtualInterface operation.</p>
 newtype ConfirmPrivateVirtualInterfaceRequest = ConfirmPrivateVirtualInterfaceRequest 
   { "virtualInterfaceId" :: (VirtualInterfaceId)
-  , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId)
-  , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
+  , "virtualGatewayId" :: Maybe (VirtualGatewayId)
+  , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
   }
 derive instance newtypeConfirmPrivateVirtualInterfaceRequest :: Newtype ConfirmPrivateVirtualInterfaceRequest _
 derive instance repGenericConfirmPrivateVirtualInterfaceRequest :: Generic ConfirmPrivateVirtualInterfaceRequest _
@@ -371,18 +370,18 @@ instance encodeConfirmPrivateVirtualInterfaceRequest :: Encode ConfirmPrivateVir
 
 -- | Constructs ConfirmPrivateVirtualInterfaceRequest from required parameters
 newConfirmPrivateVirtualInterfaceRequest :: VirtualInterfaceId -> ConfirmPrivateVirtualInterfaceRequest
-newConfirmPrivateVirtualInterfaceRequest _virtualInterfaceId = ConfirmPrivateVirtualInterfaceRequest { "virtualInterfaceId": _virtualInterfaceId, "directConnectGatewayId": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing) }
+newConfirmPrivateVirtualInterfaceRequest _virtualInterfaceId = ConfirmPrivateVirtualInterfaceRequest { "virtualInterfaceId": _virtualInterfaceId, "directConnectGatewayId": Nothing, "virtualGatewayId": Nothing }
 
 -- | Constructs ConfirmPrivateVirtualInterfaceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConfirmPrivateVirtualInterfaceRequest' :: VirtualInterfaceId -> ( { "virtualInterfaceId" :: (VirtualInterfaceId) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) } -> {"virtualInterfaceId" :: (VirtualInterfaceId) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) } ) -> ConfirmPrivateVirtualInterfaceRequest
-newConfirmPrivateVirtualInterfaceRequest' _virtualInterfaceId customize = (ConfirmPrivateVirtualInterfaceRequest <<< customize) { "virtualInterfaceId": _virtualInterfaceId, "directConnectGatewayId": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing) }
+newConfirmPrivateVirtualInterfaceRequest' :: VirtualInterfaceId -> ( { "virtualInterfaceId" :: (VirtualInterfaceId) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) } -> {"virtualInterfaceId" :: (VirtualInterfaceId) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) } ) -> ConfirmPrivateVirtualInterfaceRequest
+newConfirmPrivateVirtualInterfaceRequest' _virtualInterfaceId customize = (ConfirmPrivateVirtualInterfaceRequest <<< customize) { "virtualInterfaceId": _virtualInterfaceId, "directConnectGatewayId": Nothing, "virtualGatewayId": Nothing }
 
 
 
 -- | <p>The response received when ConfirmPrivateVirtualInterface is called.</p>
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse 
-  { "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState)
+  { "virtualInterfaceState" :: Maybe (VirtualInterfaceState)
   }
 derive instance newtypeConfirmPrivateVirtualInterfaceResponse :: Newtype ConfirmPrivateVirtualInterfaceResponse _
 derive instance repGenericConfirmPrivateVirtualInterfaceResponse :: Generic ConfirmPrivateVirtualInterfaceResponse _
@@ -392,12 +391,12 @@ instance encodeConfirmPrivateVirtualInterfaceResponse :: Encode ConfirmPrivateVi
 
 -- | Constructs ConfirmPrivateVirtualInterfaceResponse from required parameters
 newConfirmPrivateVirtualInterfaceResponse :: ConfirmPrivateVirtualInterfaceResponse
-newConfirmPrivateVirtualInterfaceResponse  = ConfirmPrivateVirtualInterfaceResponse { "virtualInterfaceState": (NullOrUndefined Nothing) }
+newConfirmPrivateVirtualInterfaceResponse  = ConfirmPrivateVirtualInterfaceResponse { "virtualInterfaceState": Nothing }
 
 -- | Constructs ConfirmPrivateVirtualInterfaceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConfirmPrivateVirtualInterfaceResponse' :: ( { "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) } -> {"virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) } ) -> ConfirmPrivateVirtualInterfaceResponse
-newConfirmPrivateVirtualInterfaceResponse'  customize = (ConfirmPrivateVirtualInterfaceResponse <<< customize) { "virtualInterfaceState": (NullOrUndefined Nothing) }
+newConfirmPrivateVirtualInterfaceResponse' :: ( { "virtualInterfaceState" :: Maybe (VirtualInterfaceState) } -> {"virtualInterfaceState" :: Maybe (VirtualInterfaceState) } ) -> ConfirmPrivateVirtualInterfaceResponse
+newConfirmPrivateVirtualInterfaceResponse'  customize = (ConfirmPrivateVirtualInterfaceResponse <<< customize) { "virtualInterfaceState": Nothing }
 
 
 
@@ -424,7 +423,7 @@ newConfirmPublicVirtualInterfaceRequest' _virtualInterfaceId customize = (Confir
 
 -- | <p>The response received when ConfirmPublicVirtualInterface is called.</p>
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse 
-  { "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState)
+  { "virtualInterfaceState" :: Maybe (VirtualInterfaceState)
   }
 derive instance newtypeConfirmPublicVirtualInterfaceResponse :: Newtype ConfirmPublicVirtualInterfaceResponse _
 derive instance repGenericConfirmPublicVirtualInterfaceResponse :: Generic ConfirmPublicVirtualInterfaceResponse _
@@ -434,29 +433,29 @@ instance encodeConfirmPublicVirtualInterfaceResponse :: Encode ConfirmPublicVirt
 
 -- | Constructs ConfirmPublicVirtualInterfaceResponse from required parameters
 newConfirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
-newConfirmPublicVirtualInterfaceResponse  = ConfirmPublicVirtualInterfaceResponse { "virtualInterfaceState": (NullOrUndefined Nothing) }
+newConfirmPublicVirtualInterfaceResponse  = ConfirmPublicVirtualInterfaceResponse { "virtualInterfaceState": Nothing }
 
 -- | Constructs ConfirmPublicVirtualInterfaceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConfirmPublicVirtualInterfaceResponse' :: ( { "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) } -> {"virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) } ) -> ConfirmPublicVirtualInterfaceResponse
-newConfirmPublicVirtualInterfaceResponse'  customize = (ConfirmPublicVirtualInterfaceResponse <<< customize) { "virtualInterfaceState": (NullOrUndefined Nothing) }
+newConfirmPublicVirtualInterfaceResponse' :: ( { "virtualInterfaceState" :: Maybe (VirtualInterfaceState) } -> {"virtualInterfaceState" :: Maybe (VirtualInterfaceState) } ) -> ConfirmPublicVirtualInterfaceResponse
+newConfirmPublicVirtualInterfaceResponse'  customize = (ConfirmPublicVirtualInterfaceResponse <<< customize) { "virtualInterfaceState": Nothing }
 
 
 
 -- | <p>A connection represents the physical network connection between the AWS Direct Connect location and the customer.</p>
 newtype Connection = Connection 
-  { "ownerAccount" :: NullOrUndefined (OwnerAccount)
-  , "connectionId" :: NullOrUndefined (ConnectionId)
-  , "connectionName" :: NullOrUndefined (ConnectionName)
-  , "connectionState" :: NullOrUndefined (ConnectionState)
-  , "region" :: NullOrUndefined (Region)
-  , "location" :: NullOrUndefined (LocationCode)
-  , "bandwidth" :: NullOrUndefined (Bandwidth)
-  , "vlan" :: NullOrUndefined (VLAN)
-  , "partnerName" :: NullOrUndefined (PartnerName)
-  , "loaIssueTime" :: NullOrUndefined (LoaIssueTime)
-  , "lagId" :: NullOrUndefined (LagId)
-  , "awsDevice" :: NullOrUndefined (AwsDevice)
+  { "ownerAccount" :: Maybe (OwnerAccount)
+  , "connectionId" :: Maybe (ConnectionId)
+  , "connectionName" :: Maybe (ConnectionName)
+  , "connectionState" :: Maybe (ConnectionState)
+  , "region" :: Maybe (Region)
+  , "location" :: Maybe (LocationCode)
+  , "bandwidth" :: Maybe (Bandwidth)
+  , "vlan" :: Maybe (VLAN)
+  , "partnerName" :: Maybe (PartnerName)
+  , "loaIssueTime" :: Maybe (LoaIssueTime)
+  , "lagId" :: Maybe (LagId)
+  , "awsDevice" :: Maybe (AwsDevice)
   }
 derive instance newtypeConnection :: Newtype Connection _
 derive instance repGenericConnection :: Generic Connection _
@@ -466,12 +465,12 @@ instance encodeConnection :: Encode Connection where encode = genericEncode opti
 
 -- | Constructs Connection from required parameters
 newConnection :: Connection
-newConnection  = Connection { "awsDevice": (NullOrUndefined Nothing), "bandwidth": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "connectionName": (NullOrUndefined Nothing), "connectionState": (NullOrUndefined Nothing), "lagId": (NullOrUndefined Nothing), "loaIssueTime": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "partnerName": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing), "vlan": (NullOrUndefined Nothing) }
+newConnection  = Connection { "awsDevice": Nothing, "bandwidth": Nothing, "connectionId": Nothing, "connectionName": Nothing, "connectionState": Nothing, "lagId": Nothing, "loaIssueTime": Nothing, "location": Nothing, "ownerAccount": Nothing, "partnerName": Nothing, "region": Nothing, "vlan": Nothing }
 
 -- | Constructs Connection's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConnection' :: ( { "ownerAccount" :: NullOrUndefined (OwnerAccount) , "connectionId" :: NullOrUndefined (ConnectionId) , "connectionName" :: NullOrUndefined (ConnectionName) , "connectionState" :: NullOrUndefined (ConnectionState) , "region" :: NullOrUndefined (Region) , "location" :: NullOrUndefined (LocationCode) , "bandwidth" :: NullOrUndefined (Bandwidth) , "vlan" :: NullOrUndefined (VLAN) , "partnerName" :: NullOrUndefined (PartnerName) , "loaIssueTime" :: NullOrUndefined (LoaIssueTime) , "lagId" :: NullOrUndefined (LagId) , "awsDevice" :: NullOrUndefined (AwsDevice) } -> {"ownerAccount" :: NullOrUndefined (OwnerAccount) , "connectionId" :: NullOrUndefined (ConnectionId) , "connectionName" :: NullOrUndefined (ConnectionName) , "connectionState" :: NullOrUndefined (ConnectionState) , "region" :: NullOrUndefined (Region) , "location" :: NullOrUndefined (LocationCode) , "bandwidth" :: NullOrUndefined (Bandwidth) , "vlan" :: NullOrUndefined (VLAN) , "partnerName" :: NullOrUndefined (PartnerName) , "loaIssueTime" :: NullOrUndefined (LoaIssueTime) , "lagId" :: NullOrUndefined (LagId) , "awsDevice" :: NullOrUndefined (AwsDevice) } ) -> Connection
-newConnection'  customize = (Connection <<< customize) { "awsDevice": (NullOrUndefined Nothing), "bandwidth": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "connectionName": (NullOrUndefined Nothing), "connectionState": (NullOrUndefined Nothing), "lagId": (NullOrUndefined Nothing), "loaIssueTime": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "partnerName": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing), "vlan": (NullOrUndefined Nothing) }
+newConnection' :: ( { "ownerAccount" :: Maybe (OwnerAccount) , "connectionId" :: Maybe (ConnectionId) , "connectionName" :: Maybe (ConnectionName) , "connectionState" :: Maybe (ConnectionState) , "region" :: Maybe (Region) , "location" :: Maybe (LocationCode) , "bandwidth" :: Maybe (Bandwidth) , "vlan" :: Maybe (VLAN) , "partnerName" :: Maybe (PartnerName) , "loaIssueTime" :: Maybe (LoaIssueTime) , "lagId" :: Maybe (LagId) , "awsDevice" :: Maybe (AwsDevice) } -> {"ownerAccount" :: Maybe (OwnerAccount) , "connectionId" :: Maybe (ConnectionId) , "connectionName" :: Maybe (ConnectionName) , "connectionState" :: Maybe (ConnectionState) , "region" :: Maybe (Region) , "location" :: Maybe (LocationCode) , "bandwidth" :: Maybe (Bandwidth) , "vlan" :: Maybe (VLAN) , "partnerName" :: Maybe (PartnerName) , "loaIssueTime" :: Maybe (LoaIssueTime) , "lagId" :: Maybe (LagId) , "awsDevice" :: Maybe (AwsDevice) } ) -> Connection
+newConnection'  customize = (Connection <<< customize) { "awsDevice": Nothing, "bandwidth": Nothing, "connectionId": Nothing, "connectionName": Nothing, "connectionState": Nothing, "lagId": Nothing, "loaIssueTime": Nothing, "location": Nothing, "ownerAccount": Nothing, "partnerName": Nothing, "region": Nothing, "vlan": Nothing }
 
 
 
@@ -517,7 +516,7 @@ instance encodeConnectionState :: Encode ConnectionState where encode = genericE
 
 -- | <p>A structure containing a list of connections.</p>
 newtype Connections = Connections 
-  { "connections" :: NullOrUndefined (ConnectionList)
+  { "connections" :: Maybe (ConnectionList)
   }
 derive instance newtypeConnections :: Newtype Connections _
 derive instance repGenericConnections :: Generic Connections _
@@ -527,12 +526,12 @@ instance encodeConnections :: Encode Connections where encode = genericEncode op
 
 -- | Constructs Connections from required parameters
 newConnections :: Connections
-newConnections  = Connections { "connections": (NullOrUndefined Nothing) }
+newConnections  = Connections { "connections": Nothing }
 
 -- | Constructs Connections's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConnections' :: ( { "connections" :: NullOrUndefined (ConnectionList) } -> {"connections" :: NullOrUndefined (ConnectionList) } ) -> Connections
-newConnections'  customize = (Connections <<< customize) { "connections": (NullOrUndefined Nothing) }
+newConnections' :: ( { "connections" :: Maybe (ConnectionList) } -> {"connections" :: Maybe (ConnectionList) } ) -> Connections
+newConnections'  customize = (Connections <<< customize) { "connections": Nothing }
 
 
 
@@ -547,8 +546,8 @@ instance encodeCount :: Encode Count where encode = genericEncode options
 
 -- | <p>Container for the parameters to the CreateBGPPeer operation.</p>
 newtype CreateBGPPeerRequest = CreateBGPPeerRequest 
-  { "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId)
-  , "newBGPPeer" :: NullOrUndefined (NewBGPPeer)
+  { "virtualInterfaceId" :: Maybe (VirtualInterfaceId)
+  , "newBGPPeer" :: Maybe (NewBGPPeer)
   }
 derive instance newtypeCreateBGPPeerRequest :: Newtype CreateBGPPeerRequest _
 derive instance repGenericCreateBGPPeerRequest :: Generic CreateBGPPeerRequest _
@@ -558,18 +557,18 @@ instance encodeCreateBGPPeerRequest :: Encode CreateBGPPeerRequest where encode 
 
 -- | Constructs CreateBGPPeerRequest from required parameters
 newCreateBGPPeerRequest :: CreateBGPPeerRequest
-newCreateBGPPeerRequest  = CreateBGPPeerRequest { "newBGPPeer": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newCreateBGPPeerRequest  = CreateBGPPeerRequest { "newBGPPeer": Nothing, "virtualInterfaceId": Nothing }
 
 -- | Constructs CreateBGPPeerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBGPPeerRequest' :: ( { "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "newBGPPeer" :: NullOrUndefined (NewBGPPeer) } -> {"virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "newBGPPeer" :: NullOrUndefined (NewBGPPeer) } ) -> CreateBGPPeerRequest
-newCreateBGPPeerRequest'  customize = (CreateBGPPeerRequest <<< customize) { "newBGPPeer": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newCreateBGPPeerRequest' :: ( { "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "newBGPPeer" :: Maybe (NewBGPPeer) } -> {"virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "newBGPPeer" :: Maybe (NewBGPPeer) } ) -> CreateBGPPeerRequest
+newCreateBGPPeerRequest'  customize = (CreateBGPPeerRequest <<< customize) { "newBGPPeer": Nothing, "virtualInterfaceId": Nothing }
 
 
 
 -- | <p>The response received when CreateBGPPeer is called.</p>
 newtype CreateBGPPeerResponse = CreateBGPPeerResponse 
-  { "virtualInterface" :: NullOrUndefined (VirtualInterface)
+  { "virtualInterface" :: Maybe (VirtualInterface)
   }
 derive instance newtypeCreateBGPPeerResponse :: Newtype CreateBGPPeerResponse _
 derive instance repGenericCreateBGPPeerResponse :: Generic CreateBGPPeerResponse _
@@ -579,12 +578,12 @@ instance encodeCreateBGPPeerResponse :: Encode CreateBGPPeerResponse where encod
 
 -- | Constructs CreateBGPPeerResponse from required parameters
 newCreateBGPPeerResponse :: CreateBGPPeerResponse
-newCreateBGPPeerResponse  = CreateBGPPeerResponse { "virtualInterface": (NullOrUndefined Nothing) }
+newCreateBGPPeerResponse  = CreateBGPPeerResponse { "virtualInterface": Nothing }
 
 -- | Constructs CreateBGPPeerResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBGPPeerResponse' :: ( { "virtualInterface" :: NullOrUndefined (VirtualInterface) } -> {"virtualInterface" :: NullOrUndefined (VirtualInterface) } ) -> CreateBGPPeerResponse
-newCreateBGPPeerResponse'  customize = (CreateBGPPeerResponse <<< customize) { "virtualInterface": (NullOrUndefined Nothing) }
+newCreateBGPPeerResponse' :: ( { "virtualInterface" :: Maybe (VirtualInterface) } -> {"virtualInterface" :: Maybe (VirtualInterface) } ) -> CreateBGPPeerResponse
+newCreateBGPPeerResponse'  customize = (CreateBGPPeerResponse <<< customize) { "virtualInterface": Nothing }
 
 
 
@@ -593,7 +592,7 @@ newtype CreateConnectionRequest = CreateConnectionRequest
   { "location" :: (LocationCode)
   , "bandwidth" :: (Bandwidth)
   , "connectionName" :: (ConnectionName)
-  , "lagId" :: NullOrUndefined (LagId)
+  , "lagId" :: Maybe (LagId)
   }
 derive instance newtypeCreateConnectionRequest :: Newtype CreateConnectionRequest _
 derive instance repGenericCreateConnectionRequest :: Generic CreateConnectionRequest _
@@ -603,12 +602,12 @@ instance encodeCreateConnectionRequest :: Encode CreateConnectionRequest where e
 
 -- | Constructs CreateConnectionRequest from required parameters
 newCreateConnectionRequest :: Bandwidth -> ConnectionName -> LocationCode -> CreateConnectionRequest
-newCreateConnectionRequest _bandwidth _connectionName _location = CreateConnectionRequest { "bandwidth": _bandwidth, "connectionName": _connectionName, "location": _location, "lagId": (NullOrUndefined Nothing) }
+newCreateConnectionRequest _bandwidth _connectionName _location = CreateConnectionRequest { "bandwidth": _bandwidth, "connectionName": _connectionName, "location": _location, "lagId": Nothing }
 
 -- | Constructs CreateConnectionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateConnectionRequest' :: Bandwidth -> ConnectionName -> LocationCode -> ( { "location" :: (LocationCode) , "bandwidth" :: (Bandwidth) , "connectionName" :: (ConnectionName) , "lagId" :: NullOrUndefined (LagId) } -> {"location" :: (LocationCode) , "bandwidth" :: (Bandwidth) , "connectionName" :: (ConnectionName) , "lagId" :: NullOrUndefined (LagId) } ) -> CreateConnectionRequest
-newCreateConnectionRequest' _bandwidth _connectionName _location customize = (CreateConnectionRequest <<< customize) { "bandwidth": _bandwidth, "connectionName": _connectionName, "location": _location, "lagId": (NullOrUndefined Nothing) }
+newCreateConnectionRequest' :: Bandwidth -> ConnectionName -> LocationCode -> ( { "location" :: (LocationCode) , "bandwidth" :: (Bandwidth) , "connectionName" :: (ConnectionName) , "lagId" :: Maybe (LagId) } -> {"location" :: (LocationCode) , "bandwidth" :: (Bandwidth) , "connectionName" :: (ConnectionName) , "lagId" :: Maybe (LagId) } ) -> CreateConnectionRequest
+newCreateConnectionRequest' _bandwidth _connectionName _location customize = (CreateConnectionRequest <<< customize) { "bandwidth": _bandwidth, "connectionName": _connectionName, "location": _location, "lagId": Nothing }
 
 
 
@@ -636,7 +635,7 @@ newCreateDirectConnectGatewayAssociationRequest' _directConnectGatewayId _virtua
 
 -- | <p>Container for the response from the CreateDirectConnectGatewayAssociation API call</p>
 newtype CreateDirectConnectGatewayAssociationResult = CreateDirectConnectGatewayAssociationResult 
-  { "directConnectGatewayAssociation" :: NullOrUndefined (DirectConnectGatewayAssociation)
+  { "directConnectGatewayAssociation" :: Maybe (DirectConnectGatewayAssociation)
   }
 derive instance newtypeCreateDirectConnectGatewayAssociationResult :: Newtype CreateDirectConnectGatewayAssociationResult _
 derive instance repGenericCreateDirectConnectGatewayAssociationResult :: Generic CreateDirectConnectGatewayAssociationResult _
@@ -646,19 +645,19 @@ instance encodeCreateDirectConnectGatewayAssociationResult :: Encode CreateDirec
 
 -- | Constructs CreateDirectConnectGatewayAssociationResult from required parameters
 newCreateDirectConnectGatewayAssociationResult :: CreateDirectConnectGatewayAssociationResult
-newCreateDirectConnectGatewayAssociationResult  = CreateDirectConnectGatewayAssociationResult { "directConnectGatewayAssociation": (NullOrUndefined Nothing) }
+newCreateDirectConnectGatewayAssociationResult  = CreateDirectConnectGatewayAssociationResult { "directConnectGatewayAssociation": Nothing }
 
 -- | Constructs CreateDirectConnectGatewayAssociationResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDirectConnectGatewayAssociationResult' :: ( { "directConnectGatewayAssociation" :: NullOrUndefined (DirectConnectGatewayAssociation) } -> {"directConnectGatewayAssociation" :: NullOrUndefined (DirectConnectGatewayAssociation) } ) -> CreateDirectConnectGatewayAssociationResult
-newCreateDirectConnectGatewayAssociationResult'  customize = (CreateDirectConnectGatewayAssociationResult <<< customize) { "directConnectGatewayAssociation": (NullOrUndefined Nothing) }
+newCreateDirectConnectGatewayAssociationResult' :: ( { "directConnectGatewayAssociation" :: Maybe (DirectConnectGatewayAssociation) } -> {"directConnectGatewayAssociation" :: Maybe (DirectConnectGatewayAssociation) } ) -> CreateDirectConnectGatewayAssociationResult
+newCreateDirectConnectGatewayAssociationResult'  customize = (CreateDirectConnectGatewayAssociationResult <<< customize) { "directConnectGatewayAssociation": Nothing }
 
 
 
 -- | <p>Container for the parameters to the CreateDirectConnectGateway operation.</p>
 newtype CreateDirectConnectGatewayRequest = CreateDirectConnectGatewayRequest 
   { "directConnectGatewayName" :: (DirectConnectGatewayName)
-  , "amazonSideAsn" :: NullOrUndefined (LongAsn)
+  , "amazonSideAsn" :: Maybe (LongAsn)
   }
 derive instance newtypeCreateDirectConnectGatewayRequest :: Newtype CreateDirectConnectGatewayRequest _
 derive instance repGenericCreateDirectConnectGatewayRequest :: Generic CreateDirectConnectGatewayRequest _
@@ -668,18 +667,18 @@ instance encodeCreateDirectConnectGatewayRequest :: Encode CreateDirectConnectGa
 
 -- | Constructs CreateDirectConnectGatewayRequest from required parameters
 newCreateDirectConnectGatewayRequest :: DirectConnectGatewayName -> CreateDirectConnectGatewayRequest
-newCreateDirectConnectGatewayRequest _directConnectGatewayName = CreateDirectConnectGatewayRequest { "directConnectGatewayName": _directConnectGatewayName, "amazonSideAsn": (NullOrUndefined Nothing) }
+newCreateDirectConnectGatewayRequest _directConnectGatewayName = CreateDirectConnectGatewayRequest { "directConnectGatewayName": _directConnectGatewayName, "amazonSideAsn": Nothing }
 
 -- | Constructs CreateDirectConnectGatewayRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDirectConnectGatewayRequest' :: DirectConnectGatewayName -> ( { "directConnectGatewayName" :: (DirectConnectGatewayName) , "amazonSideAsn" :: NullOrUndefined (LongAsn) } -> {"directConnectGatewayName" :: (DirectConnectGatewayName) , "amazonSideAsn" :: NullOrUndefined (LongAsn) } ) -> CreateDirectConnectGatewayRequest
-newCreateDirectConnectGatewayRequest' _directConnectGatewayName customize = (CreateDirectConnectGatewayRequest <<< customize) { "directConnectGatewayName": _directConnectGatewayName, "amazonSideAsn": (NullOrUndefined Nothing) }
+newCreateDirectConnectGatewayRequest' :: DirectConnectGatewayName -> ( { "directConnectGatewayName" :: (DirectConnectGatewayName) , "amazonSideAsn" :: Maybe (LongAsn) } -> {"directConnectGatewayName" :: (DirectConnectGatewayName) , "amazonSideAsn" :: Maybe (LongAsn) } ) -> CreateDirectConnectGatewayRequest
+newCreateDirectConnectGatewayRequest' _directConnectGatewayName customize = (CreateDirectConnectGatewayRequest <<< customize) { "directConnectGatewayName": _directConnectGatewayName, "amazonSideAsn": Nothing }
 
 
 
 -- | <p>Container for the response from the CreateDirectConnectGateway API call</p>
 newtype CreateDirectConnectGatewayResult = CreateDirectConnectGatewayResult 
-  { "directConnectGateway" :: NullOrUndefined (DirectConnectGateway)
+  { "directConnectGateway" :: Maybe (DirectConnectGateway)
   }
 derive instance newtypeCreateDirectConnectGatewayResult :: Newtype CreateDirectConnectGatewayResult _
 derive instance repGenericCreateDirectConnectGatewayResult :: Generic CreateDirectConnectGatewayResult _
@@ -689,12 +688,12 @@ instance encodeCreateDirectConnectGatewayResult :: Encode CreateDirectConnectGat
 
 -- | Constructs CreateDirectConnectGatewayResult from required parameters
 newCreateDirectConnectGatewayResult :: CreateDirectConnectGatewayResult
-newCreateDirectConnectGatewayResult  = CreateDirectConnectGatewayResult { "directConnectGateway": (NullOrUndefined Nothing) }
+newCreateDirectConnectGatewayResult  = CreateDirectConnectGatewayResult { "directConnectGateway": Nothing }
 
 -- | Constructs CreateDirectConnectGatewayResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDirectConnectGatewayResult' :: ( { "directConnectGateway" :: NullOrUndefined (DirectConnectGateway) } -> {"directConnectGateway" :: NullOrUndefined (DirectConnectGateway) } ) -> CreateDirectConnectGatewayResult
-newCreateDirectConnectGatewayResult'  customize = (CreateDirectConnectGatewayResult <<< customize) { "directConnectGateway": (NullOrUndefined Nothing) }
+newCreateDirectConnectGatewayResult' :: ( { "directConnectGateway" :: Maybe (DirectConnectGateway) } -> {"directConnectGateway" :: Maybe (DirectConnectGateway) } ) -> CreateDirectConnectGatewayResult
+newCreateDirectConnectGatewayResult'  customize = (CreateDirectConnectGatewayResult <<< customize) { "directConnectGateway": Nothing }
 
 
 
@@ -703,7 +702,7 @@ newtype CreateInterconnectRequest = CreateInterconnectRequest
   { "interconnectName" :: (InterconnectName)
   , "bandwidth" :: (Bandwidth)
   , "location" :: (LocationCode)
-  , "lagId" :: NullOrUndefined (LagId)
+  , "lagId" :: Maybe (LagId)
   }
 derive instance newtypeCreateInterconnectRequest :: Newtype CreateInterconnectRequest _
 derive instance repGenericCreateInterconnectRequest :: Generic CreateInterconnectRequest _
@@ -713,12 +712,12 @@ instance encodeCreateInterconnectRequest :: Encode CreateInterconnectRequest whe
 
 -- | Constructs CreateInterconnectRequest from required parameters
 newCreateInterconnectRequest :: Bandwidth -> InterconnectName -> LocationCode -> CreateInterconnectRequest
-newCreateInterconnectRequest _bandwidth _interconnectName _location = CreateInterconnectRequest { "bandwidth": _bandwidth, "interconnectName": _interconnectName, "location": _location, "lagId": (NullOrUndefined Nothing) }
+newCreateInterconnectRequest _bandwidth _interconnectName _location = CreateInterconnectRequest { "bandwidth": _bandwidth, "interconnectName": _interconnectName, "location": _location, "lagId": Nothing }
 
 -- | Constructs CreateInterconnectRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateInterconnectRequest' :: Bandwidth -> InterconnectName -> LocationCode -> ( { "interconnectName" :: (InterconnectName) , "bandwidth" :: (Bandwidth) , "location" :: (LocationCode) , "lagId" :: NullOrUndefined (LagId) } -> {"interconnectName" :: (InterconnectName) , "bandwidth" :: (Bandwidth) , "location" :: (LocationCode) , "lagId" :: NullOrUndefined (LagId) } ) -> CreateInterconnectRequest
-newCreateInterconnectRequest' _bandwidth _interconnectName _location customize = (CreateInterconnectRequest <<< customize) { "bandwidth": _bandwidth, "interconnectName": _interconnectName, "location": _location, "lagId": (NullOrUndefined Nothing) }
+newCreateInterconnectRequest' :: Bandwidth -> InterconnectName -> LocationCode -> ( { "interconnectName" :: (InterconnectName) , "bandwidth" :: (Bandwidth) , "location" :: (LocationCode) , "lagId" :: Maybe (LagId) } -> {"interconnectName" :: (InterconnectName) , "bandwidth" :: (Bandwidth) , "location" :: (LocationCode) , "lagId" :: Maybe (LagId) } ) -> CreateInterconnectRequest
+newCreateInterconnectRequest' _bandwidth _interconnectName _location customize = (CreateInterconnectRequest <<< customize) { "bandwidth": _bandwidth, "interconnectName": _interconnectName, "location": _location, "lagId": Nothing }
 
 
 
@@ -728,7 +727,7 @@ newtype CreateLagRequest = CreateLagRequest
   , "location" :: (LocationCode)
   , "connectionsBandwidth" :: (Bandwidth)
   , "lagName" :: (LagName)
-  , "connectionId" :: NullOrUndefined (ConnectionId)
+  , "connectionId" :: Maybe (ConnectionId)
   }
 derive instance newtypeCreateLagRequest :: Newtype CreateLagRequest _
 derive instance repGenericCreateLagRequest :: Generic CreateLagRequest _
@@ -738,12 +737,12 @@ instance encodeCreateLagRequest :: Encode CreateLagRequest where encode = generi
 
 -- | Constructs CreateLagRequest from required parameters
 newCreateLagRequest :: Bandwidth -> LagName -> LocationCode -> Count -> CreateLagRequest
-newCreateLagRequest _connectionsBandwidth _lagName _location _numberOfConnections = CreateLagRequest { "connectionsBandwidth": _connectionsBandwidth, "lagName": _lagName, "location": _location, "numberOfConnections": _numberOfConnections, "connectionId": (NullOrUndefined Nothing) }
+newCreateLagRequest _connectionsBandwidth _lagName _location _numberOfConnections = CreateLagRequest { "connectionsBandwidth": _connectionsBandwidth, "lagName": _lagName, "location": _location, "numberOfConnections": _numberOfConnections, "connectionId": Nothing }
 
 -- | Constructs CreateLagRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateLagRequest' :: Bandwidth -> LagName -> LocationCode -> Count -> ( { "numberOfConnections" :: (Count) , "location" :: (LocationCode) , "connectionsBandwidth" :: (Bandwidth) , "lagName" :: (LagName) , "connectionId" :: NullOrUndefined (ConnectionId) } -> {"numberOfConnections" :: (Count) , "location" :: (LocationCode) , "connectionsBandwidth" :: (Bandwidth) , "lagName" :: (LagName) , "connectionId" :: NullOrUndefined (ConnectionId) } ) -> CreateLagRequest
-newCreateLagRequest' _connectionsBandwidth _lagName _location _numberOfConnections customize = (CreateLagRequest <<< customize) { "connectionsBandwidth": _connectionsBandwidth, "lagName": _lagName, "location": _location, "numberOfConnections": _numberOfConnections, "connectionId": (NullOrUndefined Nothing) }
+newCreateLagRequest' :: Bandwidth -> LagName -> LocationCode -> Count -> ( { "numberOfConnections" :: (Count) , "location" :: (LocationCode) , "connectionsBandwidth" :: (Bandwidth) , "lagName" :: (LagName) , "connectionId" :: Maybe (ConnectionId) } -> {"numberOfConnections" :: (Count) , "location" :: (LocationCode) , "connectionsBandwidth" :: (Bandwidth) , "lagName" :: (LagName) , "connectionId" :: Maybe (ConnectionId) } ) -> CreateLagRequest
+newCreateLagRequest' _connectionsBandwidth _lagName _location _numberOfConnections customize = (CreateLagRequest <<< customize) { "connectionsBandwidth": _connectionsBandwidth, "lagName": _lagName, "location": _location, "numberOfConnections": _numberOfConnections, "connectionId": Nothing }
 
 
 
@@ -803,9 +802,9 @@ instance encodeCustomerAddress :: Encode CustomerAddress where encode = genericE
 
 -- | <p>Container for the parameters to the DeleteBGPPeer operation.</p>
 newtype DeleteBGPPeerRequest = DeleteBGPPeerRequest 
-  { "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId)
-  , "asn" :: NullOrUndefined (ASN)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
+  { "virtualInterfaceId" :: Maybe (VirtualInterfaceId)
+  , "asn" :: Maybe (ASN)
+  , "customerAddress" :: Maybe (CustomerAddress)
   }
 derive instance newtypeDeleteBGPPeerRequest :: Newtype DeleteBGPPeerRequest _
 derive instance repGenericDeleteBGPPeerRequest :: Generic DeleteBGPPeerRequest _
@@ -815,18 +814,18 @@ instance encodeDeleteBGPPeerRequest :: Encode DeleteBGPPeerRequest where encode 
 
 -- | Constructs DeleteBGPPeerRequest from required parameters
 newDeleteBGPPeerRequest :: DeleteBGPPeerRequest
-newDeleteBGPPeerRequest  = DeleteBGPPeerRequest { "asn": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newDeleteBGPPeerRequest  = DeleteBGPPeerRequest { "asn": Nothing, "customerAddress": Nothing, "virtualInterfaceId": Nothing }
 
 -- | Constructs DeleteBGPPeerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteBGPPeerRequest' :: ( { "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "asn" :: NullOrUndefined (ASN) , "customerAddress" :: NullOrUndefined (CustomerAddress) } -> {"virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "asn" :: NullOrUndefined (ASN) , "customerAddress" :: NullOrUndefined (CustomerAddress) } ) -> DeleteBGPPeerRequest
-newDeleteBGPPeerRequest'  customize = (DeleteBGPPeerRequest <<< customize) { "asn": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newDeleteBGPPeerRequest' :: ( { "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "asn" :: Maybe (ASN) , "customerAddress" :: Maybe (CustomerAddress) } -> {"virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "asn" :: Maybe (ASN) , "customerAddress" :: Maybe (CustomerAddress) } ) -> DeleteBGPPeerRequest
+newDeleteBGPPeerRequest'  customize = (DeleteBGPPeerRequest <<< customize) { "asn": Nothing, "customerAddress": Nothing, "virtualInterfaceId": Nothing }
 
 
 
 -- | <p>The response received when DeleteBGPPeer is called.</p>
 newtype DeleteBGPPeerResponse = DeleteBGPPeerResponse 
-  { "virtualInterface" :: NullOrUndefined (VirtualInterface)
+  { "virtualInterface" :: Maybe (VirtualInterface)
   }
 derive instance newtypeDeleteBGPPeerResponse :: Newtype DeleteBGPPeerResponse _
 derive instance repGenericDeleteBGPPeerResponse :: Generic DeleteBGPPeerResponse _
@@ -836,12 +835,12 @@ instance encodeDeleteBGPPeerResponse :: Encode DeleteBGPPeerResponse where encod
 
 -- | Constructs DeleteBGPPeerResponse from required parameters
 newDeleteBGPPeerResponse :: DeleteBGPPeerResponse
-newDeleteBGPPeerResponse  = DeleteBGPPeerResponse { "virtualInterface": (NullOrUndefined Nothing) }
+newDeleteBGPPeerResponse  = DeleteBGPPeerResponse { "virtualInterface": Nothing }
 
 -- | Constructs DeleteBGPPeerResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteBGPPeerResponse' :: ( { "virtualInterface" :: NullOrUndefined (VirtualInterface) } -> {"virtualInterface" :: NullOrUndefined (VirtualInterface) } ) -> DeleteBGPPeerResponse
-newDeleteBGPPeerResponse'  customize = (DeleteBGPPeerResponse <<< customize) { "virtualInterface": (NullOrUndefined Nothing) }
+newDeleteBGPPeerResponse' :: ( { "virtualInterface" :: Maybe (VirtualInterface) } -> {"virtualInterface" :: Maybe (VirtualInterface) } ) -> DeleteBGPPeerResponse
+newDeleteBGPPeerResponse'  customize = (DeleteBGPPeerResponse <<< customize) { "virtualInterface": Nothing }
 
 
 
@@ -890,7 +889,7 @@ newDeleteDirectConnectGatewayAssociationRequest' _directConnectGatewayId _virtua
 
 -- | <p>Container for the response from the DeleteDirectConnectGatewayAssociation API call</p>
 newtype DeleteDirectConnectGatewayAssociationResult = DeleteDirectConnectGatewayAssociationResult 
-  { "directConnectGatewayAssociation" :: NullOrUndefined (DirectConnectGatewayAssociation)
+  { "directConnectGatewayAssociation" :: Maybe (DirectConnectGatewayAssociation)
   }
 derive instance newtypeDeleteDirectConnectGatewayAssociationResult :: Newtype DeleteDirectConnectGatewayAssociationResult _
 derive instance repGenericDeleteDirectConnectGatewayAssociationResult :: Generic DeleteDirectConnectGatewayAssociationResult _
@@ -900,12 +899,12 @@ instance encodeDeleteDirectConnectGatewayAssociationResult :: Encode DeleteDirec
 
 -- | Constructs DeleteDirectConnectGatewayAssociationResult from required parameters
 newDeleteDirectConnectGatewayAssociationResult :: DeleteDirectConnectGatewayAssociationResult
-newDeleteDirectConnectGatewayAssociationResult  = DeleteDirectConnectGatewayAssociationResult { "directConnectGatewayAssociation": (NullOrUndefined Nothing) }
+newDeleteDirectConnectGatewayAssociationResult  = DeleteDirectConnectGatewayAssociationResult { "directConnectGatewayAssociation": Nothing }
 
 -- | Constructs DeleteDirectConnectGatewayAssociationResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteDirectConnectGatewayAssociationResult' :: ( { "directConnectGatewayAssociation" :: NullOrUndefined (DirectConnectGatewayAssociation) } -> {"directConnectGatewayAssociation" :: NullOrUndefined (DirectConnectGatewayAssociation) } ) -> DeleteDirectConnectGatewayAssociationResult
-newDeleteDirectConnectGatewayAssociationResult'  customize = (DeleteDirectConnectGatewayAssociationResult <<< customize) { "directConnectGatewayAssociation": (NullOrUndefined Nothing) }
+newDeleteDirectConnectGatewayAssociationResult' :: ( { "directConnectGatewayAssociation" :: Maybe (DirectConnectGatewayAssociation) } -> {"directConnectGatewayAssociation" :: Maybe (DirectConnectGatewayAssociation) } ) -> DeleteDirectConnectGatewayAssociationResult
+newDeleteDirectConnectGatewayAssociationResult'  customize = (DeleteDirectConnectGatewayAssociationResult <<< customize) { "directConnectGatewayAssociation": Nothing }
 
 
 
@@ -932,7 +931,7 @@ newDeleteDirectConnectGatewayRequest' _directConnectGatewayId customize = (Delet
 
 -- | <p>Container for the response from the DeleteDirectConnectGateway API call</p>
 newtype DeleteDirectConnectGatewayResult = DeleteDirectConnectGatewayResult 
-  { "directConnectGateway" :: NullOrUndefined (DirectConnectGateway)
+  { "directConnectGateway" :: Maybe (DirectConnectGateway)
   }
 derive instance newtypeDeleteDirectConnectGatewayResult :: Newtype DeleteDirectConnectGatewayResult _
 derive instance repGenericDeleteDirectConnectGatewayResult :: Generic DeleteDirectConnectGatewayResult _
@@ -942,12 +941,12 @@ instance encodeDeleteDirectConnectGatewayResult :: Encode DeleteDirectConnectGat
 
 -- | Constructs DeleteDirectConnectGatewayResult from required parameters
 newDeleteDirectConnectGatewayResult :: DeleteDirectConnectGatewayResult
-newDeleteDirectConnectGatewayResult  = DeleteDirectConnectGatewayResult { "directConnectGateway": (NullOrUndefined Nothing) }
+newDeleteDirectConnectGatewayResult  = DeleteDirectConnectGatewayResult { "directConnectGateway": Nothing }
 
 -- | Constructs DeleteDirectConnectGatewayResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteDirectConnectGatewayResult' :: ( { "directConnectGateway" :: NullOrUndefined (DirectConnectGateway) } -> {"directConnectGateway" :: NullOrUndefined (DirectConnectGateway) } ) -> DeleteDirectConnectGatewayResult
-newDeleteDirectConnectGatewayResult'  customize = (DeleteDirectConnectGatewayResult <<< customize) { "directConnectGateway": (NullOrUndefined Nothing) }
+newDeleteDirectConnectGatewayResult' :: ( { "directConnectGateway" :: Maybe (DirectConnectGateway) } -> {"directConnectGateway" :: Maybe (DirectConnectGateway) } ) -> DeleteDirectConnectGatewayResult
+newDeleteDirectConnectGatewayResult'  customize = (DeleteDirectConnectGatewayResult <<< customize) { "directConnectGateway": Nothing }
 
 
 
@@ -974,7 +973,7 @@ newDeleteInterconnectRequest' _interconnectId customize = (DeleteInterconnectReq
 
 -- | <p>The response received when DeleteInterconnect is called.</p>
 newtype DeleteInterconnectResponse = DeleteInterconnectResponse 
-  { "interconnectState" :: NullOrUndefined (InterconnectState)
+  { "interconnectState" :: Maybe (InterconnectState)
   }
 derive instance newtypeDeleteInterconnectResponse :: Newtype DeleteInterconnectResponse _
 derive instance repGenericDeleteInterconnectResponse :: Generic DeleteInterconnectResponse _
@@ -984,12 +983,12 @@ instance encodeDeleteInterconnectResponse :: Encode DeleteInterconnectResponse w
 
 -- | Constructs DeleteInterconnectResponse from required parameters
 newDeleteInterconnectResponse :: DeleteInterconnectResponse
-newDeleteInterconnectResponse  = DeleteInterconnectResponse { "interconnectState": (NullOrUndefined Nothing) }
+newDeleteInterconnectResponse  = DeleteInterconnectResponse { "interconnectState": Nothing }
 
 -- | Constructs DeleteInterconnectResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteInterconnectResponse' :: ( { "interconnectState" :: NullOrUndefined (InterconnectState) } -> {"interconnectState" :: NullOrUndefined (InterconnectState) } ) -> DeleteInterconnectResponse
-newDeleteInterconnectResponse'  customize = (DeleteInterconnectResponse <<< customize) { "interconnectState": (NullOrUndefined Nothing) }
+newDeleteInterconnectResponse' :: ( { "interconnectState" :: Maybe (InterconnectState) } -> {"interconnectState" :: Maybe (InterconnectState) } ) -> DeleteInterconnectResponse
+newDeleteInterconnectResponse'  customize = (DeleteInterconnectResponse <<< customize) { "interconnectState": Nothing }
 
 
 
@@ -1037,7 +1036,7 @@ newDeleteVirtualInterfaceRequest' _virtualInterfaceId customize = (DeleteVirtual
 
 -- | <p>The response received when DeleteVirtualInterface is called.</p>
 newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse 
-  { "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState)
+  { "virtualInterfaceState" :: Maybe (VirtualInterfaceState)
   }
 derive instance newtypeDeleteVirtualInterfaceResponse :: Newtype DeleteVirtualInterfaceResponse _
 derive instance repGenericDeleteVirtualInterfaceResponse :: Generic DeleteVirtualInterfaceResponse _
@@ -1047,20 +1046,20 @@ instance encodeDeleteVirtualInterfaceResponse :: Encode DeleteVirtualInterfaceRe
 
 -- | Constructs DeleteVirtualInterfaceResponse from required parameters
 newDeleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
-newDeleteVirtualInterfaceResponse  = DeleteVirtualInterfaceResponse { "virtualInterfaceState": (NullOrUndefined Nothing) }
+newDeleteVirtualInterfaceResponse  = DeleteVirtualInterfaceResponse { "virtualInterfaceState": Nothing }
 
 -- | Constructs DeleteVirtualInterfaceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteVirtualInterfaceResponse' :: ( { "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) } -> {"virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) } ) -> DeleteVirtualInterfaceResponse
-newDeleteVirtualInterfaceResponse'  customize = (DeleteVirtualInterfaceResponse <<< customize) { "virtualInterfaceState": (NullOrUndefined Nothing) }
+newDeleteVirtualInterfaceResponse' :: ( { "virtualInterfaceState" :: Maybe (VirtualInterfaceState) } -> {"virtualInterfaceState" :: Maybe (VirtualInterfaceState) } ) -> DeleteVirtualInterfaceResponse
+newDeleteVirtualInterfaceResponse'  customize = (DeleteVirtualInterfaceResponse <<< customize) { "virtualInterfaceState": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeConnectionLoa operation.</p>
 newtype DescribeConnectionLoaRequest = DescribeConnectionLoaRequest 
   { "connectionId" :: (ConnectionId)
-  , "providerName" :: NullOrUndefined (ProviderName)
-  , "loaContentType" :: NullOrUndefined (LoaContentType)
+  , "providerName" :: Maybe (ProviderName)
+  , "loaContentType" :: Maybe (LoaContentType)
   }
 derive instance newtypeDescribeConnectionLoaRequest :: Newtype DescribeConnectionLoaRequest _
 derive instance repGenericDescribeConnectionLoaRequest :: Generic DescribeConnectionLoaRequest _
@@ -1070,18 +1069,18 @@ instance encodeDescribeConnectionLoaRequest :: Encode DescribeConnectionLoaReque
 
 -- | Constructs DescribeConnectionLoaRequest from required parameters
 newDescribeConnectionLoaRequest :: ConnectionId -> DescribeConnectionLoaRequest
-newDescribeConnectionLoaRequest _connectionId = DescribeConnectionLoaRequest { "connectionId": _connectionId, "loaContentType": (NullOrUndefined Nothing), "providerName": (NullOrUndefined Nothing) }
+newDescribeConnectionLoaRequest _connectionId = DescribeConnectionLoaRequest { "connectionId": _connectionId, "loaContentType": Nothing, "providerName": Nothing }
 
 -- | Constructs DescribeConnectionLoaRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeConnectionLoaRequest' :: ConnectionId -> ( { "connectionId" :: (ConnectionId) , "providerName" :: NullOrUndefined (ProviderName) , "loaContentType" :: NullOrUndefined (LoaContentType) } -> {"connectionId" :: (ConnectionId) , "providerName" :: NullOrUndefined (ProviderName) , "loaContentType" :: NullOrUndefined (LoaContentType) } ) -> DescribeConnectionLoaRequest
-newDescribeConnectionLoaRequest' _connectionId customize = (DescribeConnectionLoaRequest <<< customize) { "connectionId": _connectionId, "loaContentType": (NullOrUndefined Nothing), "providerName": (NullOrUndefined Nothing) }
+newDescribeConnectionLoaRequest' :: ConnectionId -> ( { "connectionId" :: (ConnectionId) , "providerName" :: Maybe (ProviderName) , "loaContentType" :: Maybe (LoaContentType) } -> {"connectionId" :: (ConnectionId) , "providerName" :: Maybe (ProviderName) , "loaContentType" :: Maybe (LoaContentType) } ) -> DescribeConnectionLoaRequest
+newDescribeConnectionLoaRequest' _connectionId customize = (DescribeConnectionLoaRequest <<< customize) { "connectionId": _connectionId, "loaContentType": Nothing, "providerName": Nothing }
 
 
 
 -- | <p>The response received when DescribeConnectionLoa is called.</p>
 newtype DescribeConnectionLoaResponse = DescribeConnectionLoaResponse 
-  { "loa" :: NullOrUndefined (Loa)
+  { "loa" :: Maybe (Loa)
   }
 derive instance newtypeDescribeConnectionLoaResponse :: Newtype DescribeConnectionLoaResponse _
 derive instance repGenericDescribeConnectionLoaResponse :: Generic DescribeConnectionLoaResponse _
@@ -1091,12 +1090,12 @@ instance encodeDescribeConnectionLoaResponse :: Encode DescribeConnectionLoaResp
 
 -- | Constructs DescribeConnectionLoaResponse from required parameters
 newDescribeConnectionLoaResponse :: DescribeConnectionLoaResponse
-newDescribeConnectionLoaResponse  = DescribeConnectionLoaResponse { "loa": (NullOrUndefined Nothing) }
+newDescribeConnectionLoaResponse  = DescribeConnectionLoaResponse { "loa": Nothing }
 
 -- | Constructs DescribeConnectionLoaResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeConnectionLoaResponse' :: ( { "loa" :: NullOrUndefined (Loa) } -> {"loa" :: NullOrUndefined (Loa) } ) -> DescribeConnectionLoaResponse
-newDescribeConnectionLoaResponse'  customize = (DescribeConnectionLoaResponse <<< customize) { "loa": (NullOrUndefined Nothing) }
+newDescribeConnectionLoaResponse' :: ( { "loa" :: Maybe (Loa) } -> {"loa" :: Maybe (Loa) } ) -> DescribeConnectionLoaResponse
+newDescribeConnectionLoaResponse'  customize = (DescribeConnectionLoaResponse <<< customize) { "loa": Nothing }
 
 
 
@@ -1123,7 +1122,7 @@ newDescribeConnectionsOnInterconnectRequest' _interconnectId customize = (Descri
 
 -- | <p>Container for the parameters to the DescribeConnections operation.</p>
 newtype DescribeConnectionsRequest = DescribeConnectionsRequest 
-  { "connectionId" :: NullOrUndefined (ConnectionId)
+  { "connectionId" :: Maybe (ConnectionId)
   }
 derive instance newtypeDescribeConnectionsRequest :: Newtype DescribeConnectionsRequest _
 derive instance repGenericDescribeConnectionsRequest :: Generic DescribeConnectionsRequest _
@@ -1133,21 +1132,21 @@ instance encodeDescribeConnectionsRequest :: Encode DescribeConnectionsRequest w
 
 -- | Constructs DescribeConnectionsRequest from required parameters
 newDescribeConnectionsRequest :: DescribeConnectionsRequest
-newDescribeConnectionsRequest  = DescribeConnectionsRequest { "connectionId": (NullOrUndefined Nothing) }
+newDescribeConnectionsRequest  = DescribeConnectionsRequest { "connectionId": Nothing }
 
 -- | Constructs DescribeConnectionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeConnectionsRequest' :: ( { "connectionId" :: NullOrUndefined (ConnectionId) } -> {"connectionId" :: NullOrUndefined (ConnectionId) } ) -> DescribeConnectionsRequest
-newDescribeConnectionsRequest'  customize = (DescribeConnectionsRequest <<< customize) { "connectionId": (NullOrUndefined Nothing) }
+newDescribeConnectionsRequest' :: ( { "connectionId" :: Maybe (ConnectionId) } -> {"connectionId" :: Maybe (ConnectionId) } ) -> DescribeConnectionsRequest
+newDescribeConnectionsRequest'  customize = (DescribeConnectionsRequest <<< customize) { "connectionId": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeDirectConnectGatewayAssociations operation.</p>
 newtype DescribeDirectConnectGatewayAssociationsRequest = DescribeDirectConnectGatewayAssociationsRequest 
-  { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
-  , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId)
-  , "maxResults" :: NullOrUndefined (MaxResultSetSize)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
+  , "virtualGatewayId" :: Maybe (VirtualGatewayId)
+  , "maxResults" :: Maybe (MaxResultSetSize)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeDirectConnectGatewayAssociationsRequest :: Newtype DescribeDirectConnectGatewayAssociationsRequest _
 derive instance repGenericDescribeDirectConnectGatewayAssociationsRequest :: Generic DescribeDirectConnectGatewayAssociationsRequest _
@@ -1157,19 +1156,19 @@ instance encodeDescribeDirectConnectGatewayAssociationsRequest :: Encode Describ
 
 -- | Constructs DescribeDirectConnectGatewayAssociationsRequest from required parameters
 newDescribeDirectConnectGatewayAssociationsRequest :: DescribeDirectConnectGatewayAssociationsRequest
-newDescribeDirectConnectGatewayAssociationsRequest  = DescribeDirectConnectGatewayAssociationsRequest { "directConnectGatewayId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAssociationsRequest  = DescribeDirectConnectGatewayAssociationsRequest { "directConnectGatewayId": Nothing, "maxResults": Nothing, "nextToken": Nothing, "virtualGatewayId": Nothing }
 
 -- | Constructs DescribeDirectConnectGatewayAssociationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectConnectGatewayAssociationsRequest' :: ( { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "maxResults" :: NullOrUndefined (MaxResultSetSize) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "maxResults" :: NullOrUndefined (MaxResultSetSize) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeDirectConnectGatewayAssociationsRequest
-newDescribeDirectConnectGatewayAssociationsRequest'  customize = (DescribeDirectConnectGatewayAssociationsRequest <<< customize) { "directConnectGatewayId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAssociationsRequest' :: ( { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "maxResults" :: Maybe (MaxResultSetSize) , "nextToken" :: Maybe (PaginationToken) } -> {"directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "maxResults" :: Maybe (MaxResultSetSize) , "nextToken" :: Maybe (PaginationToken) } ) -> DescribeDirectConnectGatewayAssociationsRequest
+newDescribeDirectConnectGatewayAssociationsRequest'  customize = (DescribeDirectConnectGatewayAssociationsRequest <<< customize) { "directConnectGatewayId": Nothing, "maxResults": Nothing, "nextToken": Nothing, "virtualGatewayId": Nothing }
 
 
 
 -- | <p>Container for the response from the DescribeDirectConnectGatewayAssociations API call</p>
 newtype DescribeDirectConnectGatewayAssociationsResult = DescribeDirectConnectGatewayAssociationsResult 
-  { "directConnectGatewayAssociations" :: NullOrUndefined (DirectConnectGatewayAssociationList)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "directConnectGatewayAssociations" :: Maybe (DirectConnectGatewayAssociationList)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeDirectConnectGatewayAssociationsResult :: Newtype DescribeDirectConnectGatewayAssociationsResult _
 derive instance repGenericDescribeDirectConnectGatewayAssociationsResult :: Generic DescribeDirectConnectGatewayAssociationsResult _
@@ -1179,21 +1178,21 @@ instance encodeDescribeDirectConnectGatewayAssociationsResult :: Encode Describe
 
 -- | Constructs DescribeDirectConnectGatewayAssociationsResult from required parameters
 newDescribeDirectConnectGatewayAssociationsResult :: DescribeDirectConnectGatewayAssociationsResult
-newDescribeDirectConnectGatewayAssociationsResult  = DescribeDirectConnectGatewayAssociationsResult { "directConnectGatewayAssociations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAssociationsResult  = DescribeDirectConnectGatewayAssociationsResult { "directConnectGatewayAssociations": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeDirectConnectGatewayAssociationsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectConnectGatewayAssociationsResult' :: ( { "directConnectGatewayAssociations" :: NullOrUndefined (DirectConnectGatewayAssociationList) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"directConnectGatewayAssociations" :: NullOrUndefined (DirectConnectGatewayAssociationList) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeDirectConnectGatewayAssociationsResult
-newDescribeDirectConnectGatewayAssociationsResult'  customize = (DescribeDirectConnectGatewayAssociationsResult <<< customize) { "directConnectGatewayAssociations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAssociationsResult' :: ( { "directConnectGatewayAssociations" :: Maybe (DirectConnectGatewayAssociationList) , "nextToken" :: Maybe (PaginationToken) } -> {"directConnectGatewayAssociations" :: Maybe (DirectConnectGatewayAssociationList) , "nextToken" :: Maybe (PaginationToken) } ) -> DescribeDirectConnectGatewayAssociationsResult
+newDescribeDirectConnectGatewayAssociationsResult'  customize = (DescribeDirectConnectGatewayAssociationsResult <<< customize) { "directConnectGatewayAssociations": Nothing, "nextToken": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeDirectConnectGatewayAttachments operation.</p>
 newtype DescribeDirectConnectGatewayAttachmentsRequest = DescribeDirectConnectGatewayAttachmentsRequest 
-  { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
-  , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId)
-  , "maxResults" :: NullOrUndefined (MaxResultSetSize)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
+  , "virtualInterfaceId" :: Maybe (VirtualInterfaceId)
+  , "maxResults" :: Maybe (MaxResultSetSize)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeDirectConnectGatewayAttachmentsRequest :: Newtype DescribeDirectConnectGatewayAttachmentsRequest _
 derive instance repGenericDescribeDirectConnectGatewayAttachmentsRequest :: Generic DescribeDirectConnectGatewayAttachmentsRequest _
@@ -1203,19 +1202,19 @@ instance encodeDescribeDirectConnectGatewayAttachmentsRequest :: Encode Describe
 
 -- | Constructs DescribeDirectConnectGatewayAttachmentsRequest from required parameters
 newDescribeDirectConnectGatewayAttachmentsRequest :: DescribeDirectConnectGatewayAttachmentsRequest
-newDescribeDirectConnectGatewayAttachmentsRequest  = DescribeDirectConnectGatewayAttachmentsRequest { "directConnectGatewayId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAttachmentsRequest  = DescribeDirectConnectGatewayAttachmentsRequest { "directConnectGatewayId": Nothing, "maxResults": Nothing, "nextToken": Nothing, "virtualInterfaceId": Nothing }
 
 -- | Constructs DescribeDirectConnectGatewayAttachmentsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectConnectGatewayAttachmentsRequest' :: ( { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "maxResults" :: NullOrUndefined (MaxResultSetSize) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "maxResults" :: NullOrUndefined (MaxResultSetSize) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeDirectConnectGatewayAttachmentsRequest
-newDescribeDirectConnectGatewayAttachmentsRequest'  customize = (DescribeDirectConnectGatewayAttachmentsRequest <<< customize) { "directConnectGatewayId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAttachmentsRequest' :: ( { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "maxResults" :: Maybe (MaxResultSetSize) , "nextToken" :: Maybe (PaginationToken) } -> {"directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "maxResults" :: Maybe (MaxResultSetSize) , "nextToken" :: Maybe (PaginationToken) } ) -> DescribeDirectConnectGatewayAttachmentsRequest
+newDescribeDirectConnectGatewayAttachmentsRequest'  customize = (DescribeDirectConnectGatewayAttachmentsRequest <<< customize) { "directConnectGatewayId": Nothing, "maxResults": Nothing, "nextToken": Nothing, "virtualInterfaceId": Nothing }
 
 
 
 -- | <p>Container for the response from the DescribeDirectConnectGatewayAttachments API call</p>
 newtype DescribeDirectConnectGatewayAttachmentsResult = DescribeDirectConnectGatewayAttachmentsResult 
-  { "directConnectGatewayAttachments" :: NullOrUndefined (DirectConnectGatewayAttachmentList)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "directConnectGatewayAttachments" :: Maybe (DirectConnectGatewayAttachmentList)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeDirectConnectGatewayAttachmentsResult :: Newtype DescribeDirectConnectGatewayAttachmentsResult _
 derive instance repGenericDescribeDirectConnectGatewayAttachmentsResult :: Generic DescribeDirectConnectGatewayAttachmentsResult _
@@ -1225,20 +1224,20 @@ instance encodeDescribeDirectConnectGatewayAttachmentsResult :: Encode DescribeD
 
 -- | Constructs DescribeDirectConnectGatewayAttachmentsResult from required parameters
 newDescribeDirectConnectGatewayAttachmentsResult :: DescribeDirectConnectGatewayAttachmentsResult
-newDescribeDirectConnectGatewayAttachmentsResult  = DescribeDirectConnectGatewayAttachmentsResult { "directConnectGatewayAttachments": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAttachmentsResult  = DescribeDirectConnectGatewayAttachmentsResult { "directConnectGatewayAttachments": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeDirectConnectGatewayAttachmentsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectConnectGatewayAttachmentsResult' :: ( { "directConnectGatewayAttachments" :: NullOrUndefined (DirectConnectGatewayAttachmentList) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"directConnectGatewayAttachments" :: NullOrUndefined (DirectConnectGatewayAttachmentList) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeDirectConnectGatewayAttachmentsResult
-newDescribeDirectConnectGatewayAttachmentsResult'  customize = (DescribeDirectConnectGatewayAttachmentsResult <<< customize) { "directConnectGatewayAttachments": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewayAttachmentsResult' :: ( { "directConnectGatewayAttachments" :: Maybe (DirectConnectGatewayAttachmentList) , "nextToken" :: Maybe (PaginationToken) } -> {"directConnectGatewayAttachments" :: Maybe (DirectConnectGatewayAttachmentList) , "nextToken" :: Maybe (PaginationToken) } ) -> DescribeDirectConnectGatewayAttachmentsResult
+newDescribeDirectConnectGatewayAttachmentsResult'  customize = (DescribeDirectConnectGatewayAttachmentsResult <<< customize) { "directConnectGatewayAttachments": Nothing, "nextToken": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeDirectConnectGateways operation.</p>
 newtype DescribeDirectConnectGatewaysRequest = DescribeDirectConnectGatewaysRequest 
-  { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
-  , "maxResults" :: NullOrUndefined (MaxResultSetSize)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
+  , "maxResults" :: Maybe (MaxResultSetSize)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeDirectConnectGatewaysRequest :: Newtype DescribeDirectConnectGatewaysRequest _
 derive instance repGenericDescribeDirectConnectGatewaysRequest :: Generic DescribeDirectConnectGatewaysRequest _
@@ -1248,19 +1247,19 @@ instance encodeDescribeDirectConnectGatewaysRequest :: Encode DescribeDirectConn
 
 -- | Constructs DescribeDirectConnectGatewaysRequest from required parameters
 newDescribeDirectConnectGatewaysRequest :: DescribeDirectConnectGatewaysRequest
-newDescribeDirectConnectGatewaysRequest  = DescribeDirectConnectGatewaysRequest { "directConnectGatewayId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewaysRequest  = DescribeDirectConnectGatewaysRequest { "directConnectGatewayId": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeDirectConnectGatewaysRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectConnectGatewaysRequest' :: ( { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "maxResults" :: NullOrUndefined (MaxResultSetSize) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "maxResults" :: NullOrUndefined (MaxResultSetSize) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeDirectConnectGatewaysRequest
-newDescribeDirectConnectGatewaysRequest'  customize = (DescribeDirectConnectGatewaysRequest <<< customize) { "directConnectGatewayId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewaysRequest' :: ( { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "maxResults" :: Maybe (MaxResultSetSize) , "nextToken" :: Maybe (PaginationToken) } -> {"directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "maxResults" :: Maybe (MaxResultSetSize) , "nextToken" :: Maybe (PaginationToken) } ) -> DescribeDirectConnectGatewaysRequest
+newDescribeDirectConnectGatewaysRequest'  customize = (DescribeDirectConnectGatewaysRequest <<< customize) { "directConnectGatewayId": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 -- | <p>Container for the response from the DescribeDirectConnectGateways API call</p>
 newtype DescribeDirectConnectGatewaysResult = DescribeDirectConnectGatewaysResult 
-  { "directConnectGateways" :: NullOrUndefined (DirectConnectGatewayList)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "directConnectGateways" :: Maybe (DirectConnectGatewayList)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeDescribeDirectConnectGatewaysResult :: Newtype DescribeDirectConnectGatewaysResult _
 derive instance repGenericDescribeDirectConnectGatewaysResult :: Generic DescribeDirectConnectGatewaysResult _
@@ -1270,12 +1269,12 @@ instance encodeDescribeDirectConnectGatewaysResult :: Encode DescribeDirectConne
 
 -- | Constructs DescribeDirectConnectGatewaysResult from required parameters
 newDescribeDirectConnectGatewaysResult :: DescribeDirectConnectGatewaysResult
-newDescribeDirectConnectGatewaysResult  = DescribeDirectConnectGatewaysResult { "directConnectGateways": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewaysResult  = DescribeDirectConnectGatewaysResult { "directConnectGateways": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeDirectConnectGatewaysResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDirectConnectGatewaysResult' :: ( { "directConnectGateways" :: NullOrUndefined (DirectConnectGatewayList) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"directConnectGateways" :: NullOrUndefined (DirectConnectGatewayList) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> DescribeDirectConnectGatewaysResult
-newDescribeDirectConnectGatewaysResult'  customize = (DescribeDirectConnectGatewaysResult <<< customize) { "directConnectGateways": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDirectConnectGatewaysResult' :: ( { "directConnectGateways" :: Maybe (DirectConnectGatewayList) , "nextToken" :: Maybe (PaginationToken) } -> {"directConnectGateways" :: Maybe (DirectConnectGatewayList) , "nextToken" :: Maybe (PaginationToken) } ) -> DescribeDirectConnectGatewaysResult
+newDescribeDirectConnectGatewaysResult'  customize = (DescribeDirectConnectGatewaysResult <<< customize) { "directConnectGateways": Nothing, "nextToken": Nothing }
 
 
 
@@ -1303,8 +1302,8 @@ newDescribeHostedConnectionsRequest' _connectionId customize = (DescribeHostedCo
 -- | <p>Container for the parameters to the DescribeInterconnectLoa operation.</p>
 newtype DescribeInterconnectLoaRequest = DescribeInterconnectLoaRequest 
   { "interconnectId" :: (InterconnectId)
-  , "providerName" :: NullOrUndefined (ProviderName)
-  , "loaContentType" :: NullOrUndefined (LoaContentType)
+  , "providerName" :: Maybe (ProviderName)
+  , "loaContentType" :: Maybe (LoaContentType)
   }
 derive instance newtypeDescribeInterconnectLoaRequest :: Newtype DescribeInterconnectLoaRequest _
 derive instance repGenericDescribeInterconnectLoaRequest :: Generic DescribeInterconnectLoaRequest _
@@ -1314,18 +1313,18 @@ instance encodeDescribeInterconnectLoaRequest :: Encode DescribeInterconnectLoaR
 
 -- | Constructs DescribeInterconnectLoaRequest from required parameters
 newDescribeInterconnectLoaRequest :: InterconnectId -> DescribeInterconnectLoaRequest
-newDescribeInterconnectLoaRequest _interconnectId = DescribeInterconnectLoaRequest { "interconnectId": _interconnectId, "loaContentType": (NullOrUndefined Nothing), "providerName": (NullOrUndefined Nothing) }
+newDescribeInterconnectLoaRequest _interconnectId = DescribeInterconnectLoaRequest { "interconnectId": _interconnectId, "loaContentType": Nothing, "providerName": Nothing }
 
 -- | Constructs DescribeInterconnectLoaRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeInterconnectLoaRequest' :: InterconnectId -> ( { "interconnectId" :: (InterconnectId) , "providerName" :: NullOrUndefined (ProviderName) , "loaContentType" :: NullOrUndefined (LoaContentType) } -> {"interconnectId" :: (InterconnectId) , "providerName" :: NullOrUndefined (ProviderName) , "loaContentType" :: NullOrUndefined (LoaContentType) } ) -> DescribeInterconnectLoaRequest
-newDescribeInterconnectLoaRequest' _interconnectId customize = (DescribeInterconnectLoaRequest <<< customize) { "interconnectId": _interconnectId, "loaContentType": (NullOrUndefined Nothing), "providerName": (NullOrUndefined Nothing) }
+newDescribeInterconnectLoaRequest' :: InterconnectId -> ( { "interconnectId" :: (InterconnectId) , "providerName" :: Maybe (ProviderName) , "loaContentType" :: Maybe (LoaContentType) } -> {"interconnectId" :: (InterconnectId) , "providerName" :: Maybe (ProviderName) , "loaContentType" :: Maybe (LoaContentType) } ) -> DescribeInterconnectLoaRequest
+newDescribeInterconnectLoaRequest' _interconnectId customize = (DescribeInterconnectLoaRequest <<< customize) { "interconnectId": _interconnectId, "loaContentType": Nothing, "providerName": Nothing }
 
 
 
 -- | <p>The response received when DescribeInterconnectLoa is called.</p>
 newtype DescribeInterconnectLoaResponse = DescribeInterconnectLoaResponse 
-  { "loa" :: NullOrUndefined (Loa)
+  { "loa" :: Maybe (Loa)
   }
 derive instance newtypeDescribeInterconnectLoaResponse :: Newtype DescribeInterconnectLoaResponse _
 derive instance repGenericDescribeInterconnectLoaResponse :: Generic DescribeInterconnectLoaResponse _
@@ -1335,18 +1334,18 @@ instance encodeDescribeInterconnectLoaResponse :: Encode DescribeInterconnectLoa
 
 -- | Constructs DescribeInterconnectLoaResponse from required parameters
 newDescribeInterconnectLoaResponse :: DescribeInterconnectLoaResponse
-newDescribeInterconnectLoaResponse  = DescribeInterconnectLoaResponse { "loa": (NullOrUndefined Nothing) }
+newDescribeInterconnectLoaResponse  = DescribeInterconnectLoaResponse { "loa": Nothing }
 
 -- | Constructs DescribeInterconnectLoaResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeInterconnectLoaResponse' :: ( { "loa" :: NullOrUndefined (Loa) } -> {"loa" :: NullOrUndefined (Loa) } ) -> DescribeInterconnectLoaResponse
-newDescribeInterconnectLoaResponse'  customize = (DescribeInterconnectLoaResponse <<< customize) { "loa": (NullOrUndefined Nothing) }
+newDescribeInterconnectLoaResponse' :: ( { "loa" :: Maybe (Loa) } -> {"loa" :: Maybe (Loa) } ) -> DescribeInterconnectLoaResponse
+newDescribeInterconnectLoaResponse'  customize = (DescribeInterconnectLoaResponse <<< customize) { "loa": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeInterconnects operation.</p>
 newtype DescribeInterconnectsRequest = DescribeInterconnectsRequest 
-  { "interconnectId" :: NullOrUndefined (InterconnectId)
+  { "interconnectId" :: Maybe (InterconnectId)
   }
 derive instance newtypeDescribeInterconnectsRequest :: Newtype DescribeInterconnectsRequest _
 derive instance repGenericDescribeInterconnectsRequest :: Generic DescribeInterconnectsRequest _
@@ -1356,18 +1355,18 @@ instance encodeDescribeInterconnectsRequest :: Encode DescribeInterconnectsReque
 
 -- | Constructs DescribeInterconnectsRequest from required parameters
 newDescribeInterconnectsRequest :: DescribeInterconnectsRequest
-newDescribeInterconnectsRequest  = DescribeInterconnectsRequest { "interconnectId": (NullOrUndefined Nothing) }
+newDescribeInterconnectsRequest  = DescribeInterconnectsRequest { "interconnectId": Nothing }
 
 -- | Constructs DescribeInterconnectsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeInterconnectsRequest' :: ( { "interconnectId" :: NullOrUndefined (InterconnectId) } -> {"interconnectId" :: NullOrUndefined (InterconnectId) } ) -> DescribeInterconnectsRequest
-newDescribeInterconnectsRequest'  customize = (DescribeInterconnectsRequest <<< customize) { "interconnectId": (NullOrUndefined Nothing) }
+newDescribeInterconnectsRequest' :: ( { "interconnectId" :: Maybe (InterconnectId) } -> {"interconnectId" :: Maybe (InterconnectId) } ) -> DescribeInterconnectsRequest
+newDescribeInterconnectsRequest'  customize = (DescribeInterconnectsRequest <<< customize) { "interconnectId": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeLags operation.</p>
 newtype DescribeLagsRequest = DescribeLagsRequest 
-  { "lagId" :: NullOrUndefined (LagId)
+  { "lagId" :: Maybe (LagId)
   }
 derive instance newtypeDescribeLagsRequest :: Newtype DescribeLagsRequest _
 derive instance repGenericDescribeLagsRequest :: Generic DescribeLagsRequest _
@@ -1377,20 +1376,20 @@ instance encodeDescribeLagsRequest :: Encode DescribeLagsRequest where encode = 
 
 -- | Constructs DescribeLagsRequest from required parameters
 newDescribeLagsRequest :: DescribeLagsRequest
-newDescribeLagsRequest  = DescribeLagsRequest { "lagId": (NullOrUndefined Nothing) }
+newDescribeLagsRequest  = DescribeLagsRequest { "lagId": Nothing }
 
 -- | Constructs DescribeLagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeLagsRequest' :: ( { "lagId" :: NullOrUndefined (LagId) } -> {"lagId" :: NullOrUndefined (LagId) } ) -> DescribeLagsRequest
-newDescribeLagsRequest'  customize = (DescribeLagsRequest <<< customize) { "lagId": (NullOrUndefined Nothing) }
+newDescribeLagsRequest' :: ( { "lagId" :: Maybe (LagId) } -> {"lagId" :: Maybe (LagId) } ) -> DescribeLagsRequest
+newDescribeLagsRequest'  customize = (DescribeLagsRequest <<< customize) { "lagId": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeLoa operation.</p>
 newtype DescribeLoaRequest = DescribeLoaRequest 
   { "connectionId" :: (ConnectionId)
-  , "providerName" :: NullOrUndefined (ProviderName)
-  , "loaContentType" :: NullOrUndefined (LoaContentType)
+  , "providerName" :: Maybe (ProviderName)
+  , "loaContentType" :: Maybe (LoaContentType)
   }
 derive instance newtypeDescribeLoaRequest :: Newtype DescribeLoaRequest _
 derive instance repGenericDescribeLoaRequest :: Generic DescribeLoaRequest _
@@ -1400,12 +1399,12 @@ instance encodeDescribeLoaRequest :: Encode DescribeLoaRequest where encode = ge
 
 -- | Constructs DescribeLoaRequest from required parameters
 newDescribeLoaRequest :: ConnectionId -> DescribeLoaRequest
-newDescribeLoaRequest _connectionId = DescribeLoaRequest { "connectionId": _connectionId, "loaContentType": (NullOrUndefined Nothing), "providerName": (NullOrUndefined Nothing) }
+newDescribeLoaRequest _connectionId = DescribeLoaRequest { "connectionId": _connectionId, "loaContentType": Nothing, "providerName": Nothing }
 
 -- | Constructs DescribeLoaRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeLoaRequest' :: ConnectionId -> ( { "connectionId" :: (ConnectionId) , "providerName" :: NullOrUndefined (ProviderName) , "loaContentType" :: NullOrUndefined (LoaContentType) } -> {"connectionId" :: (ConnectionId) , "providerName" :: NullOrUndefined (ProviderName) , "loaContentType" :: NullOrUndefined (LoaContentType) } ) -> DescribeLoaRequest
-newDescribeLoaRequest' _connectionId customize = (DescribeLoaRequest <<< customize) { "connectionId": _connectionId, "loaContentType": (NullOrUndefined Nothing), "providerName": (NullOrUndefined Nothing) }
+newDescribeLoaRequest' :: ConnectionId -> ( { "connectionId" :: (ConnectionId) , "providerName" :: Maybe (ProviderName) , "loaContentType" :: Maybe (LoaContentType) } -> {"connectionId" :: (ConnectionId) , "providerName" :: Maybe (ProviderName) , "loaContentType" :: Maybe (LoaContentType) } ) -> DescribeLoaRequest
+newDescribeLoaRequest' _connectionId customize = (DescribeLoaRequest <<< customize) { "connectionId": _connectionId, "loaContentType": Nothing, "providerName": Nothing }
 
 
 
@@ -1432,7 +1431,7 @@ newDescribeTagsRequest' _resourceArns customize = (DescribeTagsRequest <<< custo
 
 -- | <p>The response received when DescribeTags is called.</p>
 newtype DescribeTagsResponse = DescribeTagsResponse 
-  { "resourceTags" :: NullOrUndefined (ResourceTagList)
+  { "resourceTags" :: Maybe (ResourceTagList)
   }
 derive instance newtypeDescribeTagsResponse :: Newtype DescribeTagsResponse _
 derive instance repGenericDescribeTagsResponse :: Generic DescribeTagsResponse _
@@ -1442,19 +1441,19 @@ instance encodeDescribeTagsResponse :: Encode DescribeTagsResponse where encode 
 
 -- | Constructs DescribeTagsResponse from required parameters
 newDescribeTagsResponse :: DescribeTagsResponse
-newDescribeTagsResponse  = DescribeTagsResponse { "resourceTags": (NullOrUndefined Nothing) }
+newDescribeTagsResponse  = DescribeTagsResponse { "resourceTags": Nothing }
 
 -- | Constructs DescribeTagsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTagsResponse' :: ( { "resourceTags" :: NullOrUndefined (ResourceTagList) } -> {"resourceTags" :: NullOrUndefined (ResourceTagList) } ) -> DescribeTagsResponse
-newDescribeTagsResponse'  customize = (DescribeTagsResponse <<< customize) { "resourceTags": (NullOrUndefined Nothing) }
+newDescribeTagsResponse' :: ( { "resourceTags" :: Maybe (ResourceTagList) } -> {"resourceTags" :: Maybe (ResourceTagList) } ) -> DescribeTagsResponse
+newDescribeTagsResponse'  customize = (DescribeTagsResponse <<< customize) { "resourceTags": Nothing }
 
 
 
 -- | <p>Container for the parameters to the DescribeVirtualInterfaces operation.</p>
 newtype DescribeVirtualInterfacesRequest = DescribeVirtualInterfacesRequest 
-  { "connectionId" :: NullOrUndefined (ConnectionId)
-  , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId)
+  { "connectionId" :: Maybe (ConnectionId)
+  , "virtualInterfaceId" :: Maybe (VirtualInterfaceId)
   }
 derive instance newtypeDescribeVirtualInterfacesRequest :: Newtype DescribeVirtualInterfacesRequest _
 derive instance repGenericDescribeVirtualInterfacesRequest :: Generic DescribeVirtualInterfacesRequest _
@@ -1464,18 +1463,18 @@ instance encodeDescribeVirtualInterfacesRequest :: Encode DescribeVirtualInterfa
 
 -- | Constructs DescribeVirtualInterfacesRequest from required parameters
 newDescribeVirtualInterfacesRequest :: DescribeVirtualInterfacesRequest
-newDescribeVirtualInterfacesRequest  = DescribeVirtualInterfacesRequest { "connectionId": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newDescribeVirtualInterfacesRequest  = DescribeVirtualInterfacesRequest { "connectionId": Nothing, "virtualInterfaceId": Nothing }
 
 -- | Constructs DescribeVirtualInterfacesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeVirtualInterfacesRequest' :: ( { "connectionId" :: NullOrUndefined (ConnectionId) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) } -> {"connectionId" :: NullOrUndefined (ConnectionId) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) } ) -> DescribeVirtualInterfacesRequest
-newDescribeVirtualInterfacesRequest'  customize = (DescribeVirtualInterfacesRequest <<< customize) { "connectionId": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing) }
+newDescribeVirtualInterfacesRequest' :: ( { "connectionId" :: Maybe (ConnectionId) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) } -> {"connectionId" :: Maybe (ConnectionId) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) } ) -> DescribeVirtualInterfacesRequest
+newDescribeVirtualInterfacesRequest'  customize = (DescribeVirtualInterfacesRequest <<< customize) { "connectionId": Nothing, "virtualInterfaceId": Nothing }
 
 
 
 -- | <p>The API was called with invalid parameters. The error message will contain additional details about the cause.</p>
 newtype DirectConnectClientException = DirectConnectClientException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDirectConnectClientException :: Newtype DirectConnectClientException _
 derive instance repGenericDirectConnectClientException :: Generic DirectConnectClientException _
@@ -1485,23 +1484,23 @@ instance encodeDirectConnectClientException :: Encode DirectConnectClientExcepti
 
 -- | Constructs DirectConnectClientException from required parameters
 newDirectConnectClientException :: DirectConnectClientException
-newDirectConnectClientException  = DirectConnectClientException { "message": (NullOrUndefined Nothing) }
+newDirectConnectClientException  = DirectConnectClientException { "message": Nothing }
 
 -- | Constructs DirectConnectClientException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDirectConnectClientException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DirectConnectClientException
-newDirectConnectClientException'  customize = (DirectConnectClientException <<< customize) { "message": (NullOrUndefined Nothing) }
+newDirectConnectClientException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DirectConnectClientException
+newDirectConnectClientException'  customize = (DirectConnectClientException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>A direct connect gateway is an intermediate object that enables you to connect virtual interfaces and virtual private gateways.</p>
 newtype DirectConnectGateway = DirectConnectGateway 
-  { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
-  , "directConnectGatewayName" :: NullOrUndefined (DirectConnectGatewayName)
-  , "amazonSideAsn" :: NullOrUndefined (LongAsn)
-  , "ownerAccount" :: NullOrUndefined (OwnerAccount)
-  , "directConnectGatewayState" :: NullOrUndefined (DirectConnectGatewayState)
-  , "stateChangeError" :: NullOrUndefined (StateChangeError)
+  { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
+  , "directConnectGatewayName" :: Maybe (DirectConnectGatewayName)
+  , "amazonSideAsn" :: Maybe (LongAsn)
+  , "ownerAccount" :: Maybe (OwnerAccount)
+  , "directConnectGatewayState" :: Maybe (DirectConnectGatewayState)
+  , "stateChangeError" :: Maybe (StateChangeError)
   }
 derive instance newtypeDirectConnectGateway :: Newtype DirectConnectGateway _
 derive instance repGenericDirectConnectGateway :: Generic DirectConnectGateway _
@@ -1511,23 +1510,23 @@ instance encodeDirectConnectGateway :: Encode DirectConnectGateway where encode 
 
 -- | Constructs DirectConnectGateway from required parameters
 newDirectConnectGateway :: DirectConnectGateway
-newDirectConnectGateway  = DirectConnectGateway { "amazonSideAsn": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "directConnectGatewayName": (NullOrUndefined Nothing), "directConnectGatewayState": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "stateChangeError": (NullOrUndefined Nothing) }
+newDirectConnectGateway  = DirectConnectGateway { "amazonSideAsn": Nothing, "directConnectGatewayId": Nothing, "directConnectGatewayName": Nothing, "directConnectGatewayState": Nothing, "ownerAccount": Nothing, "stateChangeError": Nothing }
 
 -- | Constructs DirectConnectGateway's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDirectConnectGateway' :: ( { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "directConnectGatewayName" :: NullOrUndefined (DirectConnectGatewayName) , "amazonSideAsn" :: NullOrUndefined (LongAsn) , "ownerAccount" :: NullOrUndefined (OwnerAccount) , "directConnectGatewayState" :: NullOrUndefined (DirectConnectGatewayState) , "stateChangeError" :: NullOrUndefined (StateChangeError) } -> {"directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "directConnectGatewayName" :: NullOrUndefined (DirectConnectGatewayName) , "amazonSideAsn" :: NullOrUndefined (LongAsn) , "ownerAccount" :: NullOrUndefined (OwnerAccount) , "directConnectGatewayState" :: NullOrUndefined (DirectConnectGatewayState) , "stateChangeError" :: NullOrUndefined (StateChangeError) } ) -> DirectConnectGateway
-newDirectConnectGateway'  customize = (DirectConnectGateway <<< customize) { "amazonSideAsn": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "directConnectGatewayName": (NullOrUndefined Nothing), "directConnectGatewayState": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "stateChangeError": (NullOrUndefined Nothing) }
+newDirectConnectGateway' :: ( { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "directConnectGatewayName" :: Maybe (DirectConnectGatewayName) , "amazonSideAsn" :: Maybe (LongAsn) , "ownerAccount" :: Maybe (OwnerAccount) , "directConnectGatewayState" :: Maybe (DirectConnectGatewayState) , "stateChangeError" :: Maybe (StateChangeError) } -> {"directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "directConnectGatewayName" :: Maybe (DirectConnectGatewayName) , "amazonSideAsn" :: Maybe (LongAsn) , "ownerAccount" :: Maybe (OwnerAccount) , "directConnectGatewayState" :: Maybe (DirectConnectGatewayState) , "stateChangeError" :: Maybe (StateChangeError) } ) -> DirectConnectGateway
+newDirectConnectGateway'  customize = (DirectConnectGateway <<< customize) { "amazonSideAsn": Nothing, "directConnectGatewayId": Nothing, "directConnectGatewayName": Nothing, "directConnectGatewayState": Nothing, "ownerAccount": Nothing, "stateChangeError": Nothing }
 
 
 
 -- | <p>The association between a direct connect gateway and virtual private gateway.</p>
 newtype DirectConnectGatewayAssociation = DirectConnectGatewayAssociation 
-  { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
-  , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId)
-  , "virtualGatewayRegion" :: NullOrUndefined (VirtualGatewayRegion)
-  , "virtualGatewayOwnerAccount" :: NullOrUndefined (OwnerAccount)
-  , "associationState" :: NullOrUndefined (DirectConnectGatewayAssociationState)
-  , "stateChangeError" :: NullOrUndefined (StateChangeError)
+  { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
+  , "virtualGatewayId" :: Maybe (VirtualGatewayId)
+  , "virtualGatewayRegion" :: Maybe (VirtualGatewayRegion)
+  , "virtualGatewayOwnerAccount" :: Maybe (OwnerAccount)
+  , "associationState" :: Maybe (DirectConnectGatewayAssociationState)
+  , "stateChangeError" :: Maybe (StateChangeError)
   }
 derive instance newtypeDirectConnectGatewayAssociation :: Newtype DirectConnectGatewayAssociation _
 derive instance repGenericDirectConnectGatewayAssociation :: Generic DirectConnectGatewayAssociation _
@@ -1537,12 +1536,12 @@ instance encodeDirectConnectGatewayAssociation :: Encode DirectConnectGatewayAss
 
 -- | Constructs DirectConnectGatewayAssociation from required parameters
 newDirectConnectGatewayAssociation :: DirectConnectGatewayAssociation
-newDirectConnectGatewayAssociation  = DirectConnectGatewayAssociation { "associationState": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "stateChangeError": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing), "virtualGatewayOwnerAccount": (NullOrUndefined Nothing), "virtualGatewayRegion": (NullOrUndefined Nothing) }
+newDirectConnectGatewayAssociation  = DirectConnectGatewayAssociation { "associationState": Nothing, "directConnectGatewayId": Nothing, "stateChangeError": Nothing, "virtualGatewayId": Nothing, "virtualGatewayOwnerAccount": Nothing, "virtualGatewayRegion": Nothing }
 
 -- | Constructs DirectConnectGatewayAssociation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDirectConnectGatewayAssociation' :: ( { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "virtualGatewayRegion" :: NullOrUndefined (VirtualGatewayRegion) , "virtualGatewayOwnerAccount" :: NullOrUndefined (OwnerAccount) , "associationState" :: NullOrUndefined (DirectConnectGatewayAssociationState) , "stateChangeError" :: NullOrUndefined (StateChangeError) } -> {"directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "virtualGatewayRegion" :: NullOrUndefined (VirtualGatewayRegion) , "virtualGatewayOwnerAccount" :: NullOrUndefined (OwnerAccount) , "associationState" :: NullOrUndefined (DirectConnectGatewayAssociationState) , "stateChangeError" :: NullOrUndefined (StateChangeError) } ) -> DirectConnectGatewayAssociation
-newDirectConnectGatewayAssociation'  customize = (DirectConnectGatewayAssociation <<< customize) { "associationState": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "stateChangeError": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing), "virtualGatewayOwnerAccount": (NullOrUndefined Nothing), "virtualGatewayRegion": (NullOrUndefined Nothing) }
+newDirectConnectGatewayAssociation' :: ( { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "virtualGatewayRegion" :: Maybe (VirtualGatewayRegion) , "virtualGatewayOwnerAccount" :: Maybe (OwnerAccount) , "associationState" :: Maybe (DirectConnectGatewayAssociationState) , "stateChangeError" :: Maybe (StateChangeError) } -> {"directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "virtualGatewayRegion" :: Maybe (VirtualGatewayRegion) , "virtualGatewayOwnerAccount" :: Maybe (OwnerAccount) , "associationState" :: Maybe (DirectConnectGatewayAssociationState) , "stateChangeError" :: Maybe (StateChangeError) } ) -> DirectConnectGatewayAssociation
+newDirectConnectGatewayAssociation'  customize = (DirectConnectGatewayAssociation <<< customize) { "associationState": Nothing, "directConnectGatewayId": Nothing, "stateChangeError": Nothing, "virtualGatewayId": Nothing, "virtualGatewayOwnerAccount": Nothing, "virtualGatewayRegion": Nothing }
 
 
 
@@ -1568,12 +1567,12 @@ instance encodeDirectConnectGatewayAssociationState :: Encode DirectConnectGatew
 
 -- | <p>The association between a direct connect gateway and virtual interface.</p>
 newtype DirectConnectGatewayAttachment = DirectConnectGatewayAttachment 
-  { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
-  , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId)
-  , "virtualInterfaceRegion" :: NullOrUndefined (VirtualInterfaceRegion)
-  , "virtualInterfaceOwnerAccount" :: NullOrUndefined (OwnerAccount)
-  , "attachmentState" :: NullOrUndefined (DirectConnectGatewayAttachmentState)
-  , "stateChangeError" :: NullOrUndefined (StateChangeError)
+  { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
+  , "virtualInterfaceId" :: Maybe (VirtualInterfaceId)
+  , "virtualInterfaceRegion" :: Maybe (VirtualInterfaceRegion)
+  , "virtualInterfaceOwnerAccount" :: Maybe (OwnerAccount)
+  , "attachmentState" :: Maybe (DirectConnectGatewayAttachmentState)
+  , "stateChangeError" :: Maybe (StateChangeError)
   }
 derive instance newtypeDirectConnectGatewayAttachment :: Newtype DirectConnectGatewayAttachment _
 derive instance repGenericDirectConnectGatewayAttachment :: Generic DirectConnectGatewayAttachment _
@@ -1583,12 +1582,12 @@ instance encodeDirectConnectGatewayAttachment :: Encode DirectConnectGatewayAtta
 
 -- | Constructs DirectConnectGatewayAttachment from required parameters
 newDirectConnectGatewayAttachment :: DirectConnectGatewayAttachment
-newDirectConnectGatewayAttachment  = DirectConnectGatewayAttachment { "attachmentState": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "stateChangeError": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing), "virtualInterfaceOwnerAccount": (NullOrUndefined Nothing), "virtualInterfaceRegion": (NullOrUndefined Nothing) }
+newDirectConnectGatewayAttachment  = DirectConnectGatewayAttachment { "attachmentState": Nothing, "directConnectGatewayId": Nothing, "stateChangeError": Nothing, "virtualInterfaceId": Nothing, "virtualInterfaceOwnerAccount": Nothing, "virtualInterfaceRegion": Nothing }
 
 -- | Constructs DirectConnectGatewayAttachment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDirectConnectGatewayAttachment' :: ( { "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "virtualInterfaceRegion" :: NullOrUndefined (VirtualInterfaceRegion) , "virtualInterfaceOwnerAccount" :: NullOrUndefined (OwnerAccount) , "attachmentState" :: NullOrUndefined (DirectConnectGatewayAttachmentState) , "stateChangeError" :: NullOrUndefined (StateChangeError) } -> {"directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "virtualInterfaceRegion" :: NullOrUndefined (VirtualInterfaceRegion) , "virtualInterfaceOwnerAccount" :: NullOrUndefined (OwnerAccount) , "attachmentState" :: NullOrUndefined (DirectConnectGatewayAttachmentState) , "stateChangeError" :: NullOrUndefined (StateChangeError) } ) -> DirectConnectGatewayAttachment
-newDirectConnectGatewayAttachment'  customize = (DirectConnectGatewayAttachment <<< customize) { "attachmentState": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "stateChangeError": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing), "virtualInterfaceOwnerAccount": (NullOrUndefined Nothing), "virtualInterfaceRegion": (NullOrUndefined Nothing) }
+newDirectConnectGatewayAttachment' :: ( { "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "virtualInterfaceRegion" :: Maybe (VirtualInterfaceRegion) , "virtualInterfaceOwnerAccount" :: Maybe (OwnerAccount) , "attachmentState" :: Maybe (DirectConnectGatewayAttachmentState) , "stateChangeError" :: Maybe (StateChangeError) } -> {"directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "virtualInterfaceRegion" :: Maybe (VirtualInterfaceRegion) , "virtualInterfaceOwnerAccount" :: Maybe (OwnerAccount) , "attachmentState" :: Maybe (DirectConnectGatewayAttachmentState) , "stateChangeError" :: Maybe (StateChangeError) } ) -> DirectConnectGatewayAttachment
+newDirectConnectGatewayAttachment'  customize = (DirectConnectGatewayAttachment <<< customize) { "attachmentState": Nothing, "directConnectGatewayId": Nothing, "stateChangeError": Nothing, "virtualInterfaceId": Nothing, "virtualInterfaceOwnerAccount": Nothing, "virtualInterfaceRegion": Nothing }
 
 
 
@@ -1654,7 +1653,7 @@ instance encodeDirectConnectGatewayState :: Encode DirectConnectGatewayState whe
 
 -- | <p>A server-side error occurred during the API call. The error message will contain additional details about the cause.</p>
 newtype DirectConnectServerException = DirectConnectServerException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDirectConnectServerException :: Newtype DirectConnectServerException _
 derive instance repGenericDirectConnectServerException :: Generic DirectConnectServerException _
@@ -1664,12 +1663,12 @@ instance encodeDirectConnectServerException :: Encode DirectConnectServerExcepti
 
 -- | Constructs DirectConnectServerException from required parameters
 newDirectConnectServerException :: DirectConnectServerException
-newDirectConnectServerException  = DirectConnectServerException { "message": (NullOrUndefined Nothing) }
+newDirectConnectServerException  = DirectConnectServerException { "message": Nothing }
 
 -- | Constructs DirectConnectServerException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDirectConnectServerException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DirectConnectServerException
-newDirectConnectServerException'  customize = (DirectConnectServerException <<< customize) { "message": (NullOrUndefined Nothing) }
+newDirectConnectServerException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DirectConnectServerException
+newDirectConnectServerException'  customize = (DirectConnectServerException <<< customize) { "message": Nothing }
 
 
 
@@ -1716,15 +1715,15 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 -- | <p>An interconnect is a connection that can host other connections.</p> <p>Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS Direct Connect partner's network and a specific Direct Connect location. An AWS Direct Connect partner who owns an interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end customers with connectivity to AWS services.</p> <p>The resources of the interconnect, including bandwidth and VLAN numbers, are shared by all of the hosted connections on the interconnect, and the owner of the interconnect determines how these resources are assigned.</p>
 newtype Interconnect = Interconnect 
-  { "interconnectId" :: NullOrUndefined (InterconnectId)
-  , "interconnectName" :: NullOrUndefined (InterconnectName)
-  , "interconnectState" :: NullOrUndefined (InterconnectState)
-  , "region" :: NullOrUndefined (Region)
-  , "location" :: NullOrUndefined (LocationCode)
-  , "bandwidth" :: NullOrUndefined (Bandwidth)
-  , "loaIssueTime" :: NullOrUndefined (LoaIssueTime)
-  , "lagId" :: NullOrUndefined (LagId)
-  , "awsDevice" :: NullOrUndefined (AwsDevice)
+  { "interconnectId" :: Maybe (InterconnectId)
+  , "interconnectName" :: Maybe (InterconnectName)
+  , "interconnectState" :: Maybe (InterconnectState)
+  , "region" :: Maybe (Region)
+  , "location" :: Maybe (LocationCode)
+  , "bandwidth" :: Maybe (Bandwidth)
+  , "loaIssueTime" :: Maybe (LoaIssueTime)
+  , "lagId" :: Maybe (LagId)
+  , "awsDevice" :: Maybe (AwsDevice)
   }
 derive instance newtypeInterconnect :: Newtype Interconnect _
 derive instance repGenericInterconnect :: Generic Interconnect _
@@ -1734,12 +1733,12 @@ instance encodeInterconnect :: Encode Interconnect where encode = genericEncode 
 
 -- | Constructs Interconnect from required parameters
 newInterconnect :: Interconnect
-newInterconnect  = Interconnect { "awsDevice": (NullOrUndefined Nothing), "bandwidth": (NullOrUndefined Nothing), "interconnectId": (NullOrUndefined Nothing), "interconnectName": (NullOrUndefined Nothing), "interconnectState": (NullOrUndefined Nothing), "lagId": (NullOrUndefined Nothing), "loaIssueTime": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing) }
+newInterconnect  = Interconnect { "awsDevice": Nothing, "bandwidth": Nothing, "interconnectId": Nothing, "interconnectName": Nothing, "interconnectState": Nothing, "lagId": Nothing, "loaIssueTime": Nothing, "location": Nothing, "region": Nothing }
 
 -- | Constructs Interconnect's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInterconnect' :: ( { "interconnectId" :: NullOrUndefined (InterconnectId) , "interconnectName" :: NullOrUndefined (InterconnectName) , "interconnectState" :: NullOrUndefined (InterconnectState) , "region" :: NullOrUndefined (Region) , "location" :: NullOrUndefined (LocationCode) , "bandwidth" :: NullOrUndefined (Bandwidth) , "loaIssueTime" :: NullOrUndefined (LoaIssueTime) , "lagId" :: NullOrUndefined (LagId) , "awsDevice" :: NullOrUndefined (AwsDevice) } -> {"interconnectId" :: NullOrUndefined (InterconnectId) , "interconnectName" :: NullOrUndefined (InterconnectName) , "interconnectState" :: NullOrUndefined (InterconnectState) , "region" :: NullOrUndefined (Region) , "location" :: NullOrUndefined (LocationCode) , "bandwidth" :: NullOrUndefined (Bandwidth) , "loaIssueTime" :: NullOrUndefined (LoaIssueTime) , "lagId" :: NullOrUndefined (LagId) , "awsDevice" :: NullOrUndefined (AwsDevice) } ) -> Interconnect
-newInterconnect'  customize = (Interconnect <<< customize) { "awsDevice": (NullOrUndefined Nothing), "bandwidth": (NullOrUndefined Nothing), "interconnectId": (NullOrUndefined Nothing), "interconnectName": (NullOrUndefined Nothing), "interconnectState": (NullOrUndefined Nothing), "lagId": (NullOrUndefined Nothing), "loaIssueTime": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing) }
+newInterconnect' :: ( { "interconnectId" :: Maybe (InterconnectId) , "interconnectName" :: Maybe (InterconnectName) , "interconnectState" :: Maybe (InterconnectState) , "region" :: Maybe (Region) , "location" :: Maybe (LocationCode) , "bandwidth" :: Maybe (Bandwidth) , "loaIssueTime" :: Maybe (LoaIssueTime) , "lagId" :: Maybe (LagId) , "awsDevice" :: Maybe (AwsDevice) } -> {"interconnectId" :: Maybe (InterconnectId) , "interconnectName" :: Maybe (InterconnectName) , "interconnectState" :: Maybe (InterconnectState) , "region" :: Maybe (Region) , "location" :: Maybe (LocationCode) , "bandwidth" :: Maybe (Bandwidth) , "loaIssueTime" :: Maybe (LoaIssueTime) , "lagId" :: Maybe (LagId) , "awsDevice" :: Maybe (AwsDevice) } ) -> Interconnect
+newInterconnect'  customize = (Interconnect <<< customize) { "awsDevice": Nothing, "bandwidth": Nothing, "interconnectId": Nothing, "interconnectName": Nothing, "interconnectState": Nothing, "lagId": Nothing, "loaIssueTime": Nothing, "location": Nothing, "region": Nothing }
 
 
 
@@ -1785,7 +1784,7 @@ instance encodeInterconnectState :: Encode InterconnectState where encode = gene
 
 -- | <p>A structure containing a list of interconnects.</p>
 newtype Interconnects = Interconnects 
-  { "interconnects" :: NullOrUndefined (InterconnectList)
+  { "interconnects" :: Maybe (InterconnectList)
   }
 derive instance newtypeInterconnects :: Newtype Interconnects _
 derive instance repGenericInterconnects :: Generic Interconnects _
@@ -1795,29 +1794,29 @@ instance encodeInterconnects :: Encode Interconnects where encode = genericEncod
 
 -- | Constructs Interconnects from required parameters
 newInterconnects :: Interconnects
-newInterconnects  = Interconnects { "interconnects": (NullOrUndefined Nothing) }
+newInterconnects  = Interconnects { "interconnects": Nothing }
 
 -- | Constructs Interconnects's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInterconnects' :: ( { "interconnects" :: NullOrUndefined (InterconnectList) } -> {"interconnects" :: NullOrUndefined (InterconnectList) } ) -> Interconnects
-newInterconnects'  customize = (Interconnects <<< customize) { "interconnects": (NullOrUndefined Nothing) }
+newInterconnects' :: ( { "interconnects" :: Maybe (InterconnectList) } -> {"interconnects" :: Maybe (InterconnectList) } ) -> Interconnects
+newInterconnects'  customize = (Interconnects <<< customize) { "interconnects": Nothing }
 
 
 
 -- | <p>Describes a link aggregation group (LAG). A LAG is a connection that uses the Link Aggregation Control Protocol (LACP) to logically aggregate a bundle of physical connections. Like an interconnect, it can host other connections. All connections in a LAG must terminate on the same physical AWS Direct Connect endpoint, and must be the same bandwidth.</p>
 newtype Lag = Lag 
-  { "connectionsBandwidth" :: NullOrUndefined (Bandwidth)
-  , "numberOfConnections" :: NullOrUndefined (Count)
-  , "lagId" :: NullOrUndefined (LagId)
-  , "ownerAccount" :: NullOrUndefined (OwnerAccount)
-  , "lagName" :: NullOrUndefined (LagName)
-  , "lagState" :: NullOrUndefined (LagState)
-  , "location" :: NullOrUndefined (LocationCode)
-  , "region" :: NullOrUndefined (Region)
-  , "minimumLinks" :: NullOrUndefined (Count)
-  , "awsDevice" :: NullOrUndefined (AwsDevice)
-  , "connections" :: NullOrUndefined (ConnectionList)
-  , "allowsHostedConnections" :: NullOrUndefined (BooleanFlag)
+  { "connectionsBandwidth" :: Maybe (Bandwidth)
+  , "numberOfConnections" :: Maybe (Count)
+  , "lagId" :: Maybe (LagId)
+  , "ownerAccount" :: Maybe (OwnerAccount)
+  , "lagName" :: Maybe (LagName)
+  , "lagState" :: Maybe (LagState)
+  , "location" :: Maybe (LocationCode)
+  , "region" :: Maybe (Region)
+  , "minimumLinks" :: Maybe (Count)
+  , "awsDevice" :: Maybe (AwsDevice)
+  , "connections" :: Maybe (ConnectionList)
+  , "allowsHostedConnections" :: Maybe (BooleanFlag)
   }
 derive instance newtypeLag :: Newtype Lag _
 derive instance repGenericLag :: Generic Lag _
@@ -1827,12 +1826,12 @@ instance encodeLag :: Encode Lag where encode = genericEncode options
 
 -- | Constructs Lag from required parameters
 newLag :: Lag
-newLag  = Lag { "allowsHostedConnections": (NullOrUndefined Nothing), "awsDevice": (NullOrUndefined Nothing), "connections": (NullOrUndefined Nothing), "connectionsBandwidth": (NullOrUndefined Nothing), "lagId": (NullOrUndefined Nothing), "lagName": (NullOrUndefined Nothing), "lagState": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "minimumLinks": (NullOrUndefined Nothing), "numberOfConnections": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing) }
+newLag  = Lag { "allowsHostedConnections": Nothing, "awsDevice": Nothing, "connections": Nothing, "connectionsBandwidth": Nothing, "lagId": Nothing, "lagName": Nothing, "lagState": Nothing, "location": Nothing, "minimumLinks": Nothing, "numberOfConnections": Nothing, "ownerAccount": Nothing, "region": Nothing }
 
 -- | Constructs Lag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLag' :: ( { "connectionsBandwidth" :: NullOrUndefined (Bandwidth) , "numberOfConnections" :: NullOrUndefined (Count) , "lagId" :: NullOrUndefined (LagId) , "ownerAccount" :: NullOrUndefined (OwnerAccount) , "lagName" :: NullOrUndefined (LagName) , "lagState" :: NullOrUndefined (LagState) , "location" :: NullOrUndefined (LocationCode) , "region" :: NullOrUndefined (Region) , "minimumLinks" :: NullOrUndefined (Count) , "awsDevice" :: NullOrUndefined (AwsDevice) , "connections" :: NullOrUndefined (ConnectionList) , "allowsHostedConnections" :: NullOrUndefined (BooleanFlag) } -> {"connectionsBandwidth" :: NullOrUndefined (Bandwidth) , "numberOfConnections" :: NullOrUndefined (Count) , "lagId" :: NullOrUndefined (LagId) , "ownerAccount" :: NullOrUndefined (OwnerAccount) , "lagName" :: NullOrUndefined (LagName) , "lagState" :: NullOrUndefined (LagState) , "location" :: NullOrUndefined (LocationCode) , "region" :: NullOrUndefined (Region) , "minimumLinks" :: NullOrUndefined (Count) , "awsDevice" :: NullOrUndefined (AwsDevice) , "connections" :: NullOrUndefined (ConnectionList) , "allowsHostedConnections" :: NullOrUndefined (BooleanFlag) } ) -> Lag
-newLag'  customize = (Lag <<< customize) { "allowsHostedConnections": (NullOrUndefined Nothing), "awsDevice": (NullOrUndefined Nothing), "connections": (NullOrUndefined Nothing), "connectionsBandwidth": (NullOrUndefined Nothing), "lagId": (NullOrUndefined Nothing), "lagName": (NullOrUndefined Nothing), "lagState": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "minimumLinks": (NullOrUndefined Nothing), "numberOfConnections": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing) }
+newLag' :: ( { "connectionsBandwidth" :: Maybe (Bandwidth) , "numberOfConnections" :: Maybe (Count) , "lagId" :: Maybe (LagId) , "ownerAccount" :: Maybe (OwnerAccount) , "lagName" :: Maybe (LagName) , "lagState" :: Maybe (LagState) , "location" :: Maybe (LocationCode) , "region" :: Maybe (Region) , "minimumLinks" :: Maybe (Count) , "awsDevice" :: Maybe (AwsDevice) , "connections" :: Maybe (ConnectionList) , "allowsHostedConnections" :: Maybe (BooleanFlag) } -> {"connectionsBandwidth" :: Maybe (Bandwidth) , "numberOfConnections" :: Maybe (Count) , "lagId" :: Maybe (LagId) , "ownerAccount" :: Maybe (OwnerAccount) , "lagName" :: Maybe (LagName) , "lagState" :: Maybe (LagState) , "location" :: Maybe (LocationCode) , "region" :: Maybe (Region) , "minimumLinks" :: Maybe (Count) , "awsDevice" :: Maybe (AwsDevice) , "connections" :: Maybe (ConnectionList) , "allowsHostedConnections" :: Maybe (BooleanFlag) } ) -> Lag
+newLag'  customize = (Lag <<< customize) { "allowsHostedConnections": Nothing, "awsDevice": Nothing, "connections": Nothing, "connectionsBandwidth": Nothing, "lagId": Nothing, "lagName": Nothing, "lagState": Nothing, "location": Nothing, "minimumLinks": Nothing, "numberOfConnections": Nothing, "ownerAccount": Nothing, "region": Nothing }
 
 
 
@@ -1877,7 +1876,7 @@ instance encodeLagState :: Encode LagState where encode = genericEncode options
 
 -- | <p>A structure containing a list of LAGs.</p>
 newtype Lags = Lags 
-  { "lags" :: NullOrUndefined (LagList)
+  { "lags" :: Maybe (LagList)
   }
 derive instance newtypeLags :: Newtype Lags _
 derive instance repGenericLags :: Generic Lags _
@@ -1887,19 +1886,19 @@ instance encodeLags :: Encode Lags where encode = genericEncode options
 
 -- | Constructs Lags from required parameters
 newLags :: Lags
-newLags  = Lags { "lags": (NullOrUndefined Nothing) }
+newLags  = Lags { "lags": Nothing }
 
 -- | Constructs Lags's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLags' :: ( { "lags" :: NullOrUndefined (LagList) } -> {"lags" :: NullOrUndefined (LagList) } ) -> Lags
-newLags'  customize = (Lags <<< customize) { "lags": (NullOrUndefined Nothing) }
+newLags' :: ( { "lags" :: Maybe (LagList) } -> {"lags" :: Maybe (LagList) } ) -> Lags
+newLags'  customize = (Lags <<< customize) { "lags": Nothing }
 
 
 
 -- | <p>A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
 newtype Loa = Loa 
-  { "loaContent" :: NullOrUndefined (LoaContent)
-  , "loaContentType" :: NullOrUndefined (LoaContentType)
+  { "loaContent" :: Maybe (LoaContent)
+  , "loaContentType" :: Maybe (LoaContentType)
   }
 derive instance newtypeLoa :: Newtype Loa _
 derive instance repGenericLoa :: Generic Loa _
@@ -1909,12 +1908,12 @@ instance encodeLoa :: Encode Loa where encode = genericEncode options
 
 -- | Constructs Loa from required parameters
 newLoa :: Loa
-newLoa  = Loa { "loaContent": (NullOrUndefined Nothing), "loaContentType": (NullOrUndefined Nothing) }
+newLoa  = Loa { "loaContent": Nothing, "loaContentType": Nothing }
 
 -- | Constructs Loa's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLoa' :: ( { "loaContent" :: NullOrUndefined (LoaContent) , "loaContentType" :: NullOrUndefined (LoaContentType) } -> {"loaContent" :: NullOrUndefined (LoaContent) , "loaContentType" :: NullOrUndefined (LoaContentType) } ) -> Loa
-newLoa'  customize = (Loa <<< customize) { "loaContent": (NullOrUndefined Nothing), "loaContentType": (NullOrUndefined Nothing) }
+newLoa' :: ( { "loaContent" :: Maybe (LoaContent) , "loaContentType" :: Maybe (LoaContentType) } -> {"loaContent" :: Maybe (LoaContent) , "loaContentType" :: Maybe (LoaContentType) } ) -> Loa
+newLoa'  customize = (Loa <<< customize) { "loaContent": Nothing, "loaContentType": Nothing }
 
 
 
@@ -1949,8 +1948,8 @@ instance encodeLoaIssueTime :: Encode LoaIssueTime where encode = genericEncode 
 
 -- | <p>An AWS Direct Connect location where connections and interconnects can be requested.</p>
 newtype Location = Location 
-  { "locationCode" :: NullOrUndefined (LocationCode)
-  , "locationName" :: NullOrUndefined (LocationName)
+  { "locationCode" :: Maybe (LocationCode)
+  , "locationName" :: Maybe (LocationName)
   }
 derive instance newtypeLocation :: Newtype Location _
 derive instance repGenericLocation :: Generic Location _
@@ -1960,12 +1959,12 @@ instance encodeLocation :: Encode Location where encode = genericEncode options
 
 -- | Constructs Location from required parameters
 newLocation :: Location
-newLocation  = Location { "locationCode": (NullOrUndefined Nothing), "locationName": (NullOrUndefined Nothing) }
+newLocation  = Location { "locationCode": Nothing, "locationName": Nothing }
 
 -- | Constructs Location's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLocation' :: ( { "locationCode" :: NullOrUndefined (LocationCode) , "locationName" :: NullOrUndefined (LocationName) } -> {"locationCode" :: NullOrUndefined (LocationCode) , "locationName" :: NullOrUndefined (LocationName) } ) -> Location
-newLocation'  customize = (Location <<< customize) { "locationCode": (NullOrUndefined Nothing), "locationName": (NullOrUndefined Nothing) }
+newLocation' :: ( { "locationCode" :: Maybe (LocationCode) , "locationName" :: Maybe (LocationName) } -> {"locationCode" :: Maybe (LocationCode) , "locationName" :: Maybe (LocationName) } ) -> Location
+newLocation'  customize = (Location <<< customize) { "locationCode": Nothing, "locationName": Nothing }
 
 
 
@@ -1999,7 +1998,7 @@ instance encodeLocationName :: Encode LocationName where encode = genericEncode 
 
 -- | <p>A location is a network facility where AWS Direct Connect routers are available to be connected. Generally, these are colocation hubs where many network providers have equipment, and where cross connects can be delivered. Locations include a name and facility code, and must be provided when creating a connection.</p>
 newtype Locations = Locations 
-  { "locations" :: NullOrUndefined (LocationList)
+  { "locations" :: Maybe (LocationList)
   }
 derive instance newtypeLocations :: Newtype Locations _
 derive instance repGenericLocations :: Generic Locations _
@@ -2009,12 +2008,12 @@ instance encodeLocations :: Encode Locations where encode = genericEncode option
 
 -- | Constructs Locations from required parameters
 newLocations :: Locations
-newLocations  = Locations { "locations": (NullOrUndefined Nothing) }
+newLocations  = Locations { "locations": Nothing }
 
 -- | Constructs Locations's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLocations' :: ( { "locations" :: NullOrUndefined (LocationList) } -> {"locations" :: NullOrUndefined (LocationList) } ) -> Locations
-newLocations'  customize = (Locations <<< customize) { "locations": (NullOrUndefined Nothing) }
+newLocations' :: ( { "locations" :: Maybe (LocationList) } -> {"locations" :: Maybe (LocationList) } ) -> Locations
+newLocations'  customize = (Locations <<< customize) { "locations": Nothing }
 
 
 
@@ -2039,11 +2038,11 @@ instance encodeMaxResultSetSize :: Encode MaxResultSetSize where encode = generi
 
 -- | <p>A structure containing information about a new BGP peer.</p>
 newtype NewBGPPeer = NewBGPPeer 
-  { "asn" :: NullOrUndefined (ASN)
-  , "authKey" :: NullOrUndefined (BGPAuthKey)
-  , "addressFamily" :: NullOrUndefined (AddressFamily)
-  , "amazonAddress" :: NullOrUndefined (AmazonAddress)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
+  { "asn" :: Maybe (ASN)
+  , "authKey" :: Maybe (BGPAuthKey)
+  , "addressFamily" :: Maybe (AddressFamily)
+  , "amazonAddress" :: Maybe (AmazonAddress)
+  , "customerAddress" :: Maybe (CustomerAddress)
   }
 derive instance newtypeNewBGPPeer :: Newtype NewBGPPeer _
 derive instance repGenericNewBGPPeer :: Generic NewBGPPeer _
@@ -2053,12 +2052,12 @@ instance encodeNewBGPPeer :: Encode NewBGPPeer where encode = genericEncode opti
 
 -- | Constructs NewBGPPeer from required parameters
 newNewBGPPeer :: NewBGPPeer
-newNewBGPPeer  = NewBGPPeer { "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "asn": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing) }
+newNewBGPPeer  = NewBGPPeer { "addressFamily": Nothing, "amazonAddress": Nothing, "asn": Nothing, "authKey": Nothing, "customerAddress": Nothing }
 
 -- | Constructs NewBGPPeer's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNewBGPPeer' :: ( { "asn" :: NullOrUndefined (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "addressFamily" :: NullOrUndefined (AddressFamily) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) } -> {"asn" :: NullOrUndefined (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "addressFamily" :: NullOrUndefined (AddressFamily) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) } ) -> NewBGPPeer
-newNewBGPPeer'  customize = (NewBGPPeer <<< customize) { "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "asn": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing) }
+newNewBGPPeer' :: ( { "asn" :: Maybe (ASN) , "authKey" :: Maybe (BGPAuthKey) , "addressFamily" :: Maybe (AddressFamily) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) } -> {"asn" :: Maybe (ASN) , "authKey" :: Maybe (BGPAuthKey) , "addressFamily" :: Maybe (AddressFamily) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) } ) -> NewBGPPeer
+newNewBGPPeer'  customize = (NewBGPPeer <<< customize) { "addressFamily": Nothing, "amazonAddress": Nothing, "asn": Nothing, "authKey": Nothing, "customerAddress": Nothing }
 
 
 
@@ -2067,12 +2066,12 @@ newtype NewPrivateVirtualInterface = NewPrivateVirtualInterface
   { "virtualInterfaceName" :: (VirtualInterfaceName)
   , "vlan" :: (VLAN)
   , "asn" :: (ASN)
-  , "authKey" :: NullOrUndefined (BGPAuthKey)
-  , "amazonAddress" :: NullOrUndefined (AmazonAddress)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
-  , "addressFamily" :: NullOrUndefined (AddressFamily)
-  , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId)
-  , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
+  , "authKey" :: Maybe (BGPAuthKey)
+  , "amazonAddress" :: Maybe (AmazonAddress)
+  , "customerAddress" :: Maybe (CustomerAddress)
+  , "addressFamily" :: Maybe (AddressFamily)
+  , "virtualGatewayId" :: Maybe (VirtualGatewayId)
+  , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
   }
 derive instance newtypeNewPrivateVirtualInterface :: Newtype NewPrivateVirtualInterface _
 derive instance repGenericNewPrivateVirtualInterface :: Generic NewPrivateVirtualInterface _
@@ -2082,12 +2081,12 @@ instance encodeNewPrivateVirtualInterface :: Encode NewPrivateVirtualInterface w
 
 -- | Constructs NewPrivateVirtualInterface from required parameters
 newNewPrivateVirtualInterface :: ASN -> VirtualInterfaceName -> VLAN -> NewPrivateVirtualInterface
-newNewPrivateVirtualInterface _asn _virtualInterfaceName _vlan = NewPrivateVirtualInterface { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing) }
+newNewPrivateVirtualInterface _asn _virtualInterfaceName _vlan = NewPrivateVirtualInterface { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing, "directConnectGatewayId": Nothing, "virtualGatewayId": Nothing }
 
 -- | Constructs NewPrivateVirtualInterface's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNewPrivateVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) } ) -> NewPrivateVirtualInterface
-newNewPrivateVirtualInterface' _asn _virtualInterfaceName _vlan customize = (NewPrivateVirtualInterface <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing) }
+newNewPrivateVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) } ) -> NewPrivateVirtualInterface
+newNewPrivateVirtualInterface' _asn _virtualInterfaceName _vlan customize = (NewPrivateVirtualInterface <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing, "directConnectGatewayId": Nothing, "virtualGatewayId": Nothing }
 
 
 
@@ -2096,10 +2095,10 @@ newtype NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocat
   { "virtualInterfaceName" :: (VirtualInterfaceName)
   , "vlan" :: (VLAN)
   , "asn" :: (ASN)
-  , "authKey" :: NullOrUndefined (BGPAuthKey)
-  , "amazonAddress" :: NullOrUndefined (AmazonAddress)
-  , "addressFamily" :: NullOrUndefined (AddressFamily)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
+  , "authKey" :: Maybe (BGPAuthKey)
+  , "amazonAddress" :: Maybe (AmazonAddress)
+  , "addressFamily" :: Maybe (AddressFamily)
+  , "customerAddress" :: Maybe (CustomerAddress)
   }
 derive instance newtypeNewPrivateVirtualInterfaceAllocation :: Newtype NewPrivateVirtualInterfaceAllocation _
 derive instance repGenericNewPrivateVirtualInterfaceAllocation :: Generic NewPrivateVirtualInterfaceAllocation _
@@ -2109,12 +2108,12 @@ instance encodeNewPrivateVirtualInterfaceAllocation :: Encode NewPrivateVirtualI
 
 -- | Constructs NewPrivateVirtualInterfaceAllocation from required parameters
 newNewPrivateVirtualInterfaceAllocation :: ASN -> VirtualInterfaceName -> VLAN -> NewPrivateVirtualInterfaceAllocation
-newNewPrivateVirtualInterfaceAllocation _asn _virtualInterfaceName _vlan = NewPrivateVirtualInterfaceAllocation { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing) }
+newNewPrivateVirtualInterfaceAllocation _asn _virtualInterfaceName _vlan = NewPrivateVirtualInterfaceAllocation { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing }
 
 -- | Constructs NewPrivateVirtualInterfaceAllocation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNewPrivateVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "customerAddress" :: NullOrUndefined (CustomerAddress) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "customerAddress" :: NullOrUndefined (CustomerAddress) } ) -> NewPrivateVirtualInterfaceAllocation
-newNewPrivateVirtualInterfaceAllocation' _asn _virtualInterfaceName _vlan customize = (NewPrivateVirtualInterfaceAllocation <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing) }
+newNewPrivateVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "addressFamily" :: Maybe (AddressFamily) , "customerAddress" :: Maybe (CustomerAddress) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "addressFamily" :: Maybe (AddressFamily) , "customerAddress" :: Maybe (CustomerAddress) } ) -> NewPrivateVirtualInterfaceAllocation
+newNewPrivateVirtualInterfaceAllocation' _asn _virtualInterfaceName _vlan customize = (NewPrivateVirtualInterfaceAllocation <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing }
 
 
 
@@ -2123,11 +2122,11 @@ newtype NewPublicVirtualInterface = NewPublicVirtualInterface
   { "virtualInterfaceName" :: (VirtualInterfaceName)
   , "vlan" :: (VLAN)
   , "asn" :: (ASN)
-  , "authKey" :: NullOrUndefined (BGPAuthKey)
-  , "amazonAddress" :: NullOrUndefined (AmazonAddress)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
-  , "addressFamily" :: NullOrUndefined (AddressFamily)
-  , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList)
+  , "authKey" :: Maybe (BGPAuthKey)
+  , "amazonAddress" :: Maybe (AmazonAddress)
+  , "customerAddress" :: Maybe (CustomerAddress)
+  , "addressFamily" :: Maybe (AddressFamily)
+  , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList)
   }
 derive instance newtypeNewPublicVirtualInterface :: Newtype NewPublicVirtualInterface _
 derive instance repGenericNewPublicVirtualInterface :: Generic NewPublicVirtualInterface _
@@ -2137,12 +2136,12 @@ instance encodeNewPublicVirtualInterface :: Encode NewPublicVirtualInterface whe
 
 -- | Constructs NewPublicVirtualInterface from required parameters
 newNewPublicVirtualInterface :: ASN -> VirtualInterfaceName -> VLAN -> NewPublicVirtualInterface
-newNewPublicVirtualInterface _asn _virtualInterfaceName _vlan = NewPublicVirtualInterface { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "routeFilterPrefixes": (NullOrUndefined Nothing) }
+newNewPublicVirtualInterface _asn _virtualInterfaceName _vlan = NewPublicVirtualInterface { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing, "routeFilterPrefixes": Nothing }
 
 -- | Constructs NewPublicVirtualInterface's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNewPublicVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList) } ) -> NewPublicVirtualInterface
-newNewPublicVirtualInterface' _asn _virtualInterfaceName _vlan customize = (NewPublicVirtualInterface <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "routeFilterPrefixes": (NullOrUndefined Nothing) }
+newNewPublicVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList) } ) -> NewPublicVirtualInterface
+newNewPublicVirtualInterface' _asn _virtualInterfaceName _vlan customize = (NewPublicVirtualInterface <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing, "routeFilterPrefixes": Nothing }
 
 
 
@@ -2151,11 +2150,11 @@ newtype NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocatio
   { "virtualInterfaceName" :: (VirtualInterfaceName)
   , "vlan" :: (VLAN)
   , "asn" :: (ASN)
-  , "authKey" :: NullOrUndefined (BGPAuthKey)
-  , "amazonAddress" :: NullOrUndefined (AmazonAddress)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
-  , "addressFamily" :: NullOrUndefined (AddressFamily)
-  , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList)
+  , "authKey" :: Maybe (BGPAuthKey)
+  , "amazonAddress" :: Maybe (AmazonAddress)
+  , "customerAddress" :: Maybe (CustomerAddress)
+  , "addressFamily" :: Maybe (AddressFamily)
+  , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList)
   }
 derive instance newtypeNewPublicVirtualInterfaceAllocation :: Newtype NewPublicVirtualInterfaceAllocation _
 derive instance repGenericNewPublicVirtualInterfaceAllocation :: Generic NewPublicVirtualInterfaceAllocation _
@@ -2165,12 +2164,12 @@ instance encodeNewPublicVirtualInterfaceAllocation :: Encode NewPublicVirtualInt
 
 -- | Constructs NewPublicVirtualInterfaceAllocation from required parameters
 newNewPublicVirtualInterfaceAllocation :: ASN -> VirtualInterfaceName -> VLAN -> NewPublicVirtualInterfaceAllocation
-newNewPublicVirtualInterfaceAllocation _asn _virtualInterfaceName _vlan = NewPublicVirtualInterfaceAllocation { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "routeFilterPrefixes": (NullOrUndefined Nothing) }
+newNewPublicVirtualInterfaceAllocation _asn _virtualInterfaceName _vlan = NewPublicVirtualInterfaceAllocation { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing, "routeFilterPrefixes": Nothing }
 
 -- | Constructs NewPublicVirtualInterfaceAllocation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNewPublicVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList) } ) -> NewPublicVirtualInterfaceAllocation
-newNewPublicVirtualInterfaceAllocation' _asn _virtualInterfaceName _vlan customize = (NewPublicVirtualInterfaceAllocation <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "routeFilterPrefixes": (NullOrUndefined Nothing) }
+newNewPublicVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ( { "virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList) } -> {"virtualInterfaceName" :: (VirtualInterfaceName) , "vlan" :: (VLAN) , "asn" :: (ASN) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList) } ) -> NewPublicVirtualInterfaceAllocation
+newNewPublicVirtualInterfaceAllocation' _asn _virtualInterfaceName _vlan customize = (NewPublicVirtualInterfaceAllocation <<< customize) { "asn": _asn, "virtualInterfaceName": _virtualInterfaceName, "vlan": _vlan, "addressFamily": Nothing, "amazonAddress": Nothing, "authKey": Nothing, "customerAddress": Nothing, "routeFilterPrefixes": Nothing }
 
 
 
@@ -2241,8 +2240,8 @@ instance encodeResourceArnList :: Encode ResourceArnList where encode = genericE
 
 -- | <p>The tags associated with a Direct Connect resource.</p>
 newtype ResourceTag = ResourceTag 
-  { "resourceArn" :: NullOrUndefined (ResourceArn)
-  , "tags" :: NullOrUndefined (TagList)
+  { "resourceArn" :: Maybe (ResourceArn)
+  , "tags" :: Maybe (TagList)
   }
 derive instance newtypeResourceTag :: Newtype ResourceTag _
 derive instance repGenericResourceTag :: Generic ResourceTag _
@@ -2252,12 +2251,12 @@ instance encodeResourceTag :: Encode ResourceTag where encode = genericEncode op
 
 -- | Constructs ResourceTag from required parameters
 newResourceTag :: ResourceTag
-newResourceTag  = ResourceTag { "resourceArn": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newResourceTag  = ResourceTag { "resourceArn": Nothing, "tags": Nothing }
 
 -- | Constructs ResourceTag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceTag' :: ( { "resourceArn" :: NullOrUndefined (ResourceArn) , "tags" :: NullOrUndefined (TagList) } -> {"resourceArn" :: NullOrUndefined (ResourceArn) , "tags" :: NullOrUndefined (TagList) } ) -> ResourceTag
-newResourceTag'  customize = (ResourceTag <<< customize) { "resourceArn": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newResourceTag' :: ( { "resourceArn" :: Maybe (ResourceArn) , "tags" :: Maybe (TagList) } -> {"resourceArn" :: Maybe (ResourceArn) , "tags" :: Maybe (TagList) } ) -> ResourceTag
+newResourceTag'  customize = (ResourceTag <<< customize) { "resourceArn": Nothing, "tags": Nothing }
 
 
 
@@ -2272,7 +2271,7 @@ instance encodeResourceTagList :: Encode ResourceTagList where encode = genericE
 
 -- | <p>A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.</p>
 newtype RouteFilterPrefix = RouteFilterPrefix 
-  { "cidr" :: NullOrUndefined (CIDR)
+  { "cidr" :: Maybe (CIDR)
   }
 derive instance newtypeRouteFilterPrefix :: Newtype RouteFilterPrefix _
 derive instance repGenericRouteFilterPrefix :: Generic RouteFilterPrefix _
@@ -2282,12 +2281,12 @@ instance encodeRouteFilterPrefix :: Encode RouteFilterPrefix where encode = gene
 
 -- | Constructs RouteFilterPrefix from required parameters
 newRouteFilterPrefix :: RouteFilterPrefix
-newRouteFilterPrefix  = RouteFilterPrefix { "cidr": (NullOrUndefined Nothing) }
+newRouteFilterPrefix  = RouteFilterPrefix { "cidr": Nothing }
 
 -- | Constructs RouteFilterPrefix's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRouteFilterPrefix' :: ( { "cidr" :: NullOrUndefined (CIDR) } -> {"cidr" :: NullOrUndefined (CIDR) } ) -> RouteFilterPrefix
-newRouteFilterPrefix'  customize = (RouteFilterPrefix <<< customize) { "cidr": (NullOrUndefined Nothing) }
+newRouteFilterPrefix' :: ( { "cidr" :: Maybe (CIDR) } -> {"cidr" :: Maybe (CIDR) } ) -> RouteFilterPrefix
+newRouteFilterPrefix'  customize = (RouteFilterPrefix <<< customize) { "cidr": Nothing }
 
 
 
@@ -2323,7 +2322,7 @@ instance encodeStateChangeError :: Encode StateChangeError where encode = generi
 -- | <p>Information about a tag.</p>
 newtype Tag = Tag 
   { "key" :: (TagKey)
-  , "value" :: NullOrUndefined (TagValue)
+  , "value" :: Maybe (TagValue)
   }
 derive instance newtypeTag :: Newtype Tag _
 derive instance repGenericTag :: Generic Tag _
@@ -2333,12 +2332,12 @@ instance encodeTag :: Encode Tag where encode = genericEncode options
 
 -- | Constructs Tag from required parameters
 newTag :: TagKey -> Tag
-newTag _key = Tag { "key": _key, "value": (NullOrUndefined Nothing) }
+newTag _key = Tag { "key": _key, "value": Nothing }
 
 -- | Constructs Tag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTag' :: TagKey -> ( { "key" :: (TagKey) , "value" :: NullOrUndefined (TagValue) } -> {"key" :: (TagKey) , "value" :: NullOrUndefined (TagValue) } ) -> Tag
-newTag' _key customize = (Tag <<< customize) { "key": _key, "value": (NullOrUndefined Nothing) }
+newTag' :: TagKey -> ( { "key" :: (TagKey) , "value" :: Maybe (TagValue) } -> {"key" :: (TagKey) , "value" :: Maybe (TagValue) } ) -> Tag
+newTag' _key customize = (Tag <<< customize) { "key": _key, "value": Nothing }
 
 
 
@@ -2455,8 +2454,8 @@ instance encodeUntagResourceResponse :: Encode UntagResourceResponse where encod
 -- | <p>Container for the parameters to the UpdateLag operation.</p>
 newtype UpdateLagRequest = UpdateLagRequest 
   { "lagId" :: (LagId)
-  , "lagName" :: NullOrUndefined (LagName)
-  , "minimumLinks" :: NullOrUndefined (Count)
+  , "lagName" :: Maybe (LagName)
+  , "minimumLinks" :: Maybe (Count)
   }
 derive instance newtypeUpdateLagRequest :: Newtype UpdateLagRequest _
 derive instance repGenericUpdateLagRequest :: Generic UpdateLagRequest _
@@ -2466,12 +2465,12 @@ instance encodeUpdateLagRequest :: Encode UpdateLagRequest where encode = generi
 
 -- | Constructs UpdateLagRequest from required parameters
 newUpdateLagRequest :: LagId -> UpdateLagRequest
-newUpdateLagRequest _lagId = UpdateLagRequest { "lagId": _lagId, "lagName": (NullOrUndefined Nothing), "minimumLinks": (NullOrUndefined Nothing) }
+newUpdateLagRequest _lagId = UpdateLagRequest { "lagId": _lagId, "lagName": Nothing, "minimumLinks": Nothing }
 
 -- | Constructs UpdateLagRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateLagRequest' :: LagId -> ( { "lagId" :: (LagId) , "lagName" :: NullOrUndefined (LagName) , "minimumLinks" :: NullOrUndefined (Count) } -> {"lagId" :: (LagId) , "lagName" :: NullOrUndefined (LagName) , "minimumLinks" :: NullOrUndefined (Count) } ) -> UpdateLagRequest
-newUpdateLagRequest' _lagId customize = (UpdateLagRequest <<< customize) { "lagId": _lagId, "lagName": (NullOrUndefined Nothing), "minimumLinks": (NullOrUndefined Nothing) }
+newUpdateLagRequest' :: LagId -> ( { "lagId" :: (LagId) , "lagName" :: Maybe (LagName) , "minimumLinks" :: Maybe (Count) } -> {"lagId" :: (LagId) , "lagName" :: Maybe (LagName) , "minimumLinks" :: Maybe (Count) } ) -> UpdateLagRequest
+newUpdateLagRequest' _lagId customize = (UpdateLagRequest <<< customize) { "lagId": _lagId, "lagName": Nothing, "minimumLinks": Nothing }
 
 
 
@@ -2487,8 +2486,8 @@ instance encodeVLAN :: Encode VLAN where encode = genericEncode options
 
 -- | <p>You can create one or more AWS Direct Connect private virtual interfaces linking to your virtual private gateway.</p> <p>Virtual private gateways can be managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">Amazon EC2 CreateVpnGateway action</a>.</p>
 newtype VirtualGateway = VirtualGateway 
-  { "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId)
-  , "virtualGatewayState" :: NullOrUndefined (VirtualGatewayState)
+  { "virtualGatewayId" :: Maybe (VirtualGatewayId)
+  , "virtualGatewayState" :: Maybe (VirtualGatewayState)
   }
 derive instance newtypeVirtualGateway :: Newtype VirtualGateway _
 derive instance repGenericVirtualGateway :: Generic VirtualGateway _
@@ -2498,12 +2497,12 @@ instance encodeVirtualGateway :: Encode VirtualGateway where encode = genericEnc
 
 -- | Constructs VirtualGateway from required parameters
 newVirtualGateway :: VirtualGateway
-newVirtualGateway  = VirtualGateway { "virtualGatewayId": (NullOrUndefined Nothing), "virtualGatewayState": (NullOrUndefined Nothing) }
+newVirtualGateway  = VirtualGateway { "virtualGatewayId": Nothing, "virtualGatewayState": Nothing }
 
 -- | Constructs VirtualGateway's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVirtualGateway' :: ( { "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "virtualGatewayState" :: NullOrUndefined (VirtualGatewayState) } -> {"virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "virtualGatewayState" :: NullOrUndefined (VirtualGatewayState) } ) -> VirtualGateway
-newVirtualGateway'  customize = (VirtualGateway <<< customize) { "virtualGatewayId": (NullOrUndefined Nothing), "virtualGatewayState": (NullOrUndefined Nothing) }
+newVirtualGateway' :: ( { "virtualGatewayId" :: Maybe (VirtualGatewayId) , "virtualGatewayState" :: Maybe (VirtualGatewayState) } -> {"virtualGatewayId" :: Maybe (VirtualGatewayId) , "virtualGatewayState" :: Maybe (VirtualGatewayState) } ) -> VirtualGateway
+newVirtualGateway'  customize = (VirtualGateway <<< customize) { "virtualGatewayId": Nothing, "virtualGatewayState": Nothing }
 
 
 
@@ -2549,7 +2548,7 @@ instance encodeVirtualGatewayState :: Encode VirtualGatewayState where encode = 
 
 -- | <p>A structure containing a list of virtual private gateways.</p>
 newtype VirtualGateways = VirtualGateways 
-  { "virtualGateways" :: NullOrUndefined (VirtualGatewayList)
+  { "virtualGateways" :: Maybe (VirtualGatewayList)
   }
 derive instance newtypeVirtualGateways :: Newtype VirtualGateways _
 derive instance repGenericVirtualGateways :: Generic VirtualGateways _
@@ -2559,36 +2558,36 @@ instance encodeVirtualGateways :: Encode VirtualGateways where encode = genericE
 
 -- | Constructs VirtualGateways from required parameters
 newVirtualGateways :: VirtualGateways
-newVirtualGateways  = VirtualGateways { "virtualGateways": (NullOrUndefined Nothing) }
+newVirtualGateways  = VirtualGateways { "virtualGateways": Nothing }
 
 -- | Constructs VirtualGateways's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVirtualGateways' :: ( { "virtualGateways" :: NullOrUndefined (VirtualGatewayList) } -> {"virtualGateways" :: NullOrUndefined (VirtualGatewayList) } ) -> VirtualGateways
-newVirtualGateways'  customize = (VirtualGateways <<< customize) { "virtualGateways": (NullOrUndefined Nothing) }
+newVirtualGateways' :: ( { "virtualGateways" :: Maybe (VirtualGatewayList) } -> {"virtualGateways" :: Maybe (VirtualGatewayList) } ) -> VirtualGateways
+newVirtualGateways'  customize = (VirtualGateways <<< customize) { "virtualGateways": Nothing }
 
 
 
 -- | <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.</p>
 newtype VirtualInterface = VirtualInterface 
-  { "ownerAccount" :: NullOrUndefined (OwnerAccount)
-  , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId)
-  , "location" :: NullOrUndefined (LocationCode)
-  , "connectionId" :: NullOrUndefined (ConnectionId)
-  , "virtualInterfaceType" :: NullOrUndefined (VirtualInterfaceType)
-  , "virtualInterfaceName" :: NullOrUndefined (VirtualInterfaceName)
-  , "vlan" :: NullOrUndefined (VLAN)
-  , "asn" :: NullOrUndefined (ASN)
-  , "amazonSideAsn" :: NullOrUndefined (LongAsn)
-  , "authKey" :: NullOrUndefined (BGPAuthKey)
-  , "amazonAddress" :: NullOrUndefined (AmazonAddress)
-  , "customerAddress" :: NullOrUndefined (CustomerAddress)
-  , "addressFamily" :: NullOrUndefined (AddressFamily)
-  , "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState)
-  , "customerRouterConfig" :: NullOrUndefined (RouterConfig)
-  , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId)
-  , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId)
-  , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList)
-  , "bgpPeers" :: NullOrUndefined (BGPPeerList)
+  { "ownerAccount" :: Maybe (OwnerAccount)
+  , "virtualInterfaceId" :: Maybe (VirtualInterfaceId)
+  , "location" :: Maybe (LocationCode)
+  , "connectionId" :: Maybe (ConnectionId)
+  , "virtualInterfaceType" :: Maybe (VirtualInterfaceType)
+  , "virtualInterfaceName" :: Maybe (VirtualInterfaceName)
+  , "vlan" :: Maybe (VLAN)
+  , "asn" :: Maybe (ASN)
+  , "amazonSideAsn" :: Maybe (LongAsn)
+  , "authKey" :: Maybe (BGPAuthKey)
+  , "amazonAddress" :: Maybe (AmazonAddress)
+  , "customerAddress" :: Maybe (CustomerAddress)
+  , "addressFamily" :: Maybe (AddressFamily)
+  , "virtualInterfaceState" :: Maybe (VirtualInterfaceState)
+  , "customerRouterConfig" :: Maybe (RouterConfig)
+  , "virtualGatewayId" :: Maybe (VirtualGatewayId)
+  , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId)
+  , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList)
+  , "bgpPeers" :: Maybe (BGPPeerList)
   }
 derive instance newtypeVirtualInterface :: Newtype VirtualInterface _
 derive instance repGenericVirtualInterface :: Generic VirtualInterface _
@@ -2598,12 +2597,12 @@ instance encodeVirtualInterface :: Encode VirtualInterface where encode = generi
 
 -- | Constructs VirtualInterface from required parameters
 newVirtualInterface :: VirtualInterface
-newVirtualInterface  = VirtualInterface { "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "amazonSideAsn": (NullOrUndefined Nothing), "asn": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "bgpPeers": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "customerRouterConfig": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "routeFilterPrefixes": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing), "virtualInterfaceName": (NullOrUndefined Nothing), "virtualInterfaceState": (NullOrUndefined Nothing), "virtualInterfaceType": (NullOrUndefined Nothing), "vlan": (NullOrUndefined Nothing) }
+newVirtualInterface  = VirtualInterface { "addressFamily": Nothing, "amazonAddress": Nothing, "amazonSideAsn": Nothing, "asn": Nothing, "authKey": Nothing, "bgpPeers": Nothing, "connectionId": Nothing, "customerAddress": Nothing, "customerRouterConfig": Nothing, "directConnectGatewayId": Nothing, "location": Nothing, "ownerAccount": Nothing, "routeFilterPrefixes": Nothing, "virtualGatewayId": Nothing, "virtualInterfaceId": Nothing, "virtualInterfaceName": Nothing, "virtualInterfaceState": Nothing, "virtualInterfaceType": Nothing, "vlan": Nothing }
 
 -- | Constructs VirtualInterface's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVirtualInterface' :: ( { "ownerAccount" :: NullOrUndefined (OwnerAccount) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "location" :: NullOrUndefined (LocationCode) , "connectionId" :: NullOrUndefined (ConnectionId) , "virtualInterfaceType" :: NullOrUndefined (VirtualInterfaceType) , "virtualInterfaceName" :: NullOrUndefined (VirtualInterfaceName) , "vlan" :: NullOrUndefined (VLAN) , "asn" :: NullOrUndefined (ASN) , "amazonSideAsn" :: NullOrUndefined (LongAsn) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) , "customerRouterConfig" :: NullOrUndefined (RouterConfig) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList) , "bgpPeers" :: NullOrUndefined (BGPPeerList) } -> {"ownerAccount" :: NullOrUndefined (OwnerAccount) , "virtualInterfaceId" :: NullOrUndefined (VirtualInterfaceId) , "location" :: NullOrUndefined (LocationCode) , "connectionId" :: NullOrUndefined (ConnectionId) , "virtualInterfaceType" :: NullOrUndefined (VirtualInterfaceType) , "virtualInterfaceName" :: NullOrUndefined (VirtualInterfaceName) , "vlan" :: NullOrUndefined (VLAN) , "asn" :: NullOrUndefined (ASN) , "amazonSideAsn" :: NullOrUndefined (LongAsn) , "authKey" :: NullOrUndefined (BGPAuthKey) , "amazonAddress" :: NullOrUndefined (AmazonAddress) , "customerAddress" :: NullOrUndefined (CustomerAddress) , "addressFamily" :: NullOrUndefined (AddressFamily) , "virtualInterfaceState" :: NullOrUndefined (VirtualInterfaceState) , "customerRouterConfig" :: NullOrUndefined (RouterConfig) , "virtualGatewayId" :: NullOrUndefined (VirtualGatewayId) , "directConnectGatewayId" :: NullOrUndefined (DirectConnectGatewayId) , "routeFilterPrefixes" :: NullOrUndefined (RouteFilterPrefixList) , "bgpPeers" :: NullOrUndefined (BGPPeerList) } ) -> VirtualInterface
-newVirtualInterface'  customize = (VirtualInterface <<< customize) { "addressFamily": (NullOrUndefined Nothing), "amazonAddress": (NullOrUndefined Nothing), "amazonSideAsn": (NullOrUndefined Nothing), "asn": (NullOrUndefined Nothing), "authKey": (NullOrUndefined Nothing), "bgpPeers": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "customerAddress": (NullOrUndefined Nothing), "customerRouterConfig": (NullOrUndefined Nothing), "directConnectGatewayId": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "ownerAccount": (NullOrUndefined Nothing), "routeFilterPrefixes": (NullOrUndefined Nothing), "virtualGatewayId": (NullOrUndefined Nothing), "virtualInterfaceId": (NullOrUndefined Nothing), "virtualInterfaceName": (NullOrUndefined Nothing), "virtualInterfaceState": (NullOrUndefined Nothing), "virtualInterfaceType": (NullOrUndefined Nothing), "vlan": (NullOrUndefined Nothing) }
+newVirtualInterface' :: ( { "ownerAccount" :: Maybe (OwnerAccount) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "location" :: Maybe (LocationCode) , "connectionId" :: Maybe (ConnectionId) , "virtualInterfaceType" :: Maybe (VirtualInterfaceType) , "virtualInterfaceName" :: Maybe (VirtualInterfaceName) , "vlan" :: Maybe (VLAN) , "asn" :: Maybe (ASN) , "amazonSideAsn" :: Maybe (LongAsn) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "virtualInterfaceState" :: Maybe (VirtualInterfaceState) , "customerRouterConfig" :: Maybe (RouterConfig) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList) , "bgpPeers" :: Maybe (BGPPeerList) } -> {"ownerAccount" :: Maybe (OwnerAccount) , "virtualInterfaceId" :: Maybe (VirtualInterfaceId) , "location" :: Maybe (LocationCode) , "connectionId" :: Maybe (ConnectionId) , "virtualInterfaceType" :: Maybe (VirtualInterfaceType) , "virtualInterfaceName" :: Maybe (VirtualInterfaceName) , "vlan" :: Maybe (VLAN) , "asn" :: Maybe (ASN) , "amazonSideAsn" :: Maybe (LongAsn) , "authKey" :: Maybe (BGPAuthKey) , "amazonAddress" :: Maybe (AmazonAddress) , "customerAddress" :: Maybe (CustomerAddress) , "addressFamily" :: Maybe (AddressFamily) , "virtualInterfaceState" :: Maybe (VirtualInterfaceState) , "customerRouterConfig" :: Maybe (RouterConfig) , "virtualGatewayId" :: Maybe (VirtualGatewayId) , "directConnectGatewayId" :: Maybe (DirectConnectGatewayId) , "routeFilterPrefixes" :: Maybe (RouteFilterPrefixList) , "bgpPeers" :: Maybe (BGPPeerList) } ) -> VirtualInterface
+newVirtualInterface'  customize = (VirtualInterface <<< customize) { "addressFamily": Nothing, "amazonAddress": Nothing, "amazonSideAsn": Nothing, "asn": Nothing, "authKey": Nothing, "bgpPeers": Nothing, "connectionId": Nothing, "customerAddress": Nothing, "customerRouterConfig": Nothing, "directConnectGatewayId": Nothing, "location": Nothing, "ownerAccount": Nothing, "routeFilterPrefixes": Nothing, "virtualGatewayId": Nothing, "virtualInterfaceId": Nothing, "virtualInterfaceName": Nothing, "virtualInterfaceState": Nothing, "virtualInterfaceType": Nothing, "vlan": Nothing }
 
 
 
@@ -2669,7 +2668,7 @@ instance encodeVirtualInterfaceType :: Encode VirtualInterfaceType where encode 
 
 -- | <p>A structure containing a list of virtual interfaces.</p>
 newtype VirtualInterfaces = VirtualInterfaces 
-  { "virtualInterfaces" :: NullOrUndefined (VirtualInterfaceList)
+  { "virtualInterfaces" :: Maybe (VirtualInterfaceList)
   }
 derive instance newtypeVirtualInterfaces :: Newtype VirtualInterfaces _
 derive instance repGenericVirtualInterfaces :: Generic VirtualInterfaces _
@@ -2679,10 +2678,10 @@ instance encodeVirtualInterfaces :: Encode VirtualInterfaces where encode = gene
 
 -- | Constructs VirtualInterfaces from required parameters
 newVirtualInterfaces :: VirtualInterfaces
-newVirtualInterfaces  = VirtualInterfaces { "virtualInterfaces": (NullOrUndefined Nothing) }
+newVirtualInterfaces  = VirtualInterfaces { "virtualInterfaces": Nothing }
 
 -- | Constructs VirtualInterfaces's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVirtualInterfaces' :: ( { "virtualInterfaces" :: NullOrUndefined (VirtualInterfaceList) } -> {"virtualInterfaces" :: NullOrUndefined (VirtualInterfaceList) } ) -> VirtualInterfaces
-newVirtualInterfaces'  customize = (VirtualInterfaces <<< customize) { "virtualInterfaces": (NullOrUndefined Nothing) }
+newVirtualInterfaces' :: ( { "virtualInterfaces" :: Maybe (VirtualInterfaceList) } -> {"virtualInterfaces" :: Maybe (VirtualInterfaceList) } ) -> VirtualInterfaces
+newVirtualInterfaces'  customize = (VirtualInterfaces <<< customize) { "virtualInterfaces": Nothing }
 

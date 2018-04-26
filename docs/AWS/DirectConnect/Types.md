@@ -338,7 +338,7 @@ Encode BGPAuthKey
 
 ``` purescript
 newtype BGPPeer
-  = BGPPeer { asn :: NullOrUndefined (ASN), authKey :: NullOrUndefined (BGPAuthKey), addressFamily :: NullOrUndefined (AddressFamily), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), bgpPeerState :: NullOrUndefined (BGPPeerState), bgpStatus :: NullOrUndefined (BGPStatus) }
+  = BGPPeer { asn :: Maybe (ASN), authKey :: Maybe (BGPAuthKey), addressFamily :: Maybe (AddressFamily), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), bgpPeerState :: Maybe (BGPPeerState), bgpStatus :: Maybe (BGPStatus) }
 ```
 
 <p>A structure containing information about a BGP peer.</p>
@@ -363,7 +363,7 @@ Constructs BGPPeer from required parameters
 #### `newBGPPeer'`
 
 ``` purescript
-newBGPPeer' :: ({ asn :: NullOrUndefined (ASN), authKey :: NullOrUndefined (BGPAuthKey), addressFamily :: NullOrUndefined (AddressFamily), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), bgpPeerState :: NullOrUndefined (BGPPeerState), bgpStatus :: NullOrUndefined (BGPStatus) } -> { asn :: NullOrUndefined (ASN), authKey :: NullOrUndefined (BGPAuthKey), addressFamily :: NullOrUndefined (AddressFamily), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), bgpPeerState :: NullOrUndefined (BGPPeerState), bgpStatus :: NullOrUndefined (BGPStatus) }) -> BGPPeer
+newBGPPeer' :: ({ asn :: Maybe (ASN), authKey :: Maybe (BGPAuthKey), addressFamily :: Maybe (AddressFamily), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), bgpPeerState :: Maybe (BGPPeerState), bgpStatus :: Maybe (BGPStatus) } -> { asn :: Maybe (ASN), authKey :: Maybe (BGPAuthKey), addressFamily :: Maybe (AddressFamily), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), bgpPeerState :: Maybe (BGPPeerState), bgpStatus :: Maybe (BGPStatus) }) -> BGPPeer
 ```
 
 Constructs BGPPeer's fields from required parameters
@@ -510,7 +510,7 @@ Constructs ConfirmConnectionRequest's fields from required parameters
 
 ``` purescript
 newtype ConfirmConnectionResponse
-  = ConfirmConnectionResponse { connectionState :: NullOrUndefined (ConnectionState) }
+  = ConfirmConnectionResponse { connectionState :: Maybe (ConnectionState) }
 ```
 
 <p>The response received when ConfirmConnection is called.</p>
@@ -535,7 +535,7 @@ Constructs ConfirmConnectionResponse from required parameters
 #### `newConfirmConnectionResponse'`
 
 ``` purescript
-newConfirmConnectionResponse' :: ({ connectionState :: NullOrUndefined (ConnectionState) } -> { connectionState :: NullOrUndefined (ConnectionState) }) -> ConfirmConnectionResponse
+newConfirmConnectionResponse' :: ({ connectionState :: Maybe (ConnectionState) } -> { connectionState :: Maybe (ConnectionState) }) -> ConfirmConnectionResponse
 ```
 
 Constructs ConfirmConnectionResponse's fields from required parameters
@@ -544,7 +544,7 @@ Constructs ConfirmConnectionResponse's fields from required parameters
 
 ``` purescript
 newtype ConfirmPrivateVirtualInterfaceRequest
-  = ConfirmPrivateVirtualInterfaceRequest { virtualInterfaceId :: VirtualInterfaceId, virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId) }
+  = ConfirmPrivateVirtualInterfaceRequest { virtualInterfaceId :: VirtualInterfaceId, virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId) }
 ```
 
 <p>Container for the parameters to the ConfirmPrivateVirtualInterface operation.</p>
@@ -569,7 +569,7 @@ Constructs ConfirmPrivateVirtualInterfaceRequest from required parameters
 #### `newConfirmPrivateVirtualInterfaceRequest'`
 
 ``` purescript
-newConfirmPrivateVirtualInterfaceRequest' :: VirtualInterfaceId -> ({ virtualInterfaceId :: VirtualInterfaceId, virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId) } -> { virtualInterfaceId :: VirtualInterfaceId, virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId) }) -> ConfirmPrivateVirtualInterfaceRequest
+newConfirmPrivateVirtualInterfaceRequest' :: VirtualInterfaceId -> ({ virtualInterfaceId :: VirtualInterfaceId, virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId) } -> { virtualInterfaceId :: VirtualInterfaceId, virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId) }) -> ConfirmPrivateVirtualInterfaceRequest
 ```
 
 Constructs ConfirmPrivateVirtualInterfaceRequest's fields from required parameters
@@ -578,7 +578,7 @@ Constructs ConfirmPrivateVirtualInterfaceRequest's fields from required paramete
 
 ``` purescript
 newtype ConfirmPrivateVirtualInterfaceResponse
-  = ConfirmPrivateVirtualInterfaceResponse { virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) }
+  = ConfirmPrivateVirtualInterfaceResponse { virtualInterfaceState :: Maybe (VirtualInterfaceState) }
 ```
 
 <p>The response received when ConfirmPrivateVirtualInterface is called.</p>
@@ -603,7 +603,7 @@ Constructs ConfirmPrivateVirtualInterfaceResponse from required parameters
 #### `newConfirmPrivateVirtualInterfaceResponse'`
 
 ``` purescript
-newConfirmPrivateVirtualInterfaceResponse' :: ({ virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) } -> { virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) }) -> ConfirmPrivateVirtualInterfaceResponse
+newConfirmPrivateVirtualInterfaceResponse' :: ({ virtualInterfaceState :: Maybe (VirtualInterfaceState) } -> { virtualInterfaceState :: Maybe (VirtualInterfaceState) }) -> ConfirmPrivateVirtualInterfaceResponse
 ```
 
 Constructs ConfirmPrivateVirtualInterfaceResponse's fields from required parameters
@@ -646,7 +646,7 @@ Constructs ConfirmPublicVirtualInterfaceRequest's fields from required parameter
 
 ``` purescript
 newtype ConfirmPublicVirtualInterfaceResponse
-  = ConfirmPublicVirtualInterfaceResponse { virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) }
+  = ConfirmPublicVirtualInterfaceResponse { virtualInterfaceState :: Maybe (VirtualInterfaceState) }
 ```
 
 <p>The response received when ConfirmPublicVirtualInterface is called.</p>
@@ -671,7 +671,7 @@ Constructs ConfirmPublicVirtualInterfaceResponse from required parameters
 #### `newConfirmPublicVirtualInterfaceResponse'`
 
 ``` purescript
-newConfirmPublicVirtualInterfaceResponse' :: ({ virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) } -> { virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) }) -> ConfirmPublicVirtualInterfaceResponse
+newConfirmPublicVirtualInterfaceResponse' :: ({ virtualInterfaceState :: Maybe (VirtualInterfaceState) } -> { virtualInterfaceState :: Maybe (VirtualInterfaceState) }) -> ConfirmPublicVirtualInterfaceResponse
 ```
 
 Constructs ConfirmPublicVirtualInterfaceResponse's fields from required parameters
@@ -680,7 +680,7 @@ Constructs ConfirmPublicVirtualInterfaceResponse's fields from required paramete
 
 ``` purescript
 newtype Connection
-  = Connection { ownerAccount :: NullOrUndefined (OwnerAccount), connectionId :: NullOrUndefined (ConnectionId), connectionName :: NullOrUndefined (ConnectionName), connectionState :: NullOrUndefined (ConnectionState), region :: NullOrUndefined (Region), location :: NullOrUndefined (LocationCode), bandwidth :: NullOrUndefined (Bandwidth), vlan :: NullOrUndefined (VLAN), partnerName :: NullOrUndefined (PartnerName), loaIssueTime :: NullOrUndefined (LoaIssueTime), lagId :: NullOrUndefined (LagId), awsDevice :: NullOrUndefined (AwsDevice) }
+  = Connection { ownerAccount :: Maybe (OwnerAccount), connectionId :: Maybe (ConnectionId), connectionName :: Maybe (ConnectionName), connectionState :: Maybe (ConnectionState), region :: Maybe (Region), location :: Maybe (LocationCode), bandwidth :: Maybe (Bandwidth), vlan :: Maybe (VLAN), partnerName :: Maybe (PartnerName), loaIssueTime :: Maybe (LoaIssueTime), lagId :: Maybe (LagId), awsDevice :: Maybe (AwsDevice) }
 ```
 
 <p>A connection represents the physical network connection between the AWS Direct Connect location and the customer.</p>
@@ -705,7 +705,7 @@ Constructs Connection from required parameters
 #### `newConnection'`
 
 ``` purescript
-newConnection' :: ({ ownerAccount :: NullOrUndefined (OwnerAccount), connectionId :: NullOrUndefined (ConnectionId), connectionName :: NullOrUndefined (ConnectionName), connectionState :: NullOrUndefined (ConnectionState), region :: NullOrUndefined (Region), location :: NullOrUndefined (LocationCode), bandwidth :: NullOrUndefined (Bandwidth), vlan :: NullOrUndefined (VLAN), partnerName :: NullOrUndefined (PartnerName), loaIssueTime :: NullOrUndefined (LoaIssueTime), lagId :: NullOrUndefined (LagId), awsDevice :: NullOrUndefined (AwsDevice) } -> { ownerAccount :: NullOrUndefined (OwnerAccount), connectionId :: NullOrUndefined (ConnectionId), connectionName :: NullOrUndefined (ConnectionName), connectionState :: NullOrUndefined (ConnectionState), region :: NullOrUndefined (Region), location :: NullOrUndefined (LocationCode), bandwidth :: NullOrUndefined (Bandwidth), vlan :: NullOrUndefined (VLAN), partnerName :: NullOrUndefined (PartnerName), loaIssueTime :: NullOrUndefined (LoaIssueTime), lagId :: NullOrUndefined (LagId), awsDevice :: NullOrUndefined (AwsDevice) }) -> Connection
+newConnection' :: ({ ownerAccount :: Maybe (OwnerAccount), connectionId :: Maybe (ConnectionId), connectionName :: Maybe (ConnectionName), connectionState :: Maybe (ConnectionState), region :: Maybe (Region), location :: Maybe (LocationCode), bandwidth :: Maybe (Bandwidth), vlan :: Maybe (VLAN), partnerName :: Maybe (PartnerName), loaIssueTime :: Maybe (LoaIssueTime), lagId :: Maybe (LagId), awsDevice :: Maybe (AwsDevice) } -> { ownerAccount :: Maybe (OwnerAccount), connectionId :: Maybe (ConnectionId), connectionName :: Maybe (ConnectionName), connectionState :: Maybe (ConnectionState), region :: Maybe (Region), location :: Maybe (LocationCode), bandwidth :: Maybe (Bandwidth), vlan :: Maybe (VLAN), partnerName :: Maybe (PartnerName), loaIssueTime :: Maybe (LoaIssueTime), lagId :: Maybe (LagId), awsDevice :: Maybe (AwsDevice) }) -> Connection
 ```
 
 Constructs Connection's fields from required parameters
@@ -786,7 +786,7 @@ Encode ConnectionState
 
 ``` purescript
 newtype Connections
-  = Connections { connections :: NullOrUndefined (ConnectionList) }
+  = Connections { connections :: Maybe (ConnectionList) }
 ```
 
 <p>A structure containing a list of connections.</p>
@@ -811,7 +811,7 @@ Constructs Connections from required parameters
 #### `newConnections'`
 
 ``` purescript
-newConnections' :: ({ connections :: NullOrUndefined (ConnectionList) } -> { connections :: NullOrUndefined (ConnectionList) }) -> Connections
+newConnections' :: ({ connections :: Maybe (ConnectionList) } -> { connections :: Maybe (ConnectionList) }) -> Connections
 ```
 
 Constructs Connections's fields from required parameters
@@ -836,7 +836,7 @@ Encode Count
 
 ``` purescript
 newtype CreateBGPPeerRequest
-  = CreateBGPPeerRequest { virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), newBGPPeer :: NullOrUndefined (NewBGPPeer) }
+  = CreateBGPPeerRequest { virtualInterfaceId :: Maybe (VirtualInterfaceId), newBGPPeer :: Maybe (NewBGPPeer) }
 ```
 
 <p>Container for the parameters to the CreateBGPPeer operation.</p>
@@ -861,7 +861,7 @@ Constructs CreateBGPPeerRequest from required parameters
 #### `newCreateBGPPeerRequest'`
 
 ``` purescript
-newCreateBGPPeerRequest' :: ({ virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), newBGPPeer :: NullOrUndefined (NewBGPPeer) } -> { virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), newBGPPeer :: NullOrUndefined (NewBGPPeer) }) -> CreateBGPPeerRequest
+newCreateBGPPeerRequest' :: ({ virtualInterfaceId :: Maybe (VirtualInterfaceId), newBGPPeer :: Maybe (NewBGPPeer) } -> { virtualInterfaceId :: Maybe (VirtualInterfaceId), newBGPPeer :: Maybe (NewBGPPeer) }) -> CreateBGPPeerRequest
 ```
 
 Constructs CreateBGPPeerRequest's fields from required parameters
@@ -870,7 +870,7 @@ Constructs CreateBGPPeerRequest's fields from required parameters
 
 ``` purescript
 newtype CreateBGPPeerResponse
-  = CreateBGPPeerResponse { virtualInterface :: NullOrUndefined (VirtualInterface) }
+  = CreateBGPPeerResponse { virtualInterface :: Maybe (VirtualInterface) }
 ```
 
 <p>The response received when CreateBGPPeer is called.</p>
@@ -895,7 +895,7 @@ Constructs CreateBGPPeerResponse from required parameters
 #### `newCreateBGPPeerResponse'`
 
 ``` purescript
-newCreateBGPPeerResponse' :: ({ virtualInterface :: NullOrUndefined (VirtualInterface) } -> { virtualInterface :: NullOrUndefined (VirtualInterface) }) -> CreateBGPPeerResponse
+newCreateBGPPeerResponse' :: ({ virtualInterface :: Maybe (VirtualInterface) } -> { virtualInterface :: Maybe (VirtualInterface) }) -> CreateBGPPeerResponse
 ```
 
 Constructs CreateBGPPeerResponse's fields from required parameters
@@ -904,7 +904,7 @@ Constructs CreateBGPPeerResponse's fields from required parameters
 
 ``` purescript
 newtype CreateConnectionRequest
-  = CreateConnectionRequest { location :: LocationCode, bandwidth :: Bandwidth, connectionName :: ConnectionName, lagId :: NullOrUndefined (LagId) }
+  = CreateConnectionRequest { location :: LocationCode, bandwidth :: Bandwidth, connectionName :: ConnectionName, lagId :: Maybe (LagId) }
 ```
 
 <p>Container for the parameters to the CreateConnection operation.</p>
@@ -929,7 +929,7 @@ Constructs CreateConnectionRequest from required parameters
 #### `newCreateConnectionRequest'`
 
 ``` purescript
-newCreateConnectionRequest' :: Bandwidth -> ConnectionName -> LocationCode -> ({ location :: LocationCode, bandwidth :: Bandwidth, connectionName :: ConnectionName, lagId :: NullOrUndefined (LagId) } -> { location :: LocationCode, bandwidth :: Bandwidth, connectionName :: ConnectionName, lagId :: NullOrUndefined (LagId) }) -> CreateConnectionRequest
+newCreateConnectionRequest' :: Bandwidth -> ConnectionName -> LocationCode -> ({ location :: LocationCode, bandwidth :: Bandwidth, connectionName :: ConnectionName, lagId :: Maybe (LagId) } -> { location :: LocationCode, bandwidth :: Bandwidth, connectionName :: ConnectionName, lagId :: Maybe (LagId) }) -> CreateConnectionRequest
 ```
 
 Constructs CreateConnectionRequest's fields from required parameters
@@ -972,7 +972,7 @@ Constructs CreateDirectConnectGatewayAssociationRequest's fields from required p
 
 ``` purescript
 newtype CreateDirectConnectGatewayAssociationResult
-  = CreateDirectConnectGatewayAssociationResult { directConnectGatewayAssociation :: NullOrUndefined (DirectConnectGatewayAssociation) }
+  = CreateDirectConnectGatewayAssociationResult { directConnectGatewayAssociation :: Maybe (DirectConnectGatewayAssociation) }
 ```
 
 <p>Container for the response from the CreateDirectConnectGatewayAssociation API call</p>
@@ -997,7 +997,7 @@ Constructs CreateDirectConnectGatewayAssociationResult from required parameters
 #### `newCreateDirectConnectGatewayAssociationResult'`
 
 ``` purescript
-newCreateDirectConnectGatewayAssociationResult' :: ({ directConnectGatewayAssociation :: NullOrUndefined (DirectConnectGatewayAssociation) } -> { directConnectGatewayAssociation :: NullOrUndefined (DirectConnectGatewayAssociation) }) -> CreateDirectConnectGatewayAssociationResult
+newCreateDirectConnectGatewayAssociationResult' :: ({ directConnectGatewayAssociation :: Maybe (DirectConnectGatewayAssociation) } -> { directConnectGatewayAssociation :: Maybe (DirectConnectGatewayAssociation) }) -> CreateDirectConnectGatewayAssociationResult
 ```
 
 Constructs CreateDirectConnectGatewayAssociationResult's fields from required parameters
@@ -1006,7 +1006,7 @@ Constructs CreateDirectConnectGatewayAssociationResult's fields from required pa
 
 ``` purescript
 newtype CreateDirectConnectGatewayRequest
-  = CreateDirectConnectGatewayRequest { directConnectGatewayName :: DirectConnectGatewayName, amazonSideAsn :: NullOrUndefined (LongAsn) }
+  = CreateDirectConnectGatewayRequest { directConnectGatewayName :: DirectConnectGatewayName, amazonSideAsn :: Maybe (LongAsn) }
 ```
 
 <p>Container for the parameters to the CreateDirectConnectGateway operation.</p>
@@ -1031,7 +1031,7 @@ Constructs CreateDirectConnectGatewayRequest from required parameters
 #### `newCreateDirectConnectGatewayRequest'`
 
 ``` purescript
-newCreateDirectConnectGatewayRequest' :: DirectConnectGatewayName -> ({ directConnectGatewayName :: DirectConnectGatewayName, amazonSideAsn :: NullOrUndefined (LongAsn) } -> { directConnectGatewayName :: DirectConnectGatewayName, amazonSideAsn :: NullOrUndefined (LongAsn) }) -> CreateDirectConnectGatewayRequest
+newCreateDirectConnectGatewayRequest' :: DirectConnectGatewayName -> ({ directConnectGatewayName :: DirectConnectGatewayName, amazonSideAsn :: Maybe (LongAsn) } -> { directConnectGatewayName :: DirectConnectGatewayName, amazonSideAsn :: Maybe (LongAsn) }) -> CreateDirectConnectGatewayRequest
 ```
 
 Constructs CreateDirectConnectGatewayRequest's fields from required parameters
@@ -1040,7 +1040,7 @@ Constructs CreateDirectConnectGatewayRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDirectConnectGatewayResult
-  = CreateDirectConnectGatewayResult { directConnectGateway :: NullOrUndefined (DirectConnectGateway) }
+  = CreateDirectConnectGatewayResult { directConnectGateway :: Maybe (DirectConnectGateway) }
 ```
 
 <p>Container for the response from the CreateDirectConnectGateway API call</p>
@@ -1065,7 +1065,7 @@ Constructs CreateDirectConnectGatewayResult from required parameters
 #### `newCreateDirectConnectGatewayResult'`
 
 ``` purescript
-newCreateDirectConnectGatewayResult' :: ({ directConnectGateway :: NullOrUndefined (DirectConnectGateway) } -> { directConnectGateway :: NullOrUndefined (DirectConnectGateway) }) -> CreateDirectConnectGatewayResult
+newCreateDirectConnectGatewayResult' :: ({ directConnectGateway :: Maybe (DirectConnectGateway) } -> { directConnectGateway :: Maybe (DirectConnectGateway) }) -> CreateDirectConnectGatewayResult
 ```
 
 Constructs CreateDirectConnectGatewayResult's fields from required parameters
@@ -1074,7 +1074,7 @@ Constructs CreateDirectConnectGatewayResult's fields from required parameters
 
 ``` purescript
 newtype CreateInterconnectRequest
-  = CreateInterconnectRequest { interconnectName :: InterconnectName, bandwidth :: Bandwidth, location :: LocationCode, lagId :: NullOrUndefined (LagId) }
+  = CreateInterconnectRequest { interconnectName :: InterconnectName, bandwidth :: Bandwidth, location :: LocationCode, lagId :: Maybe (LagId) }
 ```
 
 <p>Container for the parameters to the CreateInterconnect operation.</p>
@@ -1099,7 +1099,7 @@ Constructs CreateInterconnectRequest from required parameters
 #### `newCreateInterconnectRequest'`
 
 ``` purescript
-newCreateInterconnectRequest' :: Bandwidth -> InterconnectName -> LocationCode -> ({ interconnectName :: InterconnectName, bandwidth :: Bandwidth, location :: LocationCode, lagId :: NullOrUndefined (LagId) } -> { interconnectName :: InterconnectName, bandwidth :: Bandwidth, location :: LocationCode, lagId :: NullOrUndefined (LagId) }) -> CreateInterconnectRequest
+newCreateInterconnectRequest' :: Bandwidth -> InterconnectName -> LocationCode -> ({ interconnectName :: InterconnectName, bandwidth :: Bandwidth, location :: LocationCode, lagId :: Maybe (LagId) } -> { interconnectName :: InterconnectName, bandwidth :: Bandwidth, location :: LocationCode, lagId :: Maybe (LagId) }) -> CreateInterconnectRequest
 ```
 
 Constructs CreateInterconnectRequest's fields from required parameters
@@ -1108,7 +1108,7 @@ Constructs CreateInterconnectRequest's fields from required parameters
 
 ``` purescript
 newtype CreateLagRequest
-  = CreateLagRequest { numberOfConnections :: Count, location :: LocationCode, connectionsBandwidth :: Bandwidth, lagName :: LagName, connectionId :: NullOrUndefined (ConnectionId) }
+  = CreateLagRequest { numberOfConnections :: Count, location :: LocationCode, connectionsBandwidth :: Bandwidth, lagName :: LagName, connectionId :: Maybe (ConnectionId) }
 ```
 
 <p>Container for the parameters to the CreateLag operation.</p>
@@ -1133,7 +1133,7 @@ Constructs CreateLagRequest from required parameters
 #### `newCreateLagRequest'`
 
 ``` purescript
-newCreateLagRequest' :: Bandwidth -> LagName -> LocationCode -> Count -> ({ numberOfConnections :: Count, location :: LocationCode, connectionsBandwidth :: Bandwidth, lagName :: LagName, connectionId :: NullOrUndefined (ConnectionId) } -> { numberOfConnections :: Count, location :: LocationCode, connectionsBandwidth :: Bandwidth, lagName :: LagName, connectionId :: NullOrUndefined (ConnectionId) }) -> CreateLagRequest
+newCreateLagRequest' :: Bandwidth -> LagName -> LocationCode -> Count -> ({ numberOfConnections :: Count, location :: LocationCode, connectionsBandwidth :: Bandwidth, lagName :: LagName, connectionId :: Maybe (ConnectionId) } -> { numberOfConnections :: Count, location :: LocationCode, connectionsBandwidth :: Bandwidth, lagName :: LagName, connectionId :: Maybe (ConnectionId) }) -> CreateLagRequest
 ```
 
 Constructs CreateLagRequest's fields from required parameters
@@ -1228,7 +1228,7 @@ Encode CustomerAddress
 
 ``` purescript
 newtype DeleteBGPPeerRequest
-  = DeleteBGPPeerRequest { virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), asn :: NullOrUndefined (ASN), customerAddress :: NullOrUndefined (CustomerAddress) }
+  = DeleteBGPPeerRequest { virtualInterfaceId :: Maybe (VirtualInterfaceId), asn :: Maybe (ASN), customerAddress :: Maybe (CustomerAddress) }
 ```
 
 <p>Container for the parameters to the DeleteBGPPeer operation.</p>
@@ -1253,7 +1253,7 @@ Constructs DeleteBGPPeerRequest from required parameters
 #### `newDeleteBGPPeerRequest'`
 
 ``` purescript
-newDeleteBGPPeerRequest' :: ({ virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), asn :: NullOrUndefined (ASN), customerAddress :: NullOrUndefined (CustomerAddress) } -> { virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), asn :: NullOrUndefined (ASN), customerAddress :: NullOrUndefined (CustomerAddress) }) -> DeleteBGPPeerRequest
+newDeleteBGPPeerRequest' :: ({ virtualInterfaceId :: Maybe (VirtualInterfaceId), asn :: Maybe (ASN), customerAddress :: Maybe (CustomerAddress) } -> { virtualInterfaceId :: Maybe (VirtualInterfaceId), asn :: Maybe (ASN), customerAddress :: Maybe (CustomerAddress) }) -> DeleteBGPPeerRequest
 ```
 
 Constructs DeleteBGPPeerRequest's fields from required parameters
@@ -1262,7 +1262,7 @@ Constructs DeleteBGPPeerRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteBGPPeerResponse
-  = DeleteBGPPeerResponse { virtualInterface :: NullOrUndefined (VirtualInterface) }
+  = DeleteBGPPeerResponse { virtualInterface :: Maybe (VirtualInterface) }
 ```
 
 <p>The response received when DeleteBGPPeer is called.</p>
@@ -1287,7 +1287,7 @@ Constructs DeleteBGPPeerResponse from required parameters
 #### `newDeleteBGPPeerResponse'`
 
 ``` purescript
-newDeleteBGPPeerResponse' :: ({ virtualInterface :: NullOrUndefined (VirtualInterface) } -> { virtualInterface :: NullOrUndefined (VirtualInterface) }) -> DeleteBGPPeerResponse
+newDeleteBGPPeerResponse' :: ({ virtualInterface :: Maybe (VirtualInterface) } -> { virtualInterface :: Maybe (VirtualInterface) }) -> DeleteBGPPeerResponse
 ```
 
 Constructs DeleteBGPPeerResponse's fields from required parameters
@@ -1364,7 +1364,7 @@ Constructs DeleteDirectConnectGatewayAssociationRequest's fields from required p
 
 ``` purescript
 newtype DeleteDirectConnectGatewayAssociationResult
-  = DeleteDirectConnectGatewayAssociationResult { directConnectGatewayAssociation :: NullOrUndefined (DirectConnectGatewayAssociation) }
+  = DeleteDirectConnectGatewayAssociationResult { directConnectGatewayAssociation :: Maybe (DirectConnectGatewayAssociation) }
 ```
 
 <p>Container for the response from the DeleteDirectConnectGatewayAssociation API call</p>
@@ -1389,7 +1389,7 @@ Constructs DeleteDirectConnectGatewayAssociationResult from required parameters
 #### `newDeleteDirectConnectGatewayAssociationResult'`
 
 ``` purescript
-newDeleteDirectConnectGatewayAssociationResult' :: ({ directConnectGatewayAssociation :: NullOrUndefined (DirectConnectGatewayAssociation) } -> { directConnectGatewayAssociation :: NullOrUndefined (DirectConnectGatewayAssociation) }) -> DeleteDirectConnectGatewayAssociationResult
+newDeleteDirectConnectGatewayAssociationResult' :: ({ directConnectGatewayAssociation :: Maybe (DirectConnectGatewayAssociation) } -> { directConnectGatewayAssociation :: Maybe (DirectConnectGatewayAssociation) }) -> DeleteDirectConnectGatewayAssociationResult
 ```
 
 Constructs DeleteDirectConnectGatewayAssociationResult's fields from required parameters
@@ -1432,7 +1432,7 @@ Constructs DeleteDirectConnectGatewayRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteDirectConnectGatewayResult
-  = DeleteDirectConnectGatewayResult { directConnectGateway :: NullOrUndefined (DirectConnectGateway) }
+  = DeleteDirectConnectGatewayResult { directConnectGateway :: Maybe (DirectConnectGateway) }
 ```
 
 <p>Container for the response from the DeleteDirectConnectGateway API call</p>
@@ -1457,7 +1457,7 @@ Constructs DeleteDirectConnectGatewayResult from required parameters
 #### `newDeleteDirectConnectGatewayResult'`
 
 ``` purescript
-newDeleteDirectConnectGatewayResult' :: ({ directConnectGateway :: NullOrUndefined (DirectConnectGateway) } -> { directConnectGateway :: NullOrUndefined (DirectConnectGateway) }) -> DeleteDirectConnectGatewayResult
+newDeleteDirectConnectGatewayResult' :: ({ directConnectGateway :: Maybe (DirectConnectGateway) } -> { directConnectGateway :: Maybe (DirectConnectGateway) }) -> DeleteDirectConnectGatewayResult
 ```
 
 Constructs DeleteDirectConnectGatewayResult's fields from required parameters
@@ -1500,7 +1500,7 @@ Constructs DeleteInterconnectRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteInterconnectResponse
-  = DeleteInterconnectResponse { interconnectState :: NullOrUndefined (InterconnectState) }
+  = DeleteInterconnectResponse { interconnectState :: Maybe (InterconnectState) }
 ```
 
 <p>The response received when DeleteInterconnect is called.</p>
@@ -1525,7 +1525,7 @@ Constructs DeleteInterconnectResponse from required parameters
 #### `newDeleteInterconnectResponse'`
 
 ``` purescript
-newDeleteInterconnectResponse' :: ({ interconnectState :: NullOrUndefined (InterconnectState) } -> { interconnectState :: NullOrUndefined (InterconnectState) }) -> DeleteInterconnectResponse
+newDeleteInterconnectResponse' :: ({ interconnectState :: Maybe (InterconnectState) } -> { interconnectState :: Maybe (InterconnectState) }) -> DeleteInterconnectResponse
 ```
 
 Constructs DeleteInterconnectResponse's fields from required parameters
@@ -1602,7 +1602,7 @@ Constructs DeleteVirtualInterfaceRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteVirtualInterfaceResponse
-  = DeleteVirtualInterfaceResponse { virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) }
+  = DeleteVirtualInterfaceResponse { virtualInterfaceState :: Maybe (VirtualInterfaceState) }
 ```
 
 <p>The response received when DeleteVirtualInterface is called.</p>
@@ -1627,7 +1627,7 @@ Constructs DeleteVirtualInterfaceResponse from required parameters
 #### `newDeleteVirtualInterfaceResponse'`
 
 ``` purescript
-newDeleteVirtualInterfaceResponse' :: ({ virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) } -> { virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState) }) -> DeleteVirtualInterfaceResponse
+newDeleteVirtualInterfaceResponse' :: ({ virtualInterfaceState :: Maybe (VirtualInterfaceState) } -> { virtualInterfaceState :: Maybe (VirtualInterfaceState) }) -> DeleteVirtualInterfaceResponse
 ```
 
 Constructs DeleteVirtualInterfaceResponse's fields from required parameters
@@ -1636,7 +1636,7 @@ Constructs DeleteVirtualInterfaceResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeConnectionLoaRequest
-  = DescribeConnectionLoaRequest { connectionId :: ConnectionId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) }
+  = DescribeConnectionLoaRequest { connectionId :: ConnectionId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) }
 ```
 
 <p>Container for the parameters to the DescribeConnectionLoa operation.</p>
@@ -1661,7 +1661,7 @@ Constructs DescribeConnectionLoaRequest from required parameters
 #### `newDescribeConnectionLoaRequest'`
 
 ``` purescript
-newDescribeConnectionLoaRequest' :: ConnectionId -> ({ connectionId :: ConnectionId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) } -> { connectionId :: ConnectionId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) }) -> DescribeConnectionLoaRequest
+newDescribeConnectionLoaRequest' :: ConnectionId -> ({ connectionId :: ConnectionId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) } -> { connectionId :: ConnectionId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) }) -> DescribeConnectionLoaRequest
 ```
 
 Constructs DescribeConnectionLoaRequest's fields from required parameters
@@ -1670,7 +1670,7 @@ Constructs DescribeConnectionLoaRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeConnectionLoaResponse
-  = DescribeConnectionLoaResponse { loa :: NullOrUndefined (Loa) }
+  = DescribeConnectionLoaResponse { loa :: Maybe (Loa) }
 ```
 
 <p>The response received when DescribeConnectionLoa is called.</p>
@@ -1695,7 +1695,7 @@ Constructs DescribeConnectionLoaResponse from required parameters
 #### `newDescribeConnectionLoaResponse'`
 
 ``` purescript
-newDescribeConnectionLoaResponse' :: ({ loa :: NullOrUndefined (Loa) } -> { loa :: NullOrUndefined (Loa) }) -> DescribeConnectionLoaResponse
+newDescribeConnectionLoaResponse' :: ({ loa :: Maybe (Loa) } -> { loa :: Maybe (Loa) }) -> DescribeConnectionLoaResponse
 ```
 
 Constructs DescribeConnectionLoaResponse's fields from required parameters
@@ -1738,7 +1738,7 @@ Constructs DescribeConnectionsOnInterconnectRequest's fields from required param
 
 ``` purescript
 newtype DescribeConnectionsRequest
-  = DescribeConnectionsRequest { connectionId :: NullOrUndefined (ConnectionId) }
+  = DescribeConnectionsRequest { connectionId :: Maybe (ConnectionId) }
 ```
 
 <p>Container for the parameters to the DescribeConnections operation.</p>
@@ -1763,7 +1763,7 @@ Constructs DescribeConnectionsRequest from required parameters
 #### `newDescribeConnectionsRequest'`
 
 ``` purescript
-newDescribeConnectionsRequest' :: ({ connectionId :: NullOrUndefined (ConnectionId) } -> { connectionId :: NullOrUndefined (ConnectionId) }) -> DescribeConnectionsRequest
+newDescribeConnectionsRequest' :: ({ connectionId :: Maybe (ConnectionId) } -> { connectionId :: Maybe (ConnectionId) }) -> DescribeConnectionsRequest
 ```
 
 Constructs DescribeConnectionsRequest's fields from required parameters
@@ -1772,7 +1772,7 @@ Constructs DescribeConnectionsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeDirectConnectGatewayAssociationsRequest
-  = DescribeDirectConnectGatewayAssociationsRequest { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) }
+  = DescribeDirectConnectGatewayAssociationsRequest { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualGatewayId :: Maybe (VirtualGatewayId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) }
 ```
 
 <p>Container for the parameters to the DescribeDirectConnectGatewayAssociations operation.</p>
@@ -1797,7 +1797,7 @@ Constructs DescribeDirectConnectGatewayAssociationsRequest from required paramet
 #### `newDescribeDirectConnectGatewayAssociationsRequest'`
 
 ``` purescript
-newDescribeDirectConnectGatewayAssociationsRequest' :: ({ directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) } -> { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) }) -> DescribeDirectConnectGatewayAssociationsRequest
+newDescribeDirectConnectGatewayAssociationsRequest' :: ({ directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualGatewayId :: Maybe (VirtualGatewayId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) } -> { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualGatewayId :: Maybe (VirtualGatewayId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) }) -> DescribeDirectConnectGatewayAssociationsRequest
 ```
 
 Constructs DescribeDirectConnectGatewayAssociationsRequest's fields from required parameters
@@ -1806,7 +1806,7 @@ Constructs DescribeDirectConnectGatewayAssociationsRequest's fields from require
 
 ``` purescript
 newtype DescribeDirectConnectGatewayAssociationsResult
-  = DescribeDirectConnectGatewayAssociationsResult { directConnectGatewayAssociations :: NullOrUndefined (DirectConnectGatewayAssociationList), nextToken :: NullOrUndefined (PaginationToken) }
+  = DescribeDirectConnectGatewayAssociationsResult { directConnectGatewayAssociations :: Maybe (DirectConnectGatewayAssociationList), nextToken :: Maybe (PaginationToken) }
 ```
 
 <p>Container for the response from the DescribeDirectConnectGatewayAssociations API call</p>
@@ -1831,7 +1831,7 @@ Constructs DescribeDirectConnectGatewayAssociationsResult from required paramete
 #### `newDescribeDirectConnectGatewayAssociationsResult'`
 
 ``` purescript
-newDescribeDirectConnectGatewayAssociationsResult' :: ({ directConnectGatewayAssociations :: NullOrUndefined (DirectConnectGatewayAssociationList), nextToken :: NullOrUndefined (PaginationToken) } -> { directConnectGatewayAssociations :: NullOrUndefined (DirectConnectGatewayAssociationList), nextToken :: NullOrUndefined (PaginationToken) }) -> DescribeDirectConnectGatewayAssociationsResult
+newDescribeDirectConnectGatewayAssociationsResult' :: ({ directConnectGatewayAssociations :: Maybe (DirectConnectGatewayAssociationList), nextToken :: Maybe (PaginationToken) } -> { directConnectGatewayAssociations :: Maybe (DirectConnectGatewayAssociationList), nextToken :: Maybe (PaginationToken) }) -> DescribeDirectConnectGatewayAssociationsResult
 ```
 
 Constructs DescribeDirectConnectGatewayAssociationsResult's fields from required parameters
@@ -1840,7 +1840,7 @@ Constructs DescribeDirectConnectGatewayAssociationsResult's fields from required
 
 ``` purescript
 newtype DescribeDirectConnectGatewayAttachmentsRequest
-  = DescribeDirectConnectGatewayAttachmentsRequest { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) }
+  = DescribeDirectConnectGatewayAttachmentsRequest { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualInterfaceId :: Maybe (VirtualInterfaceId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) }
 ```
 
 <p>Container for the parameters to the DescribeDirectConnectGatewayAttachments operation.</p>
@@ -1865,7 +1865,7 @@ Constructs DescribeDirectConnectGatewayAttachmentsRequest from required paramete
 #### `newDescribeDirectConnectGatewayAttachmentsRequest'`
 
 ``` purescript
-newDescribeDirectConnectGatewayAttachmentsRequest' :: ({ directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) } -> { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) }) -> DescribeDirectConnectGatewayAttachmentsRequest
+newDescribeDirectConnectGatewayAttachmentsRequest' :: ({ directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualInterfaceId :: Maybe (VirtualInterfaceId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) } -> { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualInterfaceId :: Maybe (VirtualInterfaceId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) }) -> DescribeDirectConnectGatewayAttachmentsRequest
 ```
 
 Constructs DescribeDirectConnectGatewayAttachmentsRequest's fields from required parameters
@@ -1874,7 +1874,7 @@ Constructs DescribeDirectConnectGatewayAttachmentsRequest's fields from required
 
 ``` purescript
 newtype DescribeDirectConnectGatewayAttachmentsResult
-  = DescribeDirectConnectGatewayAttachmentsResult { directConnectGatewayAttachments :: NullOrUndefined (DirectConnectGatewayAttachmentList), nextToken :: NullOrUndefined (PaginationToken) }
+  = DescribeDirectConnectGatewayAttachmentsResult { directConnectGatewayAttachments :: Maybe (DirectConnectGatewayAttachmentList), nextToken :: Maybe (PaginationToken) }
 ```
 
 <p>Container for the response from the DescribeDirectConnectGatewayAttachments API call</p>
@@ -1899,7 +1899,7 @@ Constructs DescribeDirectConnectGatewayAttachmentsResult from required parameter
 #### `newDescribeDirectConnectGatewayAttachmentsResult'`
 
 ``` purescript
-newDescribeDirectConnectGatewayAttachmentsResult' :: ({ directConnectGatewayAttachments :: NullOrUndefined (DirectConnectGatewayAttachmentList), nextToken :: NullOrUndefined (PaginationToken) } -> { directConnectGatewayAttachments :: NullOrUndefined (DirectConnectGatewayAttachmentList), nextToken :: NullOrUndefined (PaginationToken) }) -> DescribeDirectConnectGatewayAttachmentsResult
+newDescribeDirectConnectGatewayAttachmentsResult' :: ({ directConnectGatewayAttachments :: Maybe (DirectConnectGatewayAttachmentList), nextToken :: Maybe (PaginationToken) } -> { directConnectGatewayAttachments :: Maybe (DirectConnectGatewayAttachmentList), nextToken :: Maybe (PaginationToken) }) -> DescribeDirectConnectGatewayAttachmentsResult
 ```
 
 Constructs DescribeDirectConnectGatewayAttachmentsResult's fields from required parameters
@@ -1908,7 +1908,7 @@ Constructs DescribeDirectConnectGatewayAttachmentsResult's fields from required 
 
 ``` purescript
 newtype DescribeDirectConnectGatewaysRequest
-  = DescribeDirectConnectGatewaysRequest { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) }
+  = DescribeDirectConnectGatewaysRequest { directConnectGatewayId :: Maybe (DirectConnectGatewayId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) }
 ```
 
 <p>Container for the parameters to the DescribeDirectConnectGateways operation.</p>
@@ -1933,7 +1933,7 @@ Constructs DescribeDirectConnectGatewaysRequest from required parameters
 #### `newDescribeDirectConnectGatewaysRequest'`
 
 ``` purescript
-newDescribeDirectConnectGatewaysRequest' :: ({ directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) } -> { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), maxResults :: NullOrUndefined (MaxResultSetSize), nextToken :: NullOrUndefined (PaginationToken) }) -> DescribeDirectConnectGatewaysRequest
+newDescribeDirectConnectGatewaysRequest' :: ({ directConnectGatewayId :: Maybe (DirectConnectGatewayId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) } -> { directConnectGatewayId :: Maybe (DirectConnectGatewayId), maxResults :: Maybe (MaxResultSetSize), nextToken :: Maybe (PaginationToken) }) -> DescribeDirectConnectGatewaysRequest
 ```
 
 Constructs DescribeDirectConnectGatewaysRequest's fields from required parameters
@@ -1942,7 +1942,7 @@ Constructs DescribeDirectConnectGatewaysRequest's fields from required parameter
 
 ``` purescript
 newtype DescribeDirectConnectGatewaysResult
-  = DescribeDirectConnectGatewaysResult { directConnectGateways :: NullOrUndefined (DirectConnectGatewayList), nextToken :: NullOrUndefined (PaginationToken) }
+  = DescribeDirectConnectGatewaysResult { directConnectGateways :: Maybe (DirectConnectGatewayList), nextToken :: Maybe (PaginationToken) }
 ```
 
 <p>Container for the response from the DescribeDirectConnectGateways API call</p>
@@ -1967,7 +1967,7 @@ Constructs DescribeDirectConnectGatewaysResult from required parameters
 #### `newDescribeDirectConnectGatewaysResult'`
 
 ``` purescript
-newDescribeDirectConnectGatewaysResult' :: ({ directConnectGateways :: NullOrUndefined (DirectConnectGatewayList), nextToken :: NullOrUndefined (PaginationToken) } -> { directConnectGateways :: NullOrUndefined (DirectConnectGatewayList), nextToken :: NullOrUndefined (PaginationToken) }) -> DescribeDirectConnectGatewaysResult
+newDescribeDirectConnectGatewaysResult' :: ({ directConnectGateways :: Maybe (DirectConnectGatewayList), nextToken :: Maybe (PaginationToken) } -> { directConnectGateways :: Maybe (DirectConnectGatewayList), nextToken :: Maybe (PaginationToken) }) -> DescribeDirectConnectGatewaysResult
 ```
 
 Constructs DescribeDirectConnectGatewaysResult's fields from required parameters
@@ -2010,7 +2010,7 @@ Constructs DescribeHostedConnectionsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeInterconnectLoaRequest
-  = DescribeInterconnectLoaRequest { interconnectId :: InterconnectId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) }
+  = DescribeInterconnectLoaRequest { interconnectId :: InterconnectId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) }
 ```
 
 <p>Container for the parameters to the DescribeInterconnectLoa operation.</p>
@@ -2035,7 +2035,7 @@ Constructs DescribeInterconnectLoaRequest from required parameters
 #### `newDescribeInterconnectLoaRequest'`
 
 ``` purescript
-newDescribeInterconnectLoaRequest' :: InterconnectId -> ({ interconnectId :: InterconnectId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) } -> { interconnectId :: InterconnectId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) }) -> DescribeInterconnectLoaRequest
+newDescribeInterconnectLoaRequest' :: InterconnectId -> ({ interconnectId :: InterconnectId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) } -> { interconnectId :: InterconnectId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) }) -> DescribeInterconnectLoaRequest
 ```
 
 Constructs DescribeInterconnectLoaRequest's fields from required parameters
@@ -2044,7 +2044,7 @@ Constructs DescribeInterconnectLoaRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeInterconnectLoaResponse
-  = DescribeInterconnectLoaResponse { loa :: NullOrUndefined (Loa) }
+  = DescribeInterconnectLoaResponse { loa :: Maybe (Loa) }
 ```
 
 <p>The response received when DescribeInterconnectLoa is called.</p>
@@ -2069,7 +2069,7 @@ Constructs DescribeInterconnectLoaResponse from required parameters
 #### `newDescribeInterconnectLoaResponse'`
 
 ``` purescript
-newDescribeInterconnectLoaResponse' :: ({ loa :: NullOrUndefined (Loa) } -> { loa :: NullOrUndefined (Loa) }) -> DescribeInterconnectLoaResponse
+newDescribeInterconnectLoaResponse' :: ({ loa :: Maybe (Loa) } -> { loa :: Maybe (Loa) }) -> DescribeInterconnectLoaResponse
 ```
 
 Constructs DescribeInterconnectLoaResponse's fields from required parameters
@@ -2078,7 +2078,7 @@ Constructs DescribeInterconnectLoaResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeInterconnectsRequest
-  = DescribeInterconnectsRequest { interconnectId :: NullOrUndefined (InterconnectId) }
+  = DescribeInterconnectsRequest { interconnectId :: Maybe (InterconnectId) }
 ```
 
 <p>Container for the parameters to the DescribeInterconnects operation.</p>
@@ -2103,7 +2103,7 @@ Constructs DescribeInterconnectsRequest from required parameters
 #### `newDescribeInterconnectsRequest'`
 
 ``` purescript
-newDescribeInterconnectsRequest' :: ({ interconnectId :: NullOrUndefined (InterconnectId) } -> { interconnectId :: NullOrUndefined (InterconnectId) }) -> DescribeInterconnectsRequest
+newDescribeInterconnectsRequest' :: ({ interconnectId :: Maybe (InterconnectId) } -> { interconnectId :: Maybe (InterconnectId) }) -> DescribeInterconnectsRequest
 ```
 
 Constructs DescribeInterconnectsRequest's fields from required parameters
@@ -2112,7 +2112,7 @@ Constructs DescribeInterconnectsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeLagsRequest
-  = DescribeLagsRequest { lagId :: NullOrUndefined (LagId) }
+  = DescribeLagsRequest { lagId :: Maybe (LagId) }
 ```
 
 <p>Container for the parameters to the DescribeLags operation.</p>
@@ -2137,7 +2137,7 @@ Constructs DescribeLagsRequest from required parameters
 #### `newDescribeLagsRequest'`
 
 ``` purescript
-newDescribeLagsRequest' :: ({ lagId :: NullOrUndefined (LagId) } -> { lagId :: NullOrUndefined (LagId) }) -> DescribeLagsRequest
+newDescribeLagsRequest' :: ({ lagId :: Maybe (LagId) } -> { lagId :: Maybe (LagId) }) -> DescribeLagsRequest
 ```
 
 Constructs DescribeLagsRequest's fields from required parameters
@@ -2146,7 +2146,7 @@ Constructs DescribeLagsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeLoaRequest
-  = DescribeLoaRequest { connectionId :: ConnectionId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) }
+  = DescribeLoaRequest { connectionId :: ConnectionId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) }
 ```
 
 <p>Container for the parameters to the DescribeLoa operation.</p>
@@ -2171,7 +2171,7 @@ Constructs DescribeLoaRequest from required parameters
 #### `newDescribeLoaRequest'`
 
 ``` purescript
-newDescribeLoaRequest' :: ConnectionId -> ({ connectionId :: ConnectionId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) } -> { connectionId :: ConnectionId, providerName :: NullOrUndefined (ProviderName), loaContentType :: NullOrUndefined (LoaContentType) }) -> DescribeLoaRequest
+newDescribeLoaRequest' :: ConnectionId -> ({ connectionId :: ConnectionId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) } -> { connectionId :: ConnectionId, providerName :: Maybe (ProviderName), loaContentType :: Maybe (LoaContentType) }) -> DescribeLoaRequest
 ```
 
 Constructs DescribeLoaRequest's fields from required parameters
@@ -2214,7 +2214,7 @@ Constructs DescribeTagsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeTagsResponse
-  = DescribeTagsResponse { resourceTags :: NullOrUndefined (ResourceTagList) }
+  = DescribeTagsResponse { resourceTags :: Maybe (ResourceTagList) }
 ```
 
 <p>The response received when DescribeTags is called.</p>
@@ -2239,7 +2239,7 @@ Constructs DescribeTagsResponse from required parameters
 #### `newDescribeTagsResponse'`
 
 ``` purescript
-newDescribeTagsResponse' :: ({ resourceTags :: NullOrUndefined (ResourceTagList) } -> { resourceTags :: NullOrUndefined (ResourceTagList) }) -> DescribeTagsResponse
+newDescribeTagsResponse' :: ({ resourceTags :: Maybe (ResourceTagList) } -> { resourceTags :: Maybe (ResourceTagList) }) -> DescribeTagsResponse
 ```
 
 Constructs DescribeTagsResponse's fields from required parameters
@@ -2248,7 +2248,7 @@ Constructs DescribeTagsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeVirtualInterfacesRequest
-  = DescribeVirtualInterfacesRequest { connectionId :: NullOrUndefined (ConnectionId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId) }
+  = DescribeVirtualInterfacesRequest { connectionId :: Maybe (ConnectionId), virtualInterfaceId :: Maybe (VirtualInterfaceId) }
 ```
 
 <p>Container for the parameters to the DescribeVirtualInterfaces operation.</p>
@@ -2273,7 +2273,7 @@ Constructs DescribeVirtualInterfacesRequest from required parameters
 #### `newDescribeVirtualInterfacesRequest'`
 
 ``` purescript
-newDescribeVirtualInterfacesRequest' :: ({ connectionId :: NullOrUndefined (ConnectionId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId) } -> { connectionId :: NullOrUndefined (ConnectionId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId) }) -> DescribeVirtualInterfacesRequest
+newDescribeVirtualInterfacesRequest' :: ({ connectionId :: Maybe (ConnectionId), virtualInterfaceId :: Maybe (VirtualInterfaceId) } -> { connectionId :: Maybe (ConnectionId), virtualInterfaceId :: Maybe (VirtualInterfaceId) }) -> DescribeVirtualInterfacesRequest
 ```
 
 Constructs DescribeVirtualInterfacesRequest's fields from required parameters
@@ -2282,7 +2282,7 @@ Constructs DescribeVirtualInterfacesRequest's fields from required parameters
 
 ``` purescript
 newtype DirectConnectClientException
-  = DirectConnectClientException { message :: NullOrUndefined (ErrorMessage) }
+  = DirectConnectClientException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The API was called with invalid parameters. The error message will contain additional details about the cause.</p>
@@ -2307,7 +2307,7 @@ Constructs DirectConnectClientException from required parameters
 #### `newDirectConnectClientException'`
 
 ``` purescript
-newDirectConnectClientException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DirectConnectClientException
+newDirectConnectClientException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DirectConnectClientException
 ```
 
 Constructs DirectConnectClientException's fields from required parameters
@@ -2316,7 +2316,7 @@ Constructs DirectConnectClientException's fields from required parameters
 
 ``` purescript
 newtype DirectConnectGateway
-  = DirectConnectGateway { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), directConnectGatewayName :: NullOrUndefined (DirectConnectGatewayName), amazonSideAsn :: NullOrUndefined (LongAsn), ownerAccount :: NullOrUndefined (OwnerAccount), directConnectGatewayState :: NullOrUndefined (DirectConnectGatewayState), stateChangeError :: NullOrUndefined (StateChangeError) }
+  = DirectConnectGateway { directConnectGatewayId :: Maybe (DirectConnectGatewayId), directConnectGatewayName :: Maybe (DirectConnectGatewayName), amazonSideAsn :: Maybe (LongAsn), ownerAccount :: Maybe (OwnerAccount), directConnectGatewayState :: Maybe (DirectConnectGatewayState), stateChangeError :: Maybe (StateChangeError) }
 ```
 
 <p>A direct connect gateway is an intermediate object that enables you to connect virtual interfaces and virtual private gateways.</p>
@@ -2341,7 +2341,7 @@ Constructs DirectConnectGateway from required parameters
 #### `newDirectConnectGateway'`
 
 ``` purescript
-newDirectConnectGateway' :: ({ directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), directConnectGatewayName :: NullOrUndefined (DirectConnectGatewayName), amazonSideAsn :: NullOrUndefined (LongAsn), ownerAccount :: NullOrUndefined (OwnerAccount), directConnectGatewayState :: NullOrUndefined (DirectConnectGatewayState), stateChangeError :: NullOrUndefined (StateChangeError) } -> { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), directConnectGatewayName :: NullOrUndefined (DirectConnectGatewayName), amazonSideAsn :: NullOrUndefined (LongAsn), ownerAccount :: NullOrUndefined (OwnerAccount), directConnectGatewayState :: NullOrUndefined (DirectConnectGatewayState), stateChangeError :: NullOrUndefined (StateChangeError) }) -> DirectConnectGateway
+newDirectConnectGateway' :: ({ directConnectGatewayId :: Maybe (DirectConnectGatewayId), directConnectGatewayName :: Maybe (DirectConnectGatewayName), amazonSideAsn :: Maybe (LongAsn), ownerAccount :: Maybe (OwnerAccount), directConnectGatewayState :: Maybe (DirectConnectGatewayState), stateChangeError :: Maybe (StateChangeError) } -> { directConnectGatewayId :: Maybe (DirectConnectGatewayId), directConnectGatewayName :: Maybe (DirectConnectGatewayName), amazonSideAsn :: Maybe (LongAsn), ownerAccount :: Maybe (OwnerAccount), directConnectGatewayState :: Maybe (DirectConnectGatewayState), stateChangeError :: Maybe (StateChangeError) }) -> DirectConnectGateway
 ```
 
 Constructs DirectConnectGateway's fields from required parameters
@@ -2350,7 +2350,7 @@ Constructs DirectConnectGateway's fields from required parameters
 
 ``` purescript
 newtype DirectConnectGatewayAssociation
-  = DirectConnectGatewayAssociation { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), virtualGatewayRegion :: NullOrUndefined (VirtualGatewayRegion), virtualGatewayOwnerAccount :: NullOrUndefined (OwnerAccount), associationState :: NullOrUndefined (DirectConnectGatewayAssociationState), stateChangeError :: NullOrUndefined (StateChangeError) }
+  = DirectConnectGatewayAssociation { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualGatewayId :: Maybe (VirtualGatewayId), virtualGatewayRegion :: Maybe (VirtualGatewayRegion), virtualGatewayOwnerAccount :: Maybe (OwnerAccount), associationState :: Maybe (DirectConnectGatewayAssociationState), stateChangeError :: Maybe (StateChangeError) }
 ```
 
 <p>The association between a direct connect gateway and virtual private gateway.</p>
@@ -2375,7 +2375,7 @@ Constructs DirectConnectGatewayAssociation from required parameters
 #### `newDirectConnectGatewayAssociation'`
 
 ``` purescript
-newDirectConnectGatewayAssociation' :: ({ directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), virtualGatewayRegion :: NullOrUndefined (VirtualGatewayRegion), virtualGatewayOwnerAccount :: NullOrUndefined (OwnerAccount), associationState :: NullOrUndefined (DirectConnectGatewayAssociationState), stateChangeError :: NullOrUndefined (StateChangeError) } -> { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), virtualGatewayRegion :: NullOrUndefined (VirtualGatewayRegion), virtualGatewayOwnerAccount :: NullOrUndefined (OwnerAccount), associationState :: NullOrUndefined (DirectConnectGatewayAssociationState), stateChangeError :: NullOrUndefined (StateChangeError) }) -> DirectConnectGatewayAssociation
+newDirectConnectGatewayAssociation' :: ({ directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualGatewayId :: Maybe (VirtualGatewayId), virtualGatewayRegion :: Maybe (VirtualGatewayRegion), virtualGatewayOwnerAccount :: Maybe (OwnerAccount), associationState :: Maybe (DirectConnectGatewayAssociationState), stateChangeError :: Maybe (StateChangeError) } -> { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualGatewayId :: Maybe (VirtualGatewayId), virtualGatewayRegion :: Maybe (VirtualGatewayRegion), virtualGatewayOwnerAccount :: Maybe (OwnerAccount), associationState :: Maybe (DirectConnectGatewayAssociationState), stateChangeError :: Maybe (StateChangeError) }) -> DirectConnectGatewayAssociation
 ```
 
 Constructs DirectConnectGatewayAssociation's fields from required parameters
@@ -2420,7 +2420,7 @@ Encode DirectConnectGatewayAssociationState
 
 ``` purescript
 newtype DirectConnectGatewayAttachment
-  = DirectConnectGatewayAttachment { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), virtualInterfaceRegion :: NullOrUndefined (VirtualInterfaceRegion), virtualInterfaceOwnerAccount :: NullOrUndefined (OwnerAccount), attachmentState :: NullOrUndefined (DirectConnectGatewayAttachmentState), stateChangeError :: NullOrUndefined (StateChangeError) }
+  = DirectConnectGatewayAttachment { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualInterfaceId :: Maybe (VirtualInterfaceId), virtualInterfaceRegion :: Maybe (VirtualInterfaceRegion), virtualInterfaceOwnerAccount :: Maybe (OwnerAccount), attachmentState :: Maybe (DirectConnectGatewayAttachmentState), stateChangeError :: Maybe (StateChangeError) }
 ```
 
 <p>The association between a direct connect gateway and virtual interface.</p>
@@ -2445,7 +2445,7 @@ Constructs DirectConnectGatewayAttachment from required parameters
 #### `newDirectConnectGatewayAttachment'`
 
 ``` purescript
-newDirectConnectGatewayAttachment' :: ({ directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), virtualInterfaceRegion :: NullOrUndefined (VirtualInterfaceRegion), virtualInterfaceOwnerAccount :: NullOrUndefined (OwnerAccount), attachmentState :: NullOrUndefined (DirectConnectGatewayAttachmentState), stateChangeError :: NullOrUndefined (StateChangeError) } -> { directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), virtualInterfaceRegion :: NullOrUndefined (VirtualInterfaceRegion), virtualInterfaceOwnerAccount :: NullOrUndefined (OwnerAccount), attachmentState :: NullOrUndefined (DirectConnectGatewayAttachmentState), stateChangeError :: NullOrUndefined (StateChangeError) }) -> DirectConnectGatewayAttachment
+newDirectConnectGatewayAttachment' :: ({ directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualInterfaceId :: Maybe (VirtualInterfaceId), virtualInterfaceRegion :: Maybe (VirtualInterfaceRegion), virtualInterfaceOwnerAccount :: Maybe (OwnerAccount), attachmentState :: Maybe (DirectConnectGatewayAttachmentState), stateChangeError :: Maybe (StateChangeError) } -> { directConnectGatewayId :: Maybe (DirectConnectGatewayId), virtualInterfaceId :: Maybe (VirtualInterfaceId), virtualInterfaceRegion :: Maybe (VirtualInterfaceRegion), virtualInterfaceOwnerAccount :: Maybe (OwnerAccount), attachmentState :: Maybe (DirectConnectGatewayAttachmentState), stateChangeError :: Maybe (StateChangeError) }) -> DirectConnectGatewayAttachment
 ```
 
 Constructs DirectConnectGatewayAttachment's fields from required parameters
@@ -2562,7 +2562,7 @@ Encode DirectConnectGatewayState
 
 ``` purescript
 newtype DirectConnectServerException
-  = DirectConnectServerException { message :: NullOrUndefined (ErrorMessage) }
+  = DirectConnectServerException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>A server-side error occurred during the API call. The error message will contain additional details about the cause.</p>
@@ -2587,7 +2587,7 @@ Constructs DirectConnectServerException from required parameters
 #### `newDirectConnectServerException'`
 
 ``` purescript
-newDirectConnectServerException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DirectConnectServerException
+newDirectConnectServerException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DirectConnectServerException
 ```
 
 Constructs DirectConnectServerException's fields from required parameters
@@ -2664,7 +2664,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype Interconnect
-  = Interconnect { interconnectId :: NullOrUndefined (InterconnectId), interconnectName :: NullOrUndefined (InterconnectName), interconnectState :: NullOrUndefined (InterconnectState), region :: NullOrUndefined (Region), location :: NullOrUndefined (LocationCode), bandwidth :: NullOrUndefined (Bandwidth), loaIssueTime :: NullOrUndefined (LoaIssueTime), lagId :: NullOrUndefined (LagId), awsDevice :: NullOrUndefined (AwsDevice) }
+  = Interconnect { interconnectId :: Maybe (InterconnectId), interconnectName :: Maybe (InterconnectName), interconnectState :: Maybe (InterconnectState), region :: Maybe (Region), location :: Maybe (LocationCode), bandwidth :: Maybe (Bandwidth), loaIssueTime :: Maybe (LoaIssueTime), lagId :: Maybe (LagId), awsDevice :: Maybe (AwsDevice) }
 ```
 
 <p>An interconnect is a connection that can host other connections.</p> <p>Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS Direct Connect partner's network and a specific Direct Connect location. An AWS Direct Connect partner who owns an interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end customers with connectivity to AWS services.</p> <p>The resources of the interconnect, including bandwidth and VLAN numbers, are shared by all of the hosted connections on the interconnect, and the owner of the interconnect determines how these resources are assigned.</p>
@@ -2689,7 +2689,7 @@ Constructs Interconnect from required parameters
 #### `newInterconnect'`
 
 ``` purescript
-newInterconnect' :: ({ interconnectId :: NullOrUndefined (InterconnectId), interconnectName :: NullOrUndefined (InterconnectName), interconnectState :: NullOrUndefined (InterconnectState), region :: NullOrUndefined (Region), location :: NullOrUndefined (LocationCode), bandwidth :: NullOrUndefined (Bandwidth), loaIssueTime :: NullOrUndefined (LoaIssueTime), lagId :: NullOrUndefined (LagId), awsDevice :: NullOrUndefined (AwsDevice) } -> { interconnectId :: NullOrUndefined (InterconnectId), interconnectName :: NullOrUndefined (InterconnectName), interconnectState :: NullOrUndefined (InterconnectState), region :: NullOrUndefined (Region), location :: NullOrUndefined (LocationCode), bandwidth :: NullOrUndefined (Bandwidth), loaIssueTime :: NullOrUndefined (LoaIssueTime), lagId :: NullOrUndefined (LagId), awsDevice :: NullOrUndefined (AwsDevice) }) -> Interconnect
+newInterconnect' :: ({ interconnectId :: Maybe (InterconnectId), interconnectName :: Maybe (InterconnectName), interconnectState :: Maybe (InterconnectState), region :: Maybe (Region), location :: Maybe (LocationCode), bandwidth :: Maybe (Bandwidth), loaIssueTime :: Maybe (LoaIssueTime), lagId :: Maybe (LagId), awsDevice :: Maybe (AwsDevice) } -> { interconnectId :: Maybe (InterconnectId), interconnectName :: Maybe (InterconnectName), interconnectState :: Maybe (InterconnectState), region :: Maybe (Region), location :: Maybe (LocationCode), bandwidth :: Maybe (Bandwidth), loaIssueTime :: Maybe (LoaIssueTime), lagId :: Maybe (LagId), awsDevice :: Maybe (AwsDevice) }) -> Interconnect
 ```
 
 Constructs Interconnect's fields from required parameters
@@ -2770,7 +2770,7 @@ Encode InterconnectState
 
 ``` purescript
 newtype Interconnects
-  = Interconnects { interconnects :: NullOrUndefined (InterconnectList) }
+  = Interconnects { interconnects :: Maybe (InterconnectList) }
 ```
 
 <p>A structure containing a list of interconnects.</p>
@@ -2795,7 +2795,7 @@ Constructs Interconnects from required parameters
 #### `newInterconnects'`
 
 ``` purescript
-newInterconnects' :: ({ interconnects :: NullOrUndefined (InterconnectList) } -> { interconnects :: NullOrUndefined (InterconnectList) }) -> Interconnects
+newInterconnects' :: ({ interconnects :: Maybe (InterconnectList) } -> { interconnects :: Maybe (InterconnectList) }) -> Interconnects
 ```
 
 Constructs Interconnects's fields from required parameters
@@ -2804,7 +2804,7 @@ Constructs Interconnects's fields from required parameters
 
 ``` purescript
 newtype Lag
-  = Lag { connectionsBandwidth :: NullOrUndefined (Bandwidth), numberOfConnections :: NullOrUndefined (Count), lagId :: NullOrUndefined (LagId), ownerAccount :: NullOrUndefined (OwnerAccount), lagName :: NullOrUndefined (LagName), lagState :: NullOrUndefined (LagState), location :: NullOrUndefined (LocationCode), region :: NullOrUndefined (Region), minimumLinks :: NullOrUndefined (Count), awsDevice :: NullOrUndefined (AwsDevice), connections :: NullOrUndefined (ConnectionList), allowsHostedConnections :: NullOrUndefined (BooleanFlag) }
+  = Lag { connectionsBandwidth :: Maybe (Bandwidth), numberOfConnections :: Maybe (Count), lagId :: Maybe (LagId), ownerAccount :: Maybe (OwnerAccount), lagName :: Maybe (LagName), lagState :: Maybe (LagState), location :: Maybe (LocationCode), region :: Maybe (Region), minimumLinks :: Maybe (Count), awsDevice :: Maybe (AwsDevice), connections :: Maybe (ConnectionList), allowsHostedConnections :: Maybe (BooleanFlag) }
 ```
 
 <p>Describes a link aggregation group (LAG). A LAG is a connection that uses the Link Aggregation Control Protocol (LACP) to logically aggregate a bundle of physical connections. Like an interconnect, it can host other connections. All connections in a LAG must terminate on the same physical AWS Direct Connect endpoint, and must be the same bandwidth.</p>
@@ -2829,7 +2829,7 @@ Constructs Lag from required parameters
 #### `newLag'`
 
 ``` purescript
-newLag' :: ({ connectionsBandwidth :: NullOrUndefined (Bandwidth), numberOfConnections :: NullOrUndefined (Count), lagId :: NullOrUndefined (LagId), ownerAccount :: NullOrUndefined (OwnerAccount), lagName :: NullOrUndefined (LagName), lagState :: NullOrUndefined (LagState), location :: NullOrUndefined (LocationCode), region :: NullOrUndefined (Region), minimumLinks :: NullOrUndefined (Count), awsDevice :: NullOrUndefined (AwsDevice), connections :: NullOrUndefined (ConnectionList), allowsHostedConnections :: NullOrUndefined (BooleanFlag) } -> { connectionsBandwidth :: NullOrUndefined (Bandwidth), numberOfConnections :: NullOrUndefined (Count), lagId :: NullOrUndefined (LagId), ownerAccount :: NullOrUndefined (OwnerAccount), lagName :: NullOrUndefined (LagName), lagState :: NullOrUndefined (LagState), location :: NullOrUndefined (LocationCode), region :: NullOrUndefined (Region), minimumLinks :: NullOrUndefined (Count), awsDevice :: NullOrUndefined (AwsDevice), connections :: NullOrUndefined (ConnectionList), allowsHostedConnections :: NullOrUndefined (BooleanFlag) }) -> Lag
+newLag' :: ({ connectionsBandwidth :: Maybe (Bandwidth), numberOfConnections :: Maybe (Count), lagId :: Maybe (LagId), ownerAccount :: Maybe (OwnerAccount), lagName :: Maybe (LagName), lagState :: Maybe (LagState), location :: Maybe (LocationCode), region :: Maybe (Region), minimumLinks :: Maybe (Count), awsDevice :: Maybe (AwsDevice), connections :: Maybe (ConnectionList), allowsHostedConnections :: Maybe (BooleanFlag) } -> { connectionsBandwidth :: Maybe (Bandwidth), numberOfConnections :: Maybe (Count), lagId :: Maybe (LagId), ownerAccount :: Maybe (OwnerAccount), lagName :: Maybe (LagName), lagState :: Maybe (LagState), location :: Maybe (LocationCode), region :: Maybe (Region), minimumLinks :: Maybe (Count), awsDevice :: Maybe (AwsDevice), connections :: Maybe (ConnectionList), allowsHostedConnections :: Maybe (BooleanFlag) }) -> Lag
 ```
 
 Constructs Lag's fields from required parameters
@@ -2908,7 +2908,7 @@ Encode LagState
 
 ``` purescript
 newtype Lags
-  = Lags { lags :: NullOrUndefined (LagList) }
+  = Lags { lags :: Maybe (LagList) }
 ```
 
 <p>A structure containing a list of LAGs.</p>
@@ -2933,7 +2933,7 @@ Constructs Lags from required parameters
 #### `newLags'`
 
 ``` purescript
-newLags' :: ({ lags :: NullOrUndefined (LagList) } -> { lags :: NullOrUndefined (LagList) }) -> Lags
+newLags' :: ({ lags :: Maybe (LagList) } -> { lags :: Maybe (LagList) }) -> Lags
 ```
 
 Constructs Lags's fields from required parameters
@@ -2942,7 +2942,7 @@ Constructs Lags's fields from required parameters
 
 ``` purescript
 newtype Loa
-  = Loa { loaContent :: NullOrUndefined (LoaContent), loaContentType :: NullOrUndefined (LoaContentType) }
+  = Loa { loaContent :: Maybe (LoaContent), loaContentType :: Maybe (LoaContentType) }
 ```
 
 <p>A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
@@ -2967,7 +2967,7 @@ Constructs Loa from required parameters
 #### `newLoa'`
 
 ``` purescript
-newLoa' :: ({ loaContent :: NullOrUndefined (LoaContent), loaContentType :: NullOrUndefined (LoaContentType) } -> { loaContent :: NullOrUndefined (LoaContent), loaContentType :: NullOrUndefined (LoaContentType) }) -> Loa
+newLoa' :: ({ loaContent :: Maybe (LoaContent), loaContentType :: Maybe (LoaContentType) } -> { loaContent :: Maybe (LoaContent), loaContentType :: Maybe (LoaContentType) }) -> Loa
 ```
 
 Constructs Loa's fields from required parameters
@@ -3028,7 +3028,7 @@ Encode LoaIssueTime
 
 ``` purescript
 newtype Location
-  = Location { locationCode :: NullOrUndefined (LocationCode), locationName :: NullOrUndefined (LocationName) }
+  = Location { locationCode :: Maybe (LocationCode), locationName :: Maybe (LocationName) }
 ```
 
 <p>An AWS Direct Connect location where connections and interconnects can be requested.</p>
@@ -3053,7 +3053,7 @@ Constructs Location from required parameters
 #### `newLocation'`
 
 ``` purescript
-newLocation' :: ({ locationCode :: NullOrUndefined (LocationCode), locationName :: NullOrUndefined (LocationName) } -> { locationCode :: NullOrUndefined (LocationCode), locationName :: NullOrUndefined (LocationName) }) -> Location
+newLocation' :: ({ locationCode :: Maybe (LocationCode), locationName :: Maybe (LocationName) } -> { locationCode :: Maybe (LocationCode), locationName :: Maybe (LocationName) }) -> Location
 ```
 
 Constructs Location's fields from required parameters
@@ -3112,7 +3112,7 @@ Encode LocationName
 
 ``` purescript
 newtype Locations
-  = Locations { locations :: NullOrUndefined (LocationList) }
+  = Locations { locations :: Maybe (LocationList) }
 ```
 
 <p>A location is a network facility where AWS Direct Connect routers are available to be connected. Generally, these are colocation hubs where many network providers have equipment, and where cross connects can be delivered. Locations include a name and facility code, and must be provided when creating a connection.</p>
@@ -3137,7 +3137,7 @@ Constructs Locations from required parameters
 #### `newLocations'`
 
 ``` purescript
-newLocations' :: ({ locations :: NullOrUndefined (LocationList) } -> { locations :: NullOrUndefined (LocationList) }) -> Locations
+newLocations' :: ({ locations :: Maybe (LocationList) } -> { locations :: Maybe (LocationList) }) -> Locations
 ```
 
 Constructs Locations's fields from required parameters
@@ -3180,7 +3180,7 @@ Encode MaxResultSetSize
 
 ``` purescript
 newtype NewBGPPeer
-  = NewBGPPeer { asn :: NullOrUndefined (ASN), authKey :: NullOrUndefined (BGPAuthKey), addressFamily :: NullOrUndefined (AddressFamily), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress) }
+  = NewBGPPeer { asn :: Maybe (ASN), authKey :: Maybe (BGPAuthKey), addressFamily :: Maybe (AddressFamily), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress) }
 ```
 
 <p>A structure containing information about a new BGP peer.</p>
@@ -3205,7 +3205,7 @@ Constructs NewBGPPeer from required parameters
 #### `newNewBGPPeer'`
 
 ``` purescript
-newNewBGPPeer' :: ({ asn :: NullOrUndefined (ASN), authKey :: NullOrUndefined (BGPAuthKey), addressFamily :: NullOrUndefined (AddressFamily), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress) } -> { asn :: NullOrUndefined (ASN), authKey :: NullOrUndefined (BGPAuthKey), addressFamily :: NullOrUndefined (AddressFamily), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress) }) -> NewBGPPeer
+newNewBGPPeer' :: ({ asn :: Maybe (ASN), authKey :: Maybe (BGPAuthKey), addressFamily :: Maybe (AddressFamily), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress) } -> { asn :: Maybe (ASN), authKey :: Maybe (BGPAuthKey), addressFamily :: Maybe (AddressFamily), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress) }) -> NewBGPPeer
 ```
 
 Constructs NewBGPPeer's fields from required parameters
@@ -3214,7 +3214,7 @@ Constructs NewBGPPeer's fields from required parameters
 
 ``` purescript
 newtype NewPrivateVirtualInterface
-  = NewPrivateVirtualInterface { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId) }
+  = NewPrivateVirtualInterface { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId) }
 ```
 
 <p>A structure containing information about a new private virtual interface.</p>
@@ -3239,7 +3239,7 @@ Constructs NewPrivateVirtualInterface from required parameters
 #### `newNewPrivateVirtualInterface'`
 
 ``` purescript
-newNewPrivateVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId) }) -> NewPrivateVirtualInterface
+newNewPrivateVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId) }) -> NewPrivateVirtualInterface
 ```
 
 Constructs NewPrivateVirtualInterface's fields from required parameters
@@ -3248,7 +3248,7 @@ Constructs NewPrivateVirtualInterface's fields from required parameters
 
 ``` purescript
 newtype NewPrivateVirtualInterfaceAllocation
-  = NewPrivateVirtualInterfaceAllocation { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), addressFamily :: NullOrUndefined (AddressFamily), customerAddress :: NullOrUndefined (CustomerAddress) }
+  = NewPrivateVirtualInterfaceAllocation { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), addressFamily :: Maybe (AddressFamily), customerAddress :: Maybe (CustomerAddress) }
 ```
 
 <p>A structure containing information about a private virtual interface that will be provisioned on a connection.</p>
@@ -3273,7 +3273,7 @@ Constructs NewPrivateVirtualInterfaceAllocation from required parameters
 #### `newNewPrivateVirtualInterfaceAllocation'`
 
 ``` purescript
-newNewPrivateVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), addressFamily :: NullOrUndefined (AddressFamily), customerAddress :: NullOrUndefined (CustomerAddress) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), addressFamily :: NullOrUndefined (AddressFamily), customerAddress :: NullOrUndefined (CustomerAddress) }) -> NewPrivateVirtualInterfaceAllocation
+newNewPrivateVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), addressFamily :: Maybe (AddressFamily), customerAddress :: Maybe (CustomerAddress) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), addressFamily :: Maybe (AddressFamily), customerAddress :: Maybe (CustomerAddress) }) -> NewPrivateVirtualInterfaceAllocation
 ```
 
 Constructs NewPrivateVirtualInterfaceAllocation's fields from required parameters
@@ -3282,7 +3282,7 @@ Constructs NewPrivateVirtualInterfaceAllocation's fields from required parameter
 
 ``` purescript
 newtype NewPublicVirtualInterface
-  = NewPublicVirtualInterface { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList) }
+  = NewPublicVirtualInterface { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), routeFilterPrefixes :: Maybe (RouteFilterPrefixList) }
 ```
 
 <p>A structure containing information about a new public virtual interface.</p>
@@ -3307,7 +3307,7 @@ Constructs NewPublicVirtualInterface from required parameters
 #### `newNewPublicVirtualInterface'`
 
 ``` purescript
-newNewPublicVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList) }) -> NewPublicVirtualInterface
+newNewPublicVirtualInterface' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), routeFilterPrefixes :: Maybe (RouteFilterPrefixList) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), routeFilterPrefixes :: Maybe (RouteFilterPrefixList) }) -> NewPublicVirtualInterface
 ```
 
 Constructs NewPublicVirtualInterface's fields from required parameters
@@ -3316,7 +3316,7 @@ Constructs NewPublicVirtualInterface's fields from required parameters
 
 ``` purescript
 newtype NewPublicVirtualInterfaceAllocation
-  = NewPublicVirtualInterfaceAllocation { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList) }
+  = NewPublicVirtualInterfaceAllocation { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), routeFilterPrefixes :: Maybe (RouteFilterPrefixList) }
 ```
 
 <p>A structure containing information about a public virtual interface that will be provisioned on a connection.</p>
@@ -3341,7 +3341,7 @@ Constructs NewPublicVirtualInterfaceAllocation from required parameters
 #### `newNewPublicVirtualInterfaceAllocation'`
 
 ``` purescript
-newNewPublicVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList) }) -> NewPublicVirtualInterfaceAllocation
+newNewPublicVirtualInterfaceAllocation' :: ASN -> VirtualInterfaceName -> VLAN -> ({ virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), routeFilterPrefixes :: Maybe (RouteFilterPrefixList) } -> { virtualInterfaceName :: VirtualInterfaceName, vlan :: VLAN, asn :: ASN, authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), routeFilterPrefixes :: Maybe (RouteFilterPrefixList) }) -> NewPublicVirtualInterfaceAllocation
 ```
 
 Constructs NewPublicVirtualInterfaceAllocation's fields from required parameters
@@ -3466,7 +3466,7 @@ Encode ResourceArnList
 
 ``` purescript
 newtype ResourceTag
-  = ResourceTag { resourceArn :: NullOrUndefined (ResourceArn), tags :: NullOrUndefined (TagList) }
+  = ResourceTag { resourceArn :: Maybe (ResourceArn), tags :: Maybe (TagList) }
 ```
 
 <p>The tags associated with a Direct Connect resource.</p>
@@ -3491,7 +3491,7 @@ Constructs ResourceTag from required parameters
 #### `newResourceTag'`
 
 ``` purescript
-newResourceTag' :: ({ resourceArn :: NullOrUndefined (ResourceArn), tags :: NullOrUndefined (TagList) } -> { resourceArn :: NullOrUndefined (ResourceArn), tags :: NullOrUndefined (TagList) }) -> ResourceTag
+newResourceTag' :: ({ resourceArn :: Maybe (ResourceArn), tags :: Maybe (TagList) } -> { resourceArn :: Maybe (ResourceArn), tags :: Maybe (TagList) }) -> ResourceTag
 ```
 
 Constructs ResourceTag's fields from required parameters
@@ -3516,7 +3516,7 @@ Encode ResourceTagList
 
 ``` purescript
 newtype RouteFilterPrefix
-  = RouteFilterPrefix { cidr :: NullOrUndefined (CIDR) }
+  = RouteFilterPrefix { cidr :: Maybe (CIDR) }
 ```
 
 <p>A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.</p>
@@ -3541,7 +3541,7 @@ Constructs RouteFilterPrefix from required parameters
 #### `newRouteFilterPrefix'`
 
 ``` purescript
-newRouteFilterPrefix' :: ({ cidr :: NullOrUndefined (CIDR) } -> { cidr :: NullOrUndefined (CIDR) }) -> RouteFilterPrefix
+newRouteFilterPrefix' :: ({ cidr :: Maybe (CIDR) } -> { cidr :: Maybe (CIDR) }) -> RouteFilterPrefix
 ```
 
 Constructs RouteFilterPrefix's fields from required parameters
@@ -3602,7 +3602,7 @@ Encode StateChangeError
 
 ``` purescript
 newtype Tag
-  = Tag { key :: TagKey, value :: NullOrUndefined (TagValue) }
+  = Tag { key :: TagKey, value :: Maybe (TagValue) }
 ```
 
 <p>Information about a tag.</p>
@@ -3627,7 +3627,7 @@ Constructs Tag from required parameters
 #### `newTag'`
 
 ``` purescript
-newTag' :: TagKey -> ({ key :: TagKey, value :: NullOrUndefined (TagValue) } -> { key :: TagKey, value :: NullOrUndefined (TagValue) }) -> Tag
+newTag' :: TagKey -> ({ key :: TagKey, value :: Maybe (TagValue) } -> { key :: TagKey, value :: Maybe (TagValue) }) -> Tag
 ```
 
 Constructs Tag's fields from required parameters
@@ -3822,7 +3822,7 @@ Encode UntagResourceResponse
 
 ``` purescript
 newtype UpdateLagRequest
-  = UpdateLagRequest { lagId :: LagId, lagName :: NullOrUndefined (LagName), minimumLinks :: NullOrUndefined (Count) }
+  = UpdateLagRequest { lagId :: LagId, lagName :: Maybe (LagName), minimumLinks :: Maybe (Count) }
 ```
 
 <p>Container for the parameters to the UpdateLag operation.</p>
@@ -3847,7 +3847,7 @@ Constructs UpdateLagRequest from required parameters
 #### `newUpdateLagRequest'`
 
 ``` purescript
-newUpdateLagRequest' :: LagId -> ({ lagId :: LagId, lagName :: NullOrUndefined (LagName), minimumLinks :: NullOrUndefined (Count) } -> { lagId :: LagId, lagName :: NullOrUndefined (LagName), minimumLinks :: NullOrUndefined (Count) }) -> UpdateLagRequest
+newUpdateLagRequest' :: LagId -> ({ lagId :: LagId, lagName :: Maybe (LagName), minimumLinks :: Maybe (Count) } -> { lagId :: LagId, lagName :: Maybe (LagName), minimumLinks :: Maybe (Count) }) -> UpdateLagRequest
 ```
 
 Constructs UpdateLagRequest's fields from required parameters
@@ -3874,7 +3874,7 @@ Encode VLAN
 
 ``` purescript
 newtype VirtualGateway
-  = VirtualGateway { virtualGatewayId :: NullOrUndefined (VirtualGatewayId), virtualGatewayState :: NullOrUndefined (VirtualGatewayState) }
+  = VirtualGateway { virtualGatewayId :: Maybe (VirtualGatewayId), virtualGatewayState :: Maybe (VirtualGatewayState) }
 ```
 
 <p>You can create one or more AWS Direct Connect private virtual interfaces linking to your virtual private gateway.</p> <p>Virtual private gateways can be managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">Amazon EC2 CreateVpnGateway action</a>.</p>
@@ -3899,7 +3899,7 @@ Constructs VirtualGateway from required parameters
 #### `newVirtualGateway'`
 
 ``` purescript
-newVirtualGateway' :: ({ virtualGatewayId :: NullOrUndefined (VirtualGatewayId), virtualGatewayState :: NullOrUndefined (VirtualGatewayState) } -> { virtualGatewayId :: NullOrUndefined (VirtualGatewayId), virtualGatewayState :: NullOrUndefined (VirtualGatewayState) }) -> VirtualGateway
+newVirtualGateway' :: ({ virtualGatewayId :: Maybe (VirtualGatewayId), virtualGatewayState :: Maybe (VirtualGatewayState) } -> { virtualGatewayId :: Maybe (VirtualGatewayId), virtualGatewayState :: Maybe (VirtualGatewayState) }) -> VirtualGateway
 ```
 
 Constructs VirtualGateway's fields from required parameters
@@ -3980,7 +3980,7 @@ Encode VirtualGatewayState
 
 ``` purescript
 newtype VirtualGateways
-  = VirtualGateways { virtualGateways :: NullOrUndefined (VirtualGatewayList) }
+  = VirtualGateways { virtualGateways :: Maybe (VirtualGatewayList) }
 ```
 
 <p>A structure containing a list of virtual private gateways.</p>
@@ -4005,7 +4005,7 @@ Constructs VirtualGateways from required parameters
 #### `newVirtualGateways'`
 
 ``` purescript
-newVirtualGateways' :: ({ virtualGateways :: NullOrUndefined (VirtualGatewayList) } -> { virtualGateways :: NullOrUndefined (VirtualGatewayList) }) -> VirtualGateways
+newVirtualGateways' :: ({ virtualGateways :: Maybe (VirtualGatewayList) } -> { virtualGateways :: Maybe (VirtualGatewayList) }) -> VirtualGateways
 ```
 
 Constructs VirtualGateways's fields from required parameters
@@ -4014,7 +4014,7 @@ Constructs VirtualGateways's fields from required parameters
 
 ``` purescript
 newtype VirtualInterface
-  = VirtualInterface { ownerAccount :: NullOrUndefined (OwnerAccount), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), location :: NullOrUndefined (LocationCode), connectionId :: NullOrUndefined (ConnectionId), virtualInterfaceType :: NullOrUndefined (VirtualInterfaceType), virtualInterfaceName :: NullOrUndefined (VirtualInterfaceName), vlan :: NullOrUndefined (VLAN), asn :: NullOrUndefined (ASN), amazonSideAsn :: NullOrUndefined (LongAsn), authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState), customerRouterConfig :: NullOrUndefined (RouterConfig), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList), bgpPeers :: NullOrUndefined (BGPPeerList) }
+  = VirtualInterface { ownerAccount :: Maybe (OwnerAccount), virtualInterfaceId :: Maybe (VirtualInterfaceId), location :: Maybe (LocationCode), connectionId :: Maybe (ConnectionId), virtualInterfaceType :: Maybe (VirtualInterfaceType), virtualInterfaceName :: Maybe (VirtualInterfaceName), vlan :: Maybe (VLAN), asn :: Maybe (ASN), amazonSideAsn :: Maybe (LongAsn), authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), virtualInterfaceState :: Maybe (VirtualInterfaceState), customerRouterConfig :: Maybe (RouterConfig), virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId), routeFilterPrefixes :: Maybe (RouteFilterPrefixList), bgpPeers :: Maybe (BGPPeerList) }
 ```
 
 <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.</p>
@@ -4039,7 +4039,7 @@ Constructs VirtualInterface from required parameters
 #### `newVirtualInterface'`
 
 ``` purescript
-newVirtualInterface' :: ({ ownerAccount :: NullOrUndefined (OwnerAccount), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), location :: NullOrUndefined (LocationCode), connectionId :: NullOrUndefined (ConnectionId), virtualInterfaceType :: NullOrUndefined (VirtualInterfaceType), virtualInterfaceName :: NullOrUndefined (VirtualInterfaceName), vlan :: NullOrUndefined (VLAN), asn :: NullOrUndefined (ASN), amazonSideAsn :: NullOrUndefined (LongAsn), authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState), customerRouterConfig :: NullOrUndefined (RouterConfig), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList), bgpPeers :: NullOrUndefined (BGPPeerList) } -> { ownerAccount :: NullOrUndefined (OwnerAccount), virtualInterfaceId :: NullOrUndefined (VirtualInterfaceId), location :: NullOrUndefined (LocationCode), connectionId :: NullOrUndefined (ConnectionId), virtualInterfaceType :: NullOrUndefined (VirtualInterfaceType), virtualInterfaceName :: NullOrUndefined (VirtualInterfaceName), vlan :: NullOrUndefined (VLAN), asn :: NullOrUndefined (ASN), amazonSideAsn :: NullOrUndefined (LongAsn), authKey :: NullOrUndefined (BGPAuthKey), amazonAddress :: NullOrUndefined (AmazonAddress), customerAddress :: NullOrUndefined (CustomerAddress), addressFamily :: NullOrUndefined (AddressFamily), virtualInterfaceState :: NullOrUndefined (VirtualInterfaceState), customerRouterConfig :: NullOrUndefined (RouterConfig), virtualGatewayId :: NullOrUndefined (VirtualGatewayId), directConnectGatewayId :: NullOrUndefined (DirectConnectGatewayId), routeFilterPrefixes :: NullOrUndefined (RouteFilterPrefixList), bgpPeers :: NullOrUndefined (BGPPeerList) }) -> VirtualInterface
+newVirtualInterface' :: ({ ownerAccount :: Maybe (OwnerAccount), virtualInterfaceId :: Maybe (VirtualInterfaceId), location :: Maybe (LocationCode), connectionId :: Maybe (ConnectionId), virtualInterfaceType :: Maybe (VirtualInterfaceType), virtualInterfaceName :: Maybe (VirtualInterfaceName), vlan :: Maybe (VLAN), asn :: Maybe (ASN), amazonSideAsn :: Maybe (LongAsn), authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), virtualInterfaceState :: Maybe (VirtualInterfaceState), customerRouterConfig :: Maybe (RouterConfig), virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId), routeFilterPrefixes :: Maybe (RouteFilterPrefixList), bgpPeers :: Maybe (BGPPeerList) } -> { ownerAccount :: Maybe (OwnerAccount), virtualInterfaceId :: Maybe (VirtualInterfaceId), location :: Maybe (LocationCode), connectionId :: Maybe (ConnectionId), virtualInterfaceType :: Maybe (VirtualInterfaceType), virtualInterfaceName :: Maybe (VirtualInterfaceName), vlan :: Maybe (VLAN), asn :: Maybe (ASN), amazonSideAsn :: Maybe (LongAsn), authKey :: Maybe (BGPAuthKey), amazonAddress :: Maybe (AmazonAddress), customerAddress :: Maybe (CustomerAddress), addressFamily :: Maybe (AddressFamily), virtualInterfaceState :: Maybe (VirtualInterfaceState), customerRouterConfig :: Maybe (RouterConfig), virtualGatewayId :: Maybe (VirtualGatewayId), directConnectGatewayId :: Maybe (DirectConnectGatewayId), routeFilterPrefixes :: Maybe (RouteFilterPrefixList), bgpPeers :: Maybe (BGPPeerList) }) -> VirtualInterface
 ```
 
 Constructs VirtualInterface's fields from required parameters
@@ -4156,7 +4156,7 @@ Encode VirtualInterfaceType
 
 ``` purescript
 newtype VirtualInterfaces
-  = VirtualInterfaces { virtualInterfaces :: NullOrUndefined (VirtualInterfaceList) }
+  = VirtualInterfaces { virtualInterfaces :: Maybe (VirtualInterfaceList) }
 ```
 
 <p>A structure containing a list of virtual interfaces.</p>
@@ -4181,7 +4181,7 @@ Constructs VirtualInterfaces from required parameters
 #### `newVirtualInterfaces'`
 
 ``` purescript
-newVirtualInterfaces' :: ({ virtualInterfaces :: NullOrUndefined (VirtualInterfaceList) } -> { virtualInterfaces :: NullOrUndefined (VirtualInterfaceList) }) -> VirtualInterfaces
+newVirtualInterfaces' :: ({ virtualInterfaces :: Maybe (VirtualInterfaceList) } -> { virtualInterfaces :: Maybe (VirtualInterfaceList) }) -> VirtualInterfaces
 ```
 
 Constructs VirtualInterfaces's fields from required parameters
